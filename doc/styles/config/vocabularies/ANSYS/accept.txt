@@ -1,0 +1,9 @@
+(?i)ansys
+Ansys SCADE Power Scripts
+(?i)scade
+endblock
+endif
+endfor
+fullname
+isort
+pytest
