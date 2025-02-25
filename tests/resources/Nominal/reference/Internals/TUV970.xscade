@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Package name="TUV970">
+			<declarations>
+				<Constant name="VSZ099">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="DUF738"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/283b/67A0/964C/656dd44c4562"/>
+					</pragmas>
+				</Constant>
+				<Constant name="RPF667">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="NKI320"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0.0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/286d/67A0/964C/656dd5094b3e"/>
+					</pragmas>
+				</Constant>
+				<Constant name="LTQ503">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="JXY936"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<!-- {TUQ808 : VSZ099, FFW067 : RPF667 ^ QGT926} -->
+						<DataStructOp>
+							<data>
+								<LabelledExpression label="TUQ808">
+									<flow>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="VSZ099"/>
+											</path>
+										</IdExpression>
+									</flow>
+								</LabelledExpression>
+								<LabelledExpression label="FFW067">
+									<flow>
+										<!-- RPF667 ^ QGT926 -->
+										<ScalarToVectorOp>
+											<flow>
+												<ListExpression>
+													<items>
+														<IdExpression>
+															<path>
+																<ConstVarRef name="RPF667"/>
+															</path>
+														</IdExpression>
+													</items>
+												</ListExpression>
+											</flow>
+											<size>
+												<IdExpression>
+													<path>
+														<ConstVarRef name="QGT926"/>
+													</path>
+												</IdExpression>
+											</size>
+										</ScalarToVectorOp>
+									</flow>
+								</LabelledExpression>
+							</data>
+						</DataStructOp>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/2845/67A0/964C/656dd45a5d12"/>
+					</pragmas>
+				</Constant>
+				<Constant name="QGT926">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="DUF738"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="3"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/27b4/67A0/964C/656dad8d70dd"/>
+					</pragmas>
+				</Constant>
+				<Sensor name="JSP858">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="NKI320"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Sensor oid="!ed/2831/67A0/964C/656dd2ad6918"/>
+					</pragmas>
+				</Sensor>
+				<Type name="NKI320">
+					<definition>
+						<NamedType>
+							<type>
+								<TypeRef name="float32"/>
+							</type>
+						</NamedType>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/2816/67A0/964C/656dae3959a"/>
+					</pragmas>
+				</Type>
+				<Type name="DYK238">
+					<definition>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="BLS461"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="QGT926"/>
+									</path>
+								</IdExpression>
+							</size>
+						</Table>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/27e7/67A0/964C/656dadda7a11"/>
+					</pragmas>
+				</Type>
+				<Type name="BLS461">
+					<definition>
+						<Struct>
+							<fields>
+								<Field name="OWG398">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="NKI320"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/27d8/67A0/964C/656dadcb1ec9"/>
+									</pragmas>
+								</Field>
+								<Field name="GWW557">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="NKI320"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/27e6/67A0/964C/656dadd338d2"/>
+									</pragmas>
+								</Field>
+							</fields>
+						</Struct>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/27d7/67A0/964C/656dadc24e03"/>
+					</pragmas>
+				</Type>
+				<Type name="JXY936">
+					<definition>
+						<Struct>
+							<fields>
+								<Field name="TUQ808">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="DUF738"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/2802/67A0/964C/656dae1475c2"/>
+									</pragmas>
+								</Field>
+								<Field name="FFW067">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="DYK238"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/280c/67A0/964C/656dae22403"/>
+									</pragmas>
+								</Field>
+							</fields>
+						</Struct>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/2801/67A0/964C/656dae0fd15"/>
+					</pragmas>
+				</Type>
+				<Type name="DUF738">
+					<definition>
+						<NamedType>
+							<type>
+								<TypeRef name="int32"/>
+							</type>
+						</NamedType>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/27bd/67A0/964C/656dada158bc"/>
+					</pragmas>
+				</Type>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/287f/67A0/964C/656dd845348e" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/2880/67A0/964C/656dd8458c5" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/2881/67A0/964C/656dd84550ec" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/2882/67A0/964C/656dd845163f" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Package name="Behavior">
+			<declarations>
+				<Package name="Impl" href="Impl.xscade"/>
+				<Operator name="Root" href="Root.xscade"/>
+				<Operator name="StateMachine" href="StateMachine.xscade"/>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/28db/67A0/964C/656dda715d5a" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/28dc/67A0/964C/656dda7151dd" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/28dd/67A0/964C/656dda718f1" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/28de/67A0/964C/656dda711b12" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

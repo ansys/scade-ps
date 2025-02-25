@@ -1,0 +1,24 @@
+/*ED430 version "V600" "RT430" */ 
+function #pragma ed <Operator oid="1"/>
+#end
+
+NNA422(
+      #pragma ed    <Variable oid="2"/>
+#end
+
+XBM799 : 'UCE630; 
+      #pragma ed    <Variable oid="3" hidden="true"/>
+#end
+
+JFJ752 : 'UCE630)
+returns (
+      #pragma ed    <Variable oid="4"/>
+#end
+
+KOP775 : 'UCE630) where 'UCE630 numeric
+let
+   #pragma ed    <Equation oid="5"/>
+#end
+
+   KOP775 = JFJ752 * XBM799;
+tel

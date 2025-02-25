@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Operator xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3" kind="function" name="Harness">
+	<inputs>
+		<Variable name="wayPoints">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="Declarations::Line"/>
+					</type>
+				</NamedType>
+			</type>
+			<pragmas>
+				<ed:Variable oid="!ed/6ac0/67A0/964C/656ee2515ca6"/>
+			</pragmas>
+		</Variable>
+	</inputs>
+	<outputs>
+		<Variable name="count">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="int32"/>
+					</type>
+				</NamedType>
+			</type>
+			<pragmas>
+				<ed:Variable oid="!ed/6ac6/67A0/964C/656ee2514a39"/>
+			</pragmas>
+		</Variable>
+	</outputs>
+	<locals>
+		<Variable name="_L1">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="int32"/>
+					</type>
+				</NamedType>
+			</type>
+			<pragmas>
+				<ed:Variable oid="!ed/6ab5/67A0/964C/656ee2435bf3"/>
+			</pragmas>
+		</Variable>
+		<Variable name="_L2">
+			<type>
+				<NamedType>
+					<type>
+						<TypeRef name="Declarations::Line"/>
+					</type>
+				</NamedType>
+			</type>
+			<pragmas>
+				<ed:Variable oid="!ed/6ac8/67A0/964C/656ee2562ce4"/>
+			</pragmas>
+		</Variable>
+	</locals>
+	<data>
+		<!-- _L1 = (Behavior::Root<<Declarations::COUNT>>)(_L2); -->
+		<Equation>
+			<lefts>
+				<VariableRef name="_L1"/>
+			</lefts>
+			<right>
+				<!-- (Behavior::Root<<Declarations::COUNT>>)(_L2) -->
+				<CallExpression>
+					<operator>
+						<OpCall name="1">
+							<operator>
+								<OperatorRef name="Behavior::Root"/>
+							</operator>
+							<instanceParameters>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="Declarations::COUNT"/>
+									</path>
+								</IdExpression>
+							</instanceParameters>
+						</OpCall>
+					</operator>
+					<callParameters>
+						<IdExpression>
+							<path>
+								<ConstVarRef name="_L2"/>
+							</path>
+						</IdExpression>
+					</callParameters>
+					<pragmas>
+						<ed:CallExpression xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+							<references>
+								<OperatorRef path="Behavior::Root" refOid="!ed/28df/67A0/964C/656ddbfb1f07">
+									<InputRef refOid="!ed/292b/67A0/964C/656dee381a40"/>
+									<OutputRef refOid="!ed/2993/67A0/964C/656df051c69"/>
+									<ParameterRef refOid="!ed/2980/67A0/964C/656deffc7029"/>
+								</OperatorRef>
+							</references>
+						</ed:CallExpression>
+					</pragmas>
+				</CallExpression>
+			</right>
+			<pragmas>
+				<ed:Equation oid="!ed/6ab4/67A0/964C/656ee2436ab6"/>
+			</pragmas>
+		</Equation>
+		<!-- _L2 = wayPoints; -->
+		<Equation>
+			<lefts>
+				<VariableRef name="_L2"/>
+			</lefts>
+			<right>
+				<IdExpression>
+					<path>
+						<ConstVarRef name="wayPoints"/>
+					</path>
+				</IdExpression>
+			</right>
+			<pragmas>
+				<ed:Equation oid="!ed/6ac7/67A0/964C/656ee25610a0"/>
+			</pragmas>
+		</Equation>
+		<!-- count = _L1; -->
+		<Equation>
+			<lefts>
+				<VariableRef name="count"/>
+			</lefts>
+			<right>
+				<IdExpression>
+					<path>
+						<ConstVarRef name="_L1"/>
+					</path>
+				</IdExpression>
+			</right>
+			<pragmas>
+				<ed:Equation oid="!ed/6ac9/67A0/964C/656ee25627c3"/>
+			</pragmas>
+		</Equation>
+	</data>
+	<pragmas>
+		<ed:Operator oid="!ed/6ab2/67A0/964C/656ee23b6c7" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+			<diagrams>
+				<NetDiagram name="Harness_1" landscape="true" format="A4 (210 297)" oid="!ed/6ab3/67A0/964C/656ee23b68a8">
+					<presentationElements>
+						<EquationGE presentable="!ed/6ab4/67A0/964C/656ee2436ab6">
+							<position>
+								<Point x="5424" y="688"/>
+							</position>
+							<size>
+								<Size width="4223" height="3323"/>
+							</size>
+						</EquationGE>
+						<EquationGE presentable="!ed/6ac7/67A0/964C/656ee25610a0">
+							<position>
+								<Point x="1826" y="2090"/>
+							</position>
+							<size>
+								<Size width="265" height="503"/>
+							</size>
+						</EquationGE>
+						<EquationGE presentable="!ed/6ac9/67A0/964C/656ee25627c3">
+							<position>
+								<Point x="12991" y="2090"/>
+							</position>
+							<size>
+								<Size width="318" height="503"/>
+							</size>
+						</EquationGE>
+						<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/6ac7/67A0/964C/656ee25610a0" dstEquation="!ed/6ab4/67A0/964C/656ee2436ab6">
+							<positions>
+								<Point x="2090" y="2355"/>
+								<Point x="3757" y="2355"/>
+								<Point x="3757" y="2355"/>
+								<Point x="5424" y="2355"/>
+							</positions>
+						</Edge>
+						<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/6ab4/67A0/964C/656ee2436ab6" dstEquation="!ed/6ac9/67A0/964C/656ee25627c3">
+							<positions>
+								<Point x="9657" y="2355"/>
+								<Point x="11351" y="2355"/>
+								<Point x="11351" y="2355"/>
+								<Point x="13044" y="2355"/>
+							</positions>
+						</Edge>
+					</presentationElements>
+				</NetDiagram>
+			</diagrams>
+			<references>
+				<TypeRef path="Declarations::Line" refOid="!ed/2801/67A0/964C/656dae0fd15"/>
+				<ConstVarRef path="Declarations::COUNT" refOid="!ed/27b4/67A0/964C/656dad8d70dd"/>
+			</references>
+		</ed:Operator>
+	</pragmas>
+</Operator>

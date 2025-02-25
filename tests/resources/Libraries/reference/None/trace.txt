@@ -1,0 +1,20 @@
+- old names to new names
+DataPos/	TUV970/
+DataPos/DataPos	TUV970/TUV970
+DataPos/i/	TUV970/DYK238/
+DataPos/o/	TUV970/NKI320/
+Libraries	DCJ460
+Pos/	BLS461/
+Pos/Pos	BLS461/BLS461
+Pos/i/	BLS461/DYK238/
+Pos/o/	BLS461/NKI320/
+- new names to old names
+BLS461/	Pos/
+BLS461/BLS461	Pos/Pos
+BLS461/DYK238/	Pos/i/
+BLS461/NKI320/	Pos/o/
+DCJ460	Libraries
+TUV970/	DataPos/
+TUV970/DYK238/	DataPos/i/
+TUV970/NKI320/	DataPos/o/
+TUV970/TUV970	DataPos/DataPos
