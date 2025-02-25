@@ -1,0 +1,67 @@
+ci:
+    autofix_commit_msg: 'chore: auto fixes from pre-commit hooks'
+    autoupdate_commit_msg: 'chore: pre-commit automatic update'
+    autoupdate_schedule: monthly
+
+repos:
+
+- repo: https://github.com/ansys/pre-commit-hooks
+  rev: v0.5.1
+  hooks:
+    - id: add-license-headers
+      args:
+      - --start_year=2025
+
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.9.6
+  hooks:
+    - id: ruff
+      args: [--fix]
+    - id: ruff-format
+
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.4.1
+  hooks:
+  - id: codespell
+    additional_dependencies:
+      - tomli
+    exclude: >
+        (?x)^(
+            .*\.etp|
+            .*\.vsw|
+            .*\.scade|
+            .*\.xscade|
+            .*\.sct|
+            .*\.swan.?
+        )$
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+  - id: check-merge-conflict
+  - id: debug-statements
+  - id: check-yaml
+  - id: trailing-whitespace
+    exclude: (?x)^(.*\.tot|.*\.swan.?|tests/.*\.scade)$
+
+# this validates our github workflow files
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.31.1
+  hooks:
+    - id: check-github-workflows
+
+# this validates our pre-commit.ci configuration
+- repo: https://github.com/numpy/numpydoc
+  rev: v1.8.0
+  hooks:
+    - id: numpydoc-validation
+
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.31.1
+  hooks:
+    - id: check-github-workflows
+
+- repo: https://github.com/pre-commit-ci/pre-commit-ci-config
+  rev: v1.6.1
+  hooks:
+  -   id: check-pre-commit-ci-config
