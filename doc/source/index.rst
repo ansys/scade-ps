@@ -42,7 +42,6 @@ Ansys SCADE Power Scripts
 
    getting-started/index
    user-guide/index
-   api/index
    contributing
    changelog
 
