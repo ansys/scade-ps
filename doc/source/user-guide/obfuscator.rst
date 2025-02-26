@@ -40,8 +40,8 @@ Usage
 Limitations
 ===========
 
-* Project properties are unchanged: root, expanded, instrumented operators...
-* KCG pragma name are unchanged
+* Project properties are unchanged: root, expanded, instrumented operators, etc.
+* KCG ``pragma name`` are unchanged
 * Imported code is unchanged
 * Project files accessed with an absolute path are modified
 * Symbol files (SSL) are not taken into account
