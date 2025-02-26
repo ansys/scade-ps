@@ -33,19 +33,7 @@ see :ref:`contribute_scade_power_scripts` for installing in developer mode.
 
    .. code:: bash
 
-       python -m pip install --user ansys-scade-power-scripts
-
-#. For Ansys SCADE releases 2024 R2 and below, complete the installation with
-   this command:
-
-   .. code:: bash
-
-      python -m ansys.scade.power_scripts.register
-
-   .. Note::
-
-      This additional step is not required when installing the package with
-      Ansys SCADE Extension Manager.
+       python -m pip install ansys-scade-power-scripts
 
 .. LINKS AND REFERENCES
 .. _pip: https://pypi.org/project/pip/
