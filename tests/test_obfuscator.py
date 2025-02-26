@@ -61,7 +61,8 @@ def format_test_data(data: list) -> list:
     ),
 )
 def test_obfuscator_nominal(capsys, base, conf, libraries, internals, local_tmpdir):
-    source = get_resources_dir() / 'resources' / base / 'model' / (base + '.etp')
+    base_dir = get_resources_dir() / 'resources' / 'Obfuscator' / base
+    source = base_dir / 'model' / (base + '.etp')
     target_dir = local_tmpdir / 'test_obfuscator_nominal' / base / conf
     project, session = load_tmp_project_session(source, target_dir)
     # make sure the tests provide always the same results
@@ -75,7 +76,7 @@ def test_obfuscator_nominal(capsys, base, conf, libraries, internals, local_tmpd
     status = cls.main(session)
     assert status == 0
     # get the reference directory
-    ref_dir = get_resources_dir() / 'resources' / base / 'reference' / conf
+    ref_dir = base_dir / 'reference' / conf
     # ignore banner if any
     captured = capsys.readouterr()
     # compare all the files present in ref_dir to those in target_dir
