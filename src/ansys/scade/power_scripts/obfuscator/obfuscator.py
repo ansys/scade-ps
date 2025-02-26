@@ -22,50 +22,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""
-Ansys SCADE Power Scripts: Obfuscator for Scade models.
+"""Ansys SCADE Power Scripts: Obfuscator for Scade models."""
 
-* All the names are obfuscated, including the libraries
-* The files are renamed, and the old ones are deleted
-* The script produces traceability matrices for both object and file names
-
-The script considers only two namespaces, as in the old days: global and local for operator
-
-Run the script with the interpreter delivered with SCADE:
-usage: obfuscator.py [-h] -p <project> [-t <trace>] [-i] [-l [library ...]]
-
-Obfuscator for SCADE Suite models
-
-options:
-  -h, --help            show this help message and exit
-  -p <project>, --project <project>
-                        SCADE Suite project
-  -t <trace>, --trace <trace>
-                        Output trace file
-  -i, --internals       Rename internal variables
-  -l [library ...], --ignored_libraries [library ...]
-                        Ignored libraries
-
-Current limitations:
-
-* project properties are unchanged: root, expanded, instrumented operators...
-* KCG pragma name are unchanged
-* imported code is unchanged
-* project files accessed with an absolute path are modified
-* the ssl files are not taken into account
-* projects with files with same names in different directories are not supported
-"""
-
-import argparse
 from pathlib import Path
 import random
-import sys
 from typing import Dict, List, Optional
 
-from ansys.scade.apitools import declare_project
-
-# must be imported after scade_env
-# isort: split
 import scade
 from scade.model.project.stdproject import Project
 import scade.model.suite as suite
@@ -333,30 +295,9 @@ def main(
     rename_internals: bool = False,
     ignored_libraries: Optional[List[str]] = None,
 ) -> int:
-    """Entry point for ``scade.exe -script``."""
+    """Entry point for ``scade.exe -script`` or called by ``__main__``."""
     session = get_sessions()[0]
     if ignored_libraries is None:
         ignored_libraries = []
     code = Obfuscator(trace_file, rename_internals, ignored_libraries).main(session)
     return code
-
-
-if __name__ == '__main__' and len(sys.argv) > 1:
-    # run with python.exe
-    parser = argparse.ArgumentParser(description=tool)
-    parser.add_argument(
-        '-p', '--project', metavar='<project>', help='SCADE Suite project', required=True
-    )
-    parser.add_argument(
-        '-t', '--trace', metavar='<trace>', help='Output trace file', required=False
-    )
-    parser.add_argument('-i', '--internals', action='store_true', help='Rename internal variables')
-    parser.add_argument(
-        '-l', '--ignored_libraries', metavar='library', nargs='*', help='Ignored libraries'
-    )
-    options = parser.parse_args()
-
-    assert declare_project
-    declare_project(options.project)
-    code = main(options.trace, options.internals, options.ignored_libraries)
-    exit(code)
