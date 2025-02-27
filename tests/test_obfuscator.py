@@ -37,7 +37,7 @@ import random
 
 import pytest
 
-from ansys.scade.power_scripts.obfuscator.obfuscator import Obfuscator
+from ansys.scade.ps.obfuscator.obfuscator import Obfuscator
 from conftest import load_tmp_project_session, seed
 from test_utils import cmp_file, get_resources_dir
 

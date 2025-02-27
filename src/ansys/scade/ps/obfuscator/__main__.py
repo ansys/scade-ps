@@ -34,7 +34,7 @@ from .obfuscator import main as obfuscator_main, tool
 
 
 def main():
-    """Implement ``ansys.scade.power_scripts.obfuscator.__main__:main`` packages's script."""
+    """Implement ``ansys.scade.ps.obfuscator.__main__:main`` packages's script."""
     parser = argparse.ArgumentParser(description=tool)
     parser.add_argument(
         '-p', '--project', metavar='<project>', help='SCADE Suite project', required=True
@@ -55,5 +55,5 @@ def main():
 
 
 if __name__ == '__main__':
-    # run with python.exe -m ansys.scade.power_scripts.obfuscator
+    # run with python.exe -m ansys.scade.ps.obfuscator
     main()

@@ -15,7 +15,7 @@ Either add this directory to ``PATH`` or use an absolute path.
 
 .. code:: bash
 
-    ansys_scade_power_scripts_<tool> <arg>*
+    ansys_scade_ps_<tool> <arg>*
 
 Where ``<tool>`` is the name of the tool to run.
 
@@ -23,14 +23,14 @@ For example:
 
 .. code:: bash
 
-   ansys_scade_power_scripts_obfuscator -p my_project.etp -i -t trace.txt
+   ansys_scade_ps_obfuscator -p my_project.etp -i -t trace.txt
 
 Python module
 -------------
 
 .. code:: bash
 
-    python -m ansys.scade.power_scripts.<tool> <arg>*
+    python -m ansys.scade.ps.<tool> <arg>*
 
 Where ``<tool>`` is the name of the tool to run.
 
@@ -38,7 +38,7 @@ For example:
 
 .. code:: bash
 
-   python -m ansys.scade.power_scripts.obfuscator -p my_project.etp -i -t trace.txt
+   python -m ansys.scade.ps.obfuscator -p my_project.etp -i -t trace.txt
 
 SCADE Release
 =============

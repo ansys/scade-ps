@@ -23,7 +23,7 @@ Usage
 
 .. code:: bash
 
-   usage: ansys_scade_power_scripts_obfuscator [-h] -p <project> [-t <trace>] [-i] [-l [library ...]]
+   usage: ansys_scade_ps_obfuscator [-h] -p <project> [-t <trace>] [-i] [-l [library ...]]
 
    Ansys SCADE Power Scripts: Obfuscator for Scade models
 

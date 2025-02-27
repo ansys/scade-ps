@@ -8,10 +8,10 @@ from ansys_sphinx_theme import (
     get_version_match,
 )
 
-from ansys.scade.power_scripts import __version__
+from ansys.scade.ps import __version__
 
 # Project information
-project = 'ansys-scade-power-scripts'
+project = 'ansys-scade-ps'
 copyright = f'(c) {datetime.now().year} ANSYS, Inc. All rights reserved'
 author = 'ANSYS, Inc.'
 release = version = __version__
@@ -22,12 +22,12 @@ html_theme = 'ansys_sphinx_theme'
 html_short_title = html_title = 'Ansys SCADE Power Scripts'
 
 # multi-version documentation
-cname = os.getenv('DOCUMENTATION_CNAME', 'power-scripts.scade.docs.pyansys.com')
+cname = os.getenv('DOCUMENTATION_CNAME', 'ps.scade.docs.pyansys.com')
 """The canonical name of the webpage hosting the documentation."""
 
 # specify the location of your github repo
 html_theme_options = {
-    'github_url': 'https://github.com/ansys-internal/scade-power-scripts',
+    'github_url': 'https://github.com/ansys-internal/scade-ps',
     'show_prev_next': False,
     'show_breadcrumbs': True,
     'additional_breadcrumbs': [
@@ -92,9 +92,9 @@ master_doc = 'index'
 
 # TODO: remove ignore links after public release
 linkcheck_ignore = [
-    'https://github.com/ansys-internal/scade-power-scripts',
-    'https://github.com/ansys-internal/scade-power-scripts/actions/workflows/ci_cd.yml',
-    'https://pypi.org/project/ansys-scade-power-scripts',
+    'https://github.com/ansys-internal/scade-ps',
+    'https://github.com/ansys-internal/scade-ps/actions/workflows/ci_cd.yml',
+    'https://pypi.org/project/ansys-scade-ps',
     # The link below takes a long time to check
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',
@@ -102,5 +102,5 @@ linkcheck_ignore = [
 
 if switcher_version != 'dev':
     linkcheck_ignore.append(
-        f'https://github.com/ansys-internal/scade-power-scripts/releases/tag/v{__version__}'
+        f'https://github.com/ansys-internal/scade-ps/releases/tag/v{__version__}'
     )

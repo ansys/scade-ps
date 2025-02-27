@@ -1,4 +1,4 @@
-.. _contribute_scade_power_scripts:
+.. _contribute_scade_ps:
 
 Contribute
 ##########
@@ -15,17 +15,17 @@ Install in developer mode
 Installing Ansys SCADE Power Scripts in developer mode allows you to modify the
 source and enhance it.
 
-#. Clone the ``ansys-scade-power-scripts`` repository:
+#. Clone the ``ansys-scade-ps`` repository:
 
    .. code:: bash
 
-      git clone https://github.com/ansys-internal/scade-power-scripts
+      git clone https://github.com/ansys-internal/scade-ps
 
-#. Access the ``scade-power-scripts`` directory where the repository has been cloned:
+#. Access the ``scade-ps`` directory where the repository has been cloned:
 
    .. code:: bash
 
-      cd scade-power-scripts
+      cd scade-ps
 
 #. Create a clean Python 3.10 environment and activate it:
 
@@ -184,7 +184,7 @@ the building requirements and then executing the build module:
 Post issues
 ===========
 
-Use the `Ansys SCADE Power Scripts Issues <https://github.com/ansys-internal/scade-power-scripts/issues>`_
+Use the `Ansys SCADE Power Scripts Issues <https://github.com/ansys-internal/scade-ps/issues>`_
 page to submit questions, report bugs, and request new features. When possible, use
 these templates:
 
@@ -208,4 +208,4 @@ To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@a
 .. _pre-commit: https://pre-commit.com/
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
-.. _wheel file: https://github.com/ansys-internal/scade-power-scripts/releases
+.. _wheel file: https://github.com/ansys-internal/scade-ps/releases
