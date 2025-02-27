@@ -30,7 +30,8 @@ from shutil import copytree, rmtree
 from typing import Tuple
 
 import pytest
-import scade_env  # noqa: F401
+
+import ansys.scade.apitools  # noqa: F401
 
 # must be imported after scade_env
 # isort: split
