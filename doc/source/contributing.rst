@@ -1,4 +1,4 @@
-.. _contribute_scade_power_scripts:
+.. _contribute_scade_ps:
 
 Contribute
 ##########
