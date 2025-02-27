@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Copyright (C) 2025 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
@@ -20,8 +22,33 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from ansys.scade.power_scripts import __version__
+"""Helpers for test_*.py."""
+
+import difflib
+from pathlib import Path
+from typing import List
 
 
-def test_pkg_version():
-    assert __version__ == '0.1.dev0'
+def get_resources_dir() -> Path:
+    """Return the directory ./resources relative to this file's directory."""
+    script_path = Path(__file__).resolve()
+    return script_path.parent
+
+
+def cmp_log(log_file: Path, lines: List[str]) -> bool:
+    """Return whether the file is identical to a list of strings."""
+    file_lines = log_file.read_text().split('\n')
+    return file_lines == lines
+
+
+def cmp_file(fromfile: Path, tofile: Path, n=3, linejunk=None):
+    """Return the differences between two files."""
+    with fromfile.open() as fromf, tofile.open() as tof:
+        if linejunk:
+            fromlines = [line for line in fromf if not linejunk(line)]
+            tolines = [line for line in tof if not linejunk(line)]
+        else:
+            fromlines, tolines = list(fromf), list(tof)
+
+    diff = difflib.context_diff(fromlines, tolines, str(fromfile), str(tofile), n=n)
+    return diff

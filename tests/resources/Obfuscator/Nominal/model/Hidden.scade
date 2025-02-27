@@ -1,0 +1,14 @@
+/* set oids to have reproducible tests */
+function #pragma ed <Operator oid="1"/> #end Gain(
+        #pragma ed <Variable oid="2"/> #end
+        i : 'T;
+        #pragma ed <Variable oid="3" hidden="true"/> #end
+        g : 'T)
+    returns (
+        #pragma ed <Variable oid="4"/> #end
+        o : 'T)
+    where 'T numeric
+let
+    #pragma ed <Equation oid="5"/> #end
+    o = g * i;
+tel

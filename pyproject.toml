@@ -57,6 +57,9 @@ doc = [
 [tool.flit.module]
 name = "ansys.scade.power_scripts"
 
+[project.scripts]
+ansys_scade_power_scripts_obfuscator = "ansys.scade.power_scripts.obfuscator.__main__:main"
+
 [project.urls]
 source = "https://github.com/ansys-internal/scade-power-scripts"
 issues = "https://github.com/ansys-internal/scade-power-scripts/issues"

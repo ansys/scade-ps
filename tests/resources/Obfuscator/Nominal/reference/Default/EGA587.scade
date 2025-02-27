@@ -1,0 +1,24 @@
+/*ED430 version "V600" "RT430" */ 
+function #pragma ed <Operator oid="1"/>
+#end
+
+CDA039(
+      #pragma ed    <Variable oid="2"/>
+#end
+
+YHY488 : 'FOP322; 
+      #pragma ed    <Variable oid="3" hidden="true"/>
+#end
+
+UXZ347 : 'FOP322)
+returns (
+      #pragma ed    <Variable oid="4"/>
+#end
+
+UQL660 : 'FOP322) where 'FOP322 numeric
+let
+   #pragma ed    <Equation oid="5"/>
+#end
+
+   UQL660 = UXZ347 * YHY488;
+tel

@@ -17,12 +17,6 @@ Ansys SCADE Power Scripts
 
       Learn how to use Ansys SCADE Power Scripts.
 
-    .. grid-item-card:: :material-regular:`code;1.25em` API reference
-      :link: api/index
-      :link-type: doc
-
-      Explore the Ansys SCADE Power Scripts API.
-
    .. grid-item-card:: :material-regular:`group;1.25em` Contributing
       :link: contributing
       :link-type: doc
@@ -42,7 +36,6 @@ Ansys SCADE Power Scripts
 
    getting-started/index
    user-guide/index
-   api/index
    contributing
    changelog
 
