@@ -8,7 +8,7 @@ page on the Ansys website.
 
 Requirements
 ------------
-The ``ansys-scade-power-scripts`` package supports only the versions of Python delivered with
+The ``ansys-scade-ps`` package supports only the versions of Python delivered with
 Ansys SCADE, starting from 2021 R2:
 
 * 2021 R2 to 2023 R1: Python 3.7
@@ -33,7 +33,7 @@ see :ref:`contribute_scade_power_scripts` for installing in developer mode.
 
    .. code:: bash
 
-       python -m pip install ansys-scade-power-scripts
+       python -m pip install ansys-scade-ps
 
 .. LINKS AND REFERENCES
 .. _pip: https://pypi.org/project/pip/

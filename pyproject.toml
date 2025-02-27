@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name="ansys-scade-power-scripts"
+name="ansys-scade-ps"
 version="0.1.dev0"
 description ="Collection of command-line scripts for SCADE."
 readme="README.rst"
@@ -55,17 +55,17 @@ doc = [
 ]
 
 [tool.flit.module]
-name = "ansys.scade.power_scripts"
+name = "ansys.scade.ps"
 
 [project.scripts]
-ansys_scade_power_scripts_obfuscator = "ansys.scade.power_scripts.obfuscator.__main__:main"
+ansys_scade_power_scripts_obfuscator = "ansys.scade.ps.obfuscator.__main__:main"
 
 [project.urls]
-source = "https://github.com/ansys-internal/scade-power-scripts"
-issues = "https://github.com/ansys-internal/scade-power-scripts/issues"
-discussions = "https://github.com/ansys-internal/scade-power-scripts/discussions"
-documentation = "https://power-scripts.scade.docs.pyansys.com"
-releases = "https://github.com/ansys-internal/scade-power-scripts/releases"
+source = "https://github.com/ansys-internal/scade-ps"
+issues = "https://github.com/ansys-internal/scade-ps/issues"
+discussions = "https://github.com/ansys-internal/scade-ps/discussions"
+documentation = "https://ps.scade.docs.pyansys.com"
+releases = "https://github.com/ansys-internal/scade-ps/releases"
 homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
 [tool.ruff]
@@ -104,14 +104,14 @@ convention = "numpy"
 "tests/*.py" = ["D",]
 
 [tool.coverage.run]
-source = ["ansys.scade.power_scripts"]
+source = ["ansys.scade.ps"]
 
 [tool.coverage.report]
 show_missing = true
 
 [tool.pytest.ini_options]
 testpaths = "tests"
-addopts = "-ra --cov=ansys.scade.power_scripts --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
+addopts = "-ra --cov=ansys.scade.ps --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
 
 [tool.numpydoc_validation]
 checks = [
@@ -135,13 +135,13 @@ exclude = [
 ]
 
 [tool.towncrier]
-package = "ansys.scade.power_scripts"
+package = "ansys.scade.ps"
 directory = "doc/changelog.d"
 filename = "doc/source/changelog.rst"
 start_string = ".. towncrier release notes start\n"
 template = "doc/changelog.d/changelog_template.jinja"
-title_format = "`{version} <https://github.com/ansys-internal/scade-power-scripts/releases/tag/v{version}>`_ - {project_date}"
-issue_format = "`#{issue} <https://github.com/ansys-internal/scade-power-scripts/pull/{issue}>`_"
+title_format = "`{version} <https://github.com/ansys-internal/scade-ps/releases/tag/v{version}>`_ - {project_date}"
+issue_format = "`#{issue} <https://github.com/ansys-internal/scade-ps/pull/{issue}>`_"
 
 [[tool.towncrier.type]]
 directory = "added"

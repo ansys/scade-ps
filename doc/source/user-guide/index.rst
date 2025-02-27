@@ -30,7 +30,7 @@ Python module
 
 .. code:: bash
 
-    python -m ansys.scade.power_scripts.<tool> <arg>*
+    python -m ansys.scade.ps.<tool> <arg>*
 
 Where ``<tool>`` is the name of the tool to run.
 
@@ -38,7 +38,7 @@ For example:
 
 .. code:: bash
 
-   python -m ansys.scade.power_scripts.obfuscator -p my_project.etp -i -t trace.txt
+   python -m ansys.scade.ps.obfuscator -p my_project.etp -i -t trace.txt
 
 SCADE Release
 =============

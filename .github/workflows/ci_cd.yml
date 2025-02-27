@@ -10,8 +10,8 @@ on:
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
-  DOCUMENTATION_CNAME: 'power-scripts.scade.docs.pyansys.com'
-  LIBRARY_NAME: 'ansys-scade-power-scripts'
+  DOCUMENTATION_CNAME: 'ps.scade.docs.pyansys.com'
+  LIBRARY_NAME: 'ansys-scade-ps'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -99,7 +99,7 @@ jobs:
 #       #   uses: codecov/codecov-action@v5
 #       #   with:
 #       #     token: ${{ secrets.CODECOV_TOKEN }}
-#       #     slug: ansys/scade-power-scripts
+#       #     slug: ansys/scade-ps
 #       #     files: .cov/xml
 #
 #   doc-build:
