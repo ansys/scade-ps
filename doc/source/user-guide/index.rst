@@ -1,4 +1,4 @@
-User Guide
+User guide
 ##########
 
 As indicated in :ref:`Run the tools <run-tools>`,

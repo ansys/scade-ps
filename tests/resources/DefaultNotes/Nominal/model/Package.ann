@@ -1,0 +1,17 @@
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    Operator ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+END
+
+Notes-Values { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    Operator ::= {
+        {"!ed/3a5/233A/C7A4/67c099e222cd", "Operator","Note already exists" }}
+END
+

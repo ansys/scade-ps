@@ -88,7 +88,7 @@ def load_tmp_project_session(path: Path, target_dir: Path) -> Tuple[std.Project,
     """Load a temporary copy of the project."""
     # duplicate the project to edit it safely
     copytree(path.parent, target_dir)
-    path = str(target_dir / path.name)
+    path = target_dir / path.name
     # TODO: libraries
     project_ = load_project(path)
     session = load_session(path)
@@ -125,7 +125,7 @@ def tmp_project_session(local_tmpdir, request) -> Tuple[std.Project, suite.Sessi
     # duplicate the project to edit it safely
     target_dir = local_tmpdir / pathname.stem
     copytree(pathname.parent, target_dir)
-    pathname = str(target_dir / pathname.name)
+    pathname = target_dir / pathname.name
     # TODO: libraries
     project_ = load_project(pathname)
     session = load_session(pathname)
