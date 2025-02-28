@@ -33,8 +33,9 @@ and add compare the result files to a reference.
 
 import pytest
 
+from ansys.scade.ps.project_properties.copy_properties import CopyProperties
 from ansys.scade.ps.project_properties.create_template import CreateTemplate
-from conftest import load_project
+from conftest import load_project, load_tmp_project
 from test_utils import cmp_file, get_resources_dir
 
 
@@ -56,6 +57,33 @@ def test_create_template_nominal(capsys, base, local_tmpdir):
     captured = capsys.readouterr()
     try:
         diff = cmp_file(ref_dir / template.name, template, n=0)
+    except BaseException as e:
+        diff = [str(e)]
+    # not captured, thus the loop hereafter
+    # stdout.writelines(diff)
+    for line in diff:
+        print(line, end='')
+    captured = capsys.readouterr()
+    assert captured.out == ''
+
+
+@pytest.mark.parametrize('target', ['Copy', 'Unchanged'])
+def test_copy_properties_nominal(capsys, target, local_tmpdir):
+    base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
+    src = load_project(base_dir / 'Model' / 'Model.etp')
+    target_dir = local_tmpdir / 'test_project_properties' / target
+    dst = load_tmp_project(base_dir / target / f'{target}.etp', target_dir)
+    ref_dir = base_dir / 'ref'
+    # options
+    schema = target_dir / 'schema.json'
+    # copy properties
+    cls = CopyProperties(str(schema))
+    status = cls.main(src, [dst])
+    assert status == 0
+    # reset captured output
+    captured = capsys.readouterr()
+    try:
+        diff = cmp_file(ref_dir / f'{target}.etp', target_dir / f'{target}.etp', n=0)
     except BaseException as e:
         diff = [str(e)]
     # not captured, thus the loop hereafter

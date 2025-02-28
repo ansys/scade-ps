@@ -25,11 +25,13 @@
 """Ansys SCADE Power Scripts: Access to SCADE project properties."""
 
 import argparse
+from pathlib import Path
 
 from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
+from .copy_properties import main as copy_properties_main
 from .create_template import main as create_template_main
 
 tool = 'Ansys SCADE Power Scripts: Access to SCADE project properties'
@@ -50,11 +52,25 @@ def main():
     )
     template_parser.set_defaults(cmd='template')
 
+    # copy
+    copy_parser = subparsers.add_parser('copy', help='Copy tool properties')
+    copy_parser.add_argument(
+        '-s', '--schema', metavar='<schema>', help='input schema file (JSON)', required=True
+    )
+    copy_parser.add_argument(
+        '-p', '--projects', metavar='<project>', help='project files to update (ETP)', nargs='+'
+    )
+    copy_parser.set_defaults(cmd='copy')
+
     options = parser.parse_args()
     assert declare_project
     declare_project(options.project)
     if options.cmd == 'template':
         code = create_template_main(options.template)
+    elif options.cmd == 'copy':
+        for project in options.projects:
+            declare_project(project)
+        code = copy_properties_main(Path(options.project).name, options.schema)
     else:
         # internal error
         code = 2

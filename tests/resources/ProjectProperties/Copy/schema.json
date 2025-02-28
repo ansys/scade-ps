@@ -1,0 +1,10 @@
+{
+    "GENERATOR": [
+        "CONST",
+        "GENERATOR",
+        "STATIC"
+    ],
+    "SCADE": [
+        "@NOTEFILE"
+    ]
+}
