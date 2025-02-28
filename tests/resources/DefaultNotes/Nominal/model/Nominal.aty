@@ -1,0 +1,210 @@
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+
+BEGIN
+
+-- note types for each possible annotated object
+Assertion ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+RefIdent ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Literal ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+PredefOpr ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+RefOperator ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Terminator ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+StateMachine ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+State ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Transition ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+ActivateBlock ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Branch ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Action ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+NetDiagram ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+TextDiagram ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+TreeDiagram ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+EquationSet ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Package ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Constant ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Sensor ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+NamedType ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+TypeElement ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Output ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Input ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Hidden ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Local ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Probe ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Signal ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+Operator ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+
+-- note type without default values
+Fields ::=
+    SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            information {
+                String STRING,
+                Text TEXT,
+                Character CHARACTER,
+                Date DATE,
+                Integer INTEGER,
+                Real REAL,
+                Enum ENUM {NT_ENUM_VALUES {"V0", "V1", "V2"}},
+                File FILE,
+                Boolean BOOLEAN
+            }
+        }
+    }
+
+-- note type with default values
+Defaults ::=
+    SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            information {
+                String STRING {NT_DEFAULT_VALUE "string"},
+                Text TEXT {NT_DEFAULT_VALUE "text"},
+                Character CHARACTER {NT_DEFAULT_VALUE "c"},
+                Date DATE {NT_DEFAULT_VALUE "2025/02/14"},
+                Integer INTEGER {NT_DEFAULT_VALUE 9},
+                Real REAL {NT_DEFAULT_VALUE 3.1},
+                Enum ENUM {NT_ENUM_VALUES {"V0", "V1", "V2"}, NT_DEFAULT_VALUE "V1"},
+                File FILE {NT_DEFAULT_VALUE "C:/Temp/notes.txt"},
+                Boolean BOOLEAN {NT_DEFAULT_VALUE T}
+            }
+        }
+    }
+
+-- make sure the xscade files are updated
+ToC ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {
+        Text TEXT {NT_DEFAULT_VALUE "Propagated to C"},
+        to_c BOOLEAN {NT_DEFAULT_VALUE 1}
+}}}
+
+-- note type with no default notes
+Optional ::= SEQUENCE OF {SEQUENCE {annot_object OID, name STRING, information {Text TEXT}}}
+
+END
+
+-- --------------------------------------------------------------------------
+-- annotation rules
+-- --------------------------------------------------------------------------
+
+Annotation-Rules { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+
+    -- declarations
+
+    -- cardinality does not matter
+    package ::= {
+        {Package T 0 1},
+        {Fields T 0 2},
+        {Defaults T 1 2},
+        {ToC T 1 1},
+        {Optional F 0 1}
+    }
+
+    constant ::= {
+        {Constant T 0 1}
+    }
+
+    sensor ::= {
+        {Sensor T 0 1}
+    }
+
+    named_type ::= {
+        {NamedType T 0 1}
+    }
+
+    type_element ::= {
+        {TypeElement T 0 1}
+    }
+
+    output ::= {
+        {Output T 0 1}
+    }
+
+    input ::= {
+        {Input T 0 1}
+    }
+
+    hidden ::= {
+        {Hidden T 0 1}
+    }
+
+    local ::= {
+        {Local T 0 1}
+    }
+
+    probe ::= {
+        {Probe T 0 1}
+    }
+
+    signal ::= {
+        {Signal T 0 1}
+    }
+
+    operator ::= {
+        {Operator T 0 1}
+    }
+
+    -- graphical elements
+
+    assertion ::= {
+        {Assertion T 0 1}
+    }
+
+    ref_ident ::= {
+        {RefIdent T 0 1}
+    }
+
+    literal ::= {
+        {Literal T 0 1}
+    }
+
+    predef_opr ::= {
+        {PredefOpr T 0 1}
+    }
+
+    ref_operator ::= {
+        {RefOperator T 0 1}
+    }
+
+    terminator ::= {
+        {Terminator T 0 1}
+    }
+
+    state_machine ::= {
+        {StateMachine T 0 1}
+    }
+
+    state ::= {
+        {State T 0 1}
+    }
+
+    transition ::= {
+        {Transition T 0 1}
+    }
+
+    activate_block ::= {
+        {ActivateBlock T 0 1}
+    }
+
+    branch ::= {
+        {Branch T 0 1}
+    }
+
+    action ::= {
+        {Action T 0 1}
+    }
+
+    net_diagram ::= {
+        {NetDiagram T 0 1}
+    }
+
+    text_diagram ::= {
+        {TextDiagram T 0 1}
+    }
+
+    equation_set ::= {
+        {EquationSet T 0 1}
+    }
+
+END

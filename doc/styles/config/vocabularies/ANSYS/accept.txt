@@ -8,3 +8,5 @@ endfor
 fullname
 isort
 pytest
+power_scripts
+annotability

@@ -1,4 +1,4 @@
-User Guide
+User guide
 ##########
 
 As indicated in :ref:`Run the tools <run-tools>`,
@@ -15,8 +15,15 @@ This section provides additional information on each of the available tools.
 
       Learn how to obfuscate a SCADE Suite model.
 
+   .. grid-item-card:: :material-regular:`note_add;1.25em` Default notes
+      :link: default_notes
+      :link-type: doc
+
+      Learn how to create default notes for a SCADE Suite model.
+
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    obfuscator
+   default_notes

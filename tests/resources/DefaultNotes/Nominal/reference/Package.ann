@@ -1,0 +1,328 @@
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    Assertion ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    RefIdent ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Literal ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    PredefOpr ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    RefOperator ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Terminator ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    StateMachine ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    State ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Transition ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    ActivateBlock ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Branch ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Action ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    NetDiagram ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    TextDiagram ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    EquationSet ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Package ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Constant ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Sensor ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    NamedType ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    TypeElement ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Output ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Input ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Hidden ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Local ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Probe ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Signal ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Operator ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+    } } }
+
+    Fields ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            String STRING,
+            Text TEXT,
+            Character CHARACTER,
+            Date DATE,
+            Integer INTEGER,
+            Real REAL,
+            Enum ENUM
+            {
+            	 NT_ENUM_VALUES {"V0", "V1", "V2"}},
+            File FILE,
+            Boolean BOOLEAN
+    } } }
+
+    Defaults ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            String STRING
+            {
+            	 NT_DEFAULT_VALUE "string" },
+            Text TEXT
+            {
+            	 NT_DEFAULT_VALUE "text" },
+            Character CHARACTER
+            {
+            	 NT_DEFAULT_VALUE "c" },
+            Date DATE
+            {
+            	 NT_DEFAULT_VALUE "2025/02/14" },
+            Integer INTEGER
+            {
+            	 NT_DEFAULT_VALUE 9 },
+            Real REAL
+            {
+            	 NT_DEFAULT_VALUE 3.100000 },
+            Enum ENUM
+            {
+            	 NT_ENUM_VALUES {"V0", "V1", "V2"},
+            	 NT_DEFAULT_VALUE "V1" },
+            File FILE
+            {
+            	 NT_DEFAULT_VALUE "C:/Temp/notes.txt" },
+            Boolean BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T }
+    } } }
+
+    ToC ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Text TEXT
+            {
+            	 NT_DEFAULT_VALUE "Propagated to C" },
+            to_c BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE 1 }
+    } } }
+
+END
+
+Notes-Values { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    Assertion ::= {
+        {"!ed/38e/233A/C7A4/67c099e2891", "Assertion","" }}
+    RefIdent ::= {
+        {"!ed/389/233A/C7A4/67c099e2544f", "RefIdent","" }}
+    Literal ::= {
+        {"!ed/38b/233A/C7A4/67c099e25ed7", "Literal","" }}
+    PredefOpr ::= {
+        {"!ed/38c/233A/C7A4/67c099e2687", "PredefOpr","" }}
+    RefOperator ::= {
+        {"!ed/38d/233A/C7A4/67c099e244f9", "RefOperator","" }}
+    Terminator ::= {
+        {"!ed/38a/233A/C7A4/67c099e211ff", "Terminator","" }}
+    StateMachine ::= {
+        {"!ed/38f/233A/C7A4/67c099e222b3", "StateMachine","" }}
+    State ::= {
+        {"!ed/390/233A/C7A4/67c099e2407e", "State","" }}
+    Transition ::= {
+        {"!ed/391/233A/C7A4/67c099e211b7", "Transition","" }}
+    ActivateBlock ::= {
+        {"!ed/392/233A/C7A4/67c099e210ad", "ActivateBlock","" },
+        {"!ed/396/233A/C7A4/67c099e27ff8", "ActivateBlock","" }}
+    Branch ::= {
+        {"!ed/393/233A/C7A4/67c099e22495", "Branch","" }}
+    Action ::= {
+        {"!ed/394/233A/C7A4/67c099e23c74", "Action","" },
+        {"!ed/395/233A/C7A4/67c099e22844", "Action","" },
+        {"!ed/398/233A/C7A4/67c099e267cb", "Action","" }}
+    NetDiagram ::= {
+        {"!ed/399/233A/C7A4/67c099e2408d", "NetDiagram","" },
+        {"!ed/3a6/233A/C7A4/67c099e255d", "NetDiagram","" }}
+    TextDiagram ::= {
+        {"!ed/39b/233A/C7A4/67c099e242d4", "TextDiagram","" }}
+    EquationSet ::= {
+        {"!ed/39a/233A/C7A4/67c099e26e77", "EquationSet","" }}
+    Package ::= {
+        {"!ed/37d/233A/C7A4/67c099e26ebc", "Package","" }}
+    Constant ::= {
+        {"!ed/387/233A/C7A4/67c099e21d7f", "Constant","" }}
+    Sensor ::= {
+        {"!ed/386/233A/C7A4/67c099e223f2", "Sensor","" }}
+    NamedType ::= {
+        {"!ed/381/233A/C7A4/67c099e2122", "NamedType","" },
+        {"!ed/382/233A/C7A4/67c099e23583", "NamedType","" },
+        {"!ed/384/233A/C7A4/67c099e24470", "NamedType","" }}
+    TypeElement ::= {
+        {"!ed/383/233A/C7A4/67c099e21fd4", "TypeElement","" },
+        {"!ed/385/233A/C7A4/67c099e27e21", "TypeElement","" }}
+    Output ::= {
+        {"!ed/3a3/233A/C7A4/67c099e26ac0", "Output","" }}
+    Input ::= {
+        {"!ed/3a4/233A/C7A4/67c099e23a47", "Input","" }}
+    Hidden ::= {
+        {"!ed/3a2/233A/C7A4/67c099e23879", "Hidden","" }}
+    Local ::= {
+        {"!ed/3a0/233A/C7A4/67c099e22b2", "Local","" }}
+    Probe ::= {
+        {"!ed/3a1/233A/C7A4/67c099e27d47", "Probe","" }}
+    Signal ::= {
+        {"!ed/39c/233A/C7A4/67c099e25760", "Signal","" }}
+    Operator ::= {
+        {"!ed/388/233A/C7A4/67c099e24c9", "Operator","" },
+        {"!ed/3a5/233A/C7A4/67c099e222cd", "Operator","Note already exists" }}
+    Fields ::= {
+        {"!ed/37d/233A/C7A4/67c099e26ebc", "Fields","" , "" , ' ' , "01/01/01" , 0 , 0.000000 , "" , "" , F }}
+    Defaults ::= {
+        {"!ed/37d/233A/C7A4/67c099e26ebc", "Defaults","string" , "text" , 'c' , "2025/02/14" , 9 , 3.100000 , "V1" , "C:/Temp/notes.txt" , F }}
+    ToC ::= {
+        {"!ed/37d/233A/C7A4/67c099e26ebc", "ToC","Propagated to C" , T }}
+END
+
