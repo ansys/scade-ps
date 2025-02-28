@@ -511,7 +511,7 @@
 					<pragmas>
 						<ed:Operator oid="!ed/3a5/233A/C7A4/67c099e222cd" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
 							<diagrams>
-								<NetDiagram name="Call_1" landscape="true" format="A4 (210 297)" oid="!ed/3a6/233A/C7A4/67c099e255d"/>
+								<NetDiagram name="Call" landscape="true" format="A4 (210 297)" oid="!ed/3a6/233A/C7A4/67c099e255d"/>
 							</diagrams>
 						</ed:Operator>
 					</pragmas>

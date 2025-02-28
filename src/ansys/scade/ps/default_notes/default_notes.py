@@ -111,8 +111,9 @@ class DefaultNotes(Visit):
             category = 'activate_block'
         elif isinstance(annotable, suite.IfNode):
             category = 'branch'
-        elif isinstance(annotable, suite.WhenBranch):
-            category = 'branch'
+        # when branches can't be annotated in the iDE
+        # elif isinstance(annotable, suite.WhenBranch):
+        #     category = 'branch'
         elif isinstance(annotable, suite.Action):
             category = 'action'
         elif isinstance(annotable, suite.Equation):
@@ -225,13 +226,9 @@ class DefaultNotes(Visit):
     def visit_annotable(self, annotable: suite.Annotable, *args):
         """Create missing notes of the visited annotable element."""
         # loop on annotabilities
-        categories = [self.get_category(annotable)]
-        if isinstance(annotable, suite.Operator):
-            categories.append(f'ref_{annotable.name}')
-        for category in categories:
-            ann_category = self.categories.get(category)
-            if not ann_category:
-                continue
+        category = self.get_category(annotable)
+        ann_category = self.categories.get(category)
+        if ann_category:
             for annotability in ann_category.annotabilities:
                 if not annotability.default_note:
                     continue
@@ -242,7 +239,7 @@ class DefaultNotes(Visit):
                         break
                 else:
                     # note not found: create one with default values
-                    print(f'creating note for {note_type.name}]\n')
+                    print('creating note for', note_type.name)
                     self.create_note(annotable, note_type)
                     st = annotable.defined_in
                     # root tree diagrams do not have an associated file

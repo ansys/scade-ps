@@ -278,8 +278,7 @@ BEGIN
         {"!ed/392/233A/C7A4/67c099e210ad", "ActivateBlock","" },
         {"!ed/396/233A/C7A4/67c099e27ff8", "ActivateBlock","" }}
     Branch ::= {
-        {"!ed/393/233A/C7A4/67c099e22495", "Branch","" },
-        {"!ed/397/233A/C7A4/67c099e24721", "Branch","" }}
+        {"!ed/393/233A/C7A4/67c099e22495", "Branch","" }}
     Action ::= {
         {"!ed/394/233A/C7A4/67c099e23c74", "Action","" },
         {"!ed/395/233A/C7A4/67c099e22844", "Action","" },
