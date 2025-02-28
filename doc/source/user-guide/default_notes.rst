@@ -1,4 +1,4 @@
-Default Notes
+Default notes
 #############
 
 Description
