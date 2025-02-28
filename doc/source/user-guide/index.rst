@@ -16,7 +16,7 @@ This section provides additional information on each of the available tools.
       Learn how to obfuscate a SCADE Suite model.
 
    .. grid-item-card:: :material-regular:`note_add;1.25em` Default notes
-      :link: default_notes
+      :link: default-notes
       :link-type: doc
 
       Learn how to create default notes for a SCADE Suite model.
@@ -26,4 +26,4 @@ This section provides additional information on each of the available tools.
    :hidden:
 
    obfuscator
-   default_notes
+   default-notes
