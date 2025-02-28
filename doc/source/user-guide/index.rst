@@ -21,9 +21,16 @@ This section provides additional information on each of the available tools.
 
       Learn how to create default notes for a SCADE Suite model.
 
+   .. grid-item-card:: :material-regular:`settings_applications;1.25em` Project properties
+      :link: project-properties/index
+      :link-type: doc
+
+      Learn how to access and update the properties of a SCADE project.
+
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    obfuscator
    default-notes
+   project-properties/index

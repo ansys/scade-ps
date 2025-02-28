@@ -80,8 +80,18 @@ def load_project(pathname: Path) -> std.Project:
 
     Note: Undocumented API.
     """
-    project_ = scade.load_project(str(pathname))
-    return project_
+    project = scade.load_project(str(pathname))
+    return project
+
+
+def load_tmp_project(path: Path, target_dir: Path) -> std.Project:
+    """Load a temporary copy of the project."""
+    # duplicate the project to edit it safely
+    copytree(path.parent, target_dir)
+    path = target_dir / path.name
+    # TODO: libraries
+    project = load_project(path)
+    return project
 
 
 def load_tmp_project_session(path: Path, target_dir: Path) -> Tuple[std.Project, suite.Session]:
@@ -90,9 +100,9 @@ def load_tmp_project_session(path: Path, target_dir: Path) -> Tuple[std.Project,
     copytree(path.parent, target_dir)
     path = target_dir / path.name
     # TODO: libraries
-    project_ = load_project(path)
+    project = load_project(path)
     session = load_session(path)
-    return project_, session
+    return project, session
 
 
 @pytest.fixture(scope='function')
@@ -106,9 +116,9 @@ def project_session(request) -> Tuple[std.Project, suite.Session]:
     # marker is None if the test is not designed correctly
     assert marker
     pathname = marker.args[0]
-    project_ = load_project(pathname)
+    project = load_project(pathname)
     session = load_session(pathname)
-    return project_, session
+    return project, session
 
 
 @pytest.fixture(scope='module')
@@ -127,6 +137,6 @@ def tmp_project_session(local_tmpdir, request) -> Tuple[std.Project, suite.Sessi
     copytree(pathname.parent, target_dir)
     pathname = target_dir / pathname.name
     # TODO: libraries
-    project_ = load_project(pathname)
+    project = load_project(pathname)
     session = load_session(pathname)
-    return project_, session
+    return project, session
