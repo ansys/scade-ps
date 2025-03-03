@@ -25,6 +25,7 @@
 """Helpers for test_*.py."""
 
 import difflib
+from os.path import relpath
 from pathlib import Path
 from typing import List
 
@@ -61,4 +62,24 @@ def diff_files(ref: Path, dst: Path) -> bool:
     for d in diffs:
         print(d.rstrip('\r\n'))
         failure = True
+    return failure
+
+
+def diff_directories(ref_dir: Path, dst_dir: Path) -> bool:
+    failure = False
+    for reference in (ref_dir).glob('**/*'):
+        if reference.is_dir():
+            continue
+        base = relpath(reference, ref_dir)
+        target = dst_dir / base
+        print('compare', str(reference), str(target))
+        try:
+            diff = cmp_file(reference, target, n=0)
+        except BaseException as e:
+            diff = [str(e)]
+        # not captured, thus the loop hereafter
+        # stdout.writelines(diff)
+        for line in diff:
+            print(line, end='')
+            failure = True
     return failure

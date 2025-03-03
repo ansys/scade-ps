@@ -31,64 +31,84 @@ The tests of this module make a copy of a reference project, create default note
 and add compare the result files to a reference.
 """
 
-from os.path import relpath
+from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
-from ansys.scade.ps.default_notes.default_notes import DefaultNotes
-from conftest import load_tmp_project_session
-from test_utils import cmp_file, get_resources_dir
+from conftest import load_tmp_project
+from test_utils import diff_directories, diff_files, get_resources_dir
+
+
+def _run_default_notes(src: Path, expected: int, ref: Path, dst: Path):
+    """
+    Run default_notes with the specified command-line parameters.
+
+    The test is successful if:
+
+    * the return code is the expected one
+    * the produced files are identical to the reference ones
+    """
+    cmd = [
+        sys.executable,
+        '-m',
+        'ansys.scade.ps.default_notes',
+        '-p',
+        str(src),
+    ]
+    status = subprocess.run(cmd, capture_output=True)
+    if status.stderr:
+        print(status.stderr.decode('utf-8').strip('\n'))
+    if status.stdout:
+        print(status.stdout.decode('utf-8').strip('\n'))
+    assert status.returncode == expected
+    if expected == 0:
+        # no error, compare files
+        if ref.is_dir():
+            failure = diff_directories(ref, dst)
+        else:
+            failure = diff_files(ref, dst)
+        assert not failure
 
 
 @pytest.mark.parametrize('base', ['Nominal'])
-def test_default_notes_nominal(capsys, base, local_tmpdir):
+def test_default_notes_nominal(base, local_tmpdir):
     base_dir = get_resources_dir() / 'resources' / 'DefaultNotes' / base
     source = base_dir / 'model' / (base + '.etp')
     target_dir = local_tmpdir / 'test_default_notes_nominal' / base
-    project, session = load_tmp_project_session(source, target_dir)
-    # create default notes
-    cls = DefaultNotes()
-    status = cls.main(session)
-    assert status == 0
+    project = load_tmp_project(source, target_dir)
     # get the reference directory
     ref_dir = base_dir / 'reference'
-    # reset captured output
-    captured = capsys.readouterr()
-    # compare all the files present in ref_dir to those in target_dir
-    for reference in (ref_dir).glob('**/*'):
-        if reference.is_dir():
-            continue
-        base = relpath(reference, ref_dir)
-        target = target_dir / base
-        try:
-            diff = cmp_file(reference, target, n=0)
-        except BaseException as e:
-            diff = [str(e)]
-        # not captured, thus the loop hereafter
-        # stdout.writelines(diff)
-        for line in diff:
-            print(line, end='')
-    captured = capsys.readouterr()
-    assert captured.out == ''
+    # create default notes
+    _run_default_notes(Path(project.pathname), 0, ref_dir, target_dir)
 
 
-def test_default_notes_empty(capsys, local_tmpdir):
+def test_default_notes_empty(local_tmpdir):
     """Empty is a model with no annotation schema."""
     base = 'Empty'
     base_dir = get_resources_dir() / 'resources' / 'DefaultNotes' / base
     source = base_dir / 'model' / (base + '.etp')
     target_dir = local_tmpdir / 'test_default_notes_empty' / base
-    project, session = load_tmp_project_session(source, target_dir)
+    project = load_tmp_project(source, target_dir)
+
     # reset captured output
-    captured = capsys.readouterr()
-    # create default notes
-    cls = DefaultNotes()
-    status = cls.main(session)
-    assert status == 0
+    cmd = [
+        str(Path(sys.executable).with_name('ansys_scade_ps_default_notes.exe')),
+        '-p',
+        project.pathname,
+    ]
+    status = subprocess.run(cmd, capture_output=True)
+    assert status.returncode == 0
+    failure = False
+    if status.stderr:
+        print(status.stderr.decode('utf-8').strip('\n'))
+        failure = True
+    if status.stdout:
+        print(status.stdout.decode('utf-8').strip('\n'))
+        failure = True
     # nothing should have been reported
-    captured = capsys.readouterr()
-    assert captured.out == ''
-    assert captured.err == ''
+    assert not failure
     # neither created
     ann_files = [_ for _ in (target_dir).glob('**/*.ann')]
     assert not ann_files
