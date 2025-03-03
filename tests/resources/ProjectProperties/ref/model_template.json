@@ -1,0 +1,49 @@
+{
+    "GENERATOR": [
+        "DEBUG",
+        "ENABLE_EXTENSIONS",
+        "GENERATOR",
+        "PROBES",
+        "ROOTNODE",
+        "SKIP_UNUSED",
+        "TARGET_ADAPTOR",
+        "TARGET_DIR",
+        "USER_CONFIG",
+        "USE_TYPES"
+    ],
+    "METRICS_RULES": [
+        "USER_DEF_FILES"
+    ],
+    "REPORTER": [
+        "AllowRowToBreak",
+        "DisplayCalledAndCalling",
+        "DisplayKCGPragma",
+        "FORMAT",
+        "RotateLandscape",
+        "SCRIPT",
+        "cstDisplayType"
+    ],
+    "SCADE": [
+        "DEFAULTFILE",
+        "NEWVARIABLESYMBOLS",
+        "NOTEFILE",
+        "SAVEVERSION",
+        "SEMFILE"
+    ],
+    "SIMULATOR": [
+        "ADD_COMP_OPTIONS",
+        "CPU_TYPE"
+    ],
+    "STUDIO": [
+        "AUTHORS",
+        "COMPAGNY",
+        "DATE",
+        "DESCRIPTION",
+        "INDEX",
+        "PRODUCT",
+        "REFERENCE",
+        "SUBTITLE",
+        "TITLE",
+        "TOOLCONF"
+    ]
+}

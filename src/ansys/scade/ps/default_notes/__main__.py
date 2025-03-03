@@ -37,7 +37,7 @@ def main():
     """Implement ``ansys.scade.ps.default_notes.__main__:main`` packages's script."""
     parser = argparse.ArgumentParser(description=tool)
     parser.add_argument(
-        '-p', '--projects', metavar='<projects>', help='SCADE Suite projects', nargs='+'
+        '-p', '--projects', metavar='<project>', help='SCADE Suite projects', nargs='+'
     )
     options = parser.parse_args()
 

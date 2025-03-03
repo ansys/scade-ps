@@ -52,3 +52,13 @@ def cmp_file(fromfile: Path, tofile: Path, n=3, linejunk=None):
 
     diff = difflib.context_diff(fromlines, tolines, str(fromfile), str(tofile), n=n)
     return diff
+
+
+def diff_files(ref: Path, dst: Path) -> bool:
+    print('compare', str(ref), str(dst))
+    diffs = cmp_file(ref, dst)
+    failure = False
+    for d in diffs:
+        print(d.rstrip('\r\n'))
+        failure = True
+    return failure

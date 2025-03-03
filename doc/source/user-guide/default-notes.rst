@@ -26,7 +26,7 @@ Usage
 
    options:
      -h, --help            show this help message and exit
-     -p <projects> [<projects> ...], --projects <projects> [<projects> ...]
+     -p <project> [<project> ...], --projects <project> [<project> ...]
                            SCADE Suite projects
 
 Limitations
