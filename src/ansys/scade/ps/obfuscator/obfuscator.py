@@ -216,11 +216,15 @@ class _Rename(_FilteredVisit):
 class Obfuscator:
     """Obfuscation of a model."""
 
-    def __init__(self, trace_file: str, rename_internals: bool, ignored_libraries: List[str]):
+    def __init__(
+        self, trace_file: str, rename_internals: bool, ignored_libraries: List[str], seed: str
+    ):
         # options
         self.trace_file = trace_file
         self.rename_internals = rename_internals
         self.ignored_libraries = ignored_libraries
+        if seed:
+            random.seed(seed)
         # runtime caches
         self.state = _State()
 
@@ -294,10 +298,11 @@ def main(
     trace_file: str = '',
     rename_internals: bool = False,
     ignored_libraries: Optional[List[str]] = None,
+    seed: str = '',
 ) -> int:
     """Entry point for ``scade.exe -script`` or called by ``__main__``."""
     session = get_sessions()[0]
     if ignored_libraries is None:
         ignored_libraries = []
-    code = Obfuscator(trace_file, rename_internals, ignored_libraries).main(session)
+    code = Obfuscator(trace_file, rename_internals, ignored_libraries, seed).main(session)
     return code

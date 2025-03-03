@@ -31,15 +31,47 @@ The tests of this module make a copy of a reference project, obfuscate it and ad
 compare the result files to a reference.
 """
 
-from os.path import relpath
 from pathlib import Path
-import random
+import subprocess
+import sys
+from typing import List
 
 import pytest
 
-from ansys.scade.ps.obfuscator.obfuscator import Obfuscator
-from conftest import load_tmp_project_session, seed
-from test_utils import cmp_file, get_resources_dir
+from conftest import load_tmp_project
+from test_utils import diff_directories, get_resources_dir
+
+
+def _run_obfuscator(exe: bool, args: List[str], expected: int, ref: Path, dst: Path):
+    """
+    Run obfuscator with the specified command-line parameters.
+
+    The test is successful if:
+
+    * the return code is the expected one
+    * the produced files are identical to the reference ones
+    """
+    if exe:
+        cmd = [
+            str(Path(sys.executable).with_name('ansys_scade_ps_obfuscator.exe')),
+        ]
+    else:
+        cmd = [
+            sys.executable,
+            '-m',
+            'ansys.scade.ps.obfuscator',
+        ]
+    cmd.extend(args)
+    status = subprocess.run(cmd, capture_output=True)
+    if status.stderr:
+        print(status.stderr.decode('utf-8').strip('\n'))
+    if status.stdout:
+        print(status.stdout.decode('utf-8').strip('\n'))
+    assert status.returncode == expected
+    if expected == 0:
+        # no error, compare files
+        failure = diff_directories(ref, dst)
+        assert not failure
 
 
 def format_test_data(data: list) -> list:
@@ -60,38 +92,24 @@ def format_test_data(data: list) -> list:
         ]
     ),
 )
-def test_obfuscator_nominal(capsys, base, conf, libraries, internals, local_tmpdir):
+def test_obfuscator_nominal(base, conf, libraries, internals, local_tmpdir):
     base_dir = get_resources_dir() / 'resources' / 'Obfuscator' / base
     source = base_dir / 'model' / (base + '.etp')
     target_dir = local_tmpdir / 'test_obfuscator_nominal' / base / conf
-    project, session = load_tmp_project_session(source, target_dir)
-    # make sure the tests provide always the same results
-    # seed = reduce(lambda x, y: x + ord(y), base + conf, 0)
-    random.setstate(seed)
+    project = load_tmp_project(source, target_dir)
     # options
     path = Path(project.pathname)
     trace = path.with_name('trace.txt')
-    # run the obfuscation
-    cls = Obfuscator(str(trace), internals, libraries)
-    status = cls.main(session)
-    assert status == 0
     # get the reference directory
     ref_dir = base_dir / 'reference' / conf
-    # ignore banner if any
-    captured = capsys.readouterr()
-    # compare all the files present in ref_dir to those in target_dir
-    for reference in (ref_dir).glob('**/*'):
-        if reference.is_dir():
-            continue
-        base = relpath(reference, ref_dir)
-        target = target_dir / base
-        try:
-            diff = cmp_file(reference, target, n=0)
-        except BaseException as e:
-            diff = [str(e)]
-        # not captured, thus the loop hereafter
-        # stdout.writelines(diff)
-        for line in diff:
-            print(line, end='')
-    captured = capsys.readouterr()
-    assert captured.out == ''
+    # run the obfuscation
+    args = ['-p', project.pathname, '-s', 'obfuscator']
+    if trace:
+        args.extend(['-t', str(trace)])
+    if internals:
+        args.append('-i')
+    if libraries:
+        args.extend(['-l'] + libraries)
+    # reuse the boolean internals to select the launch mode
+    exe = internals
+    _run_obfuscator(exe, args, 0, ref_dir, target_dir)

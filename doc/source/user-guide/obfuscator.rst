@@ -21,9 +21,9 @@ This tool obfuscates a SCADE Suite model and its libraries.
 Usage
 =====
 
-.. code:: bash
+.. code:: text
 
-   usage: ansys_scade_ps_obfuscator [-h] -p <project> [-t <trace>] [-i] [-l [library ...]]
+   usage: ansys_scade_ps_obfuscator [-h] -p <project> [-t <trace>] [-i] [-l [library ...]] [-s <seed>]
 
    Ansys SCADE Power Scripts: Obfuscator for Scade models
 
@@ -36,6 +36,8 @@ Usage
      -i, --internals       Rename internal variables
      -l [library ...], --ignored_libraries [library ...]
                            Ignored libraries
+     -s <seed>, --seed <seed>
+                           Random seed for obfuscation
 
 Limitations
 ===========
