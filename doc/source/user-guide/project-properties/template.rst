@@ -7,7 +7,8 @@ Description
 This sub-command lists all the tool properties used in a project to a file (JSON).
 
 This file can be used as a template for creating a schema of properties to
-consider, when propagating the settings from a reference project to other projects.
+consider, when :doc:`propagating </user-guide/project-properties/copy>` the
+settings from a reference project to other projects.
 
 For a SCADE Suite project with default settings, the output template file looks as follows:
 
@@ -35,6 +36,10 @@ For a SCADE Suite project with default settings, the output template file looks 
        ...
    }
 
+.. Note::
+
+   Properties with default values are not stored in the project file: They
+   are not listed in the output template.
 
 Usage
 =====
@@ -44,10 +49,6 @@ Usage
    usage: ansys_scade_ps_project_properties template [-h] -o <template file>
 
    Ansys SCADE Power Scripts: Access to SCADE project properties
-
-   positional arguments:
-     {template}       project properties sub-commands
-       template            Create a schema template
 
    options:
      -h, --help            show this help message and exit

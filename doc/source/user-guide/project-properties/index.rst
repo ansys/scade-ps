@@ -16,8 +16,9 @@ Usage
    Ansys SCADE Power Scripts: Access to SCADE project properties
 
    positional arguments:
-     {template}       project properties sub-commands
+     {template,copy}       project properties sub-commands
        template            Create a schema template
+       copy                Copy tool properties
 
    options:
      -h, --help            show this help message and exit
@@ -31,3 +32,4 @@ Sub-commands
    :maxdepth: 1
 
    template
+   copy
