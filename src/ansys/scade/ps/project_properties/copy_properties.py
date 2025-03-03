@@ -156,7 +156,8 @@ def main(reference: str, schema: str) -> int:
             ref_project = project
         else:
             projects.append(project)
-    if not ref_project:
+    if not ref_project:  # pragma: nocover
+        # this may happen if and only if the script is run with ``scade.exe -script``
         print(f'{reference}: project not found')
         return 1
     code = CopyProperties(schema).main(ref_project, projects)

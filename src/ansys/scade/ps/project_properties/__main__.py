@@ -66,17 +66,16 @@ def main():
     assert declare_project
     declare_project(options.project)
     if options.cmd == 'template':
-        code = create_template_main(options.template)
-    elif options.cmd == 'copy':
+        code = create_template_main(options.output)
+    else:
+        assert options.cmd == 'copy'
         for project in options.projects:
             declare_project(project)
         code = copy_properties_main(Path(options.project).name, options.schema)
-    else:
-        # internal error
-        code = 2
     exit(code)
 
 
 if __name__ == '__main__':
     # run with python.exe -m ansys.scade.ps.project_properties
     main()
+# else:  # run with ansys_scade_ps_project_properties.exe

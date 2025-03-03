@@ -31,64 +31,100 @@ The tests of this module make a copy of a reference project, create default note
 and add compare the result files to a reference.
 """
 
+from pathlib import Path
+import subprocess
+import sys
+from typing import List
+
 import pytest
 
-from ansys.scade.ps.project_properties.copy_properties import CopyProperties
-from ansys.scade.ps.project_properties.create_template import CreateTemplate
-from conftest import load_project, load_tmp_project
-from test_utils import cmp_file, get_resources_dir
+from conftest import load_tmp_project
+from test_utils import diff_files, get_resources_dir
+
+
+def _run_properties(src: Path, args: List[str], expected: int, ref: Path, dst: Path):
+    """
+    Run project properties with the specified command-line parameters.
+
+    The test is successful if:
+
+    * the return code is the expected one
+    * the produced file is identical to the reference
+    """
+    cmd = [
+        sys.executable,
+        '-m',
+        'ansys.scade.ps.project_properties',
+        '-p',
+        str(src),
+    ]
+    cmd.extend(args)
+    status = subprocess.run(cmd, capture_output=True)
+    if status.stderr:
+        print(status.stderr.decode('utf-8').strip('\n'))
+    if status.stdout:
+        print(status.stdout.decode('utf-8').strip('\n'))
+    assert status.returncode == expected
+    if expected == 0:
+        # no error, compare files
+        failure = diff_files(ref, dst)
+        assert not failure
 
 
 @pytest.mark.parametrize('base', ['Model'])
 def test_create_template_nominal(capsys, base, local_tmpdir):
     base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
     source = base_dir / base / (base + '.etp')
-    project = load_project(source)
     target_dir = local_tmpdir / 'test_project_properties'
     target_dir.mkdir(exist_ok=True, parents=True)
-    ref_dir = base_dir / 'ref'
     # options
     template = target_dir / 'model_template.json'
-    # create template
-    cls = CreateTemplate(str(template))
-    status = cls.main(project)
-    assert status == 0
-    # reset captured output
-    captured = capsys.readouterr()
-    try:
-        diff = cmp_file(ref_dir / template.name, template, n=0)
-    except BaseException as e:
-        diff = [str(e)]
-    # not captured, thus the loop hereafter
-    # stdout.writelines(diff)
-    for line in diff:
-        print(line, end='')
-    captured = capsys.readouterr()
-    assert captured.out == ''
+    ref = base_dir / 'ref' / template.name
+
+    args = ['template', '-o', str(template)]
+    _run_properties(Path(source), args, 0, ref, template)
 
 
-@pytest.mark.parametrize('target', ['Copy', 'Unchanged'])
-def test_copy_properties_nominal(capsys, target, local_tmpdir):
+@pytest.mark.parametrize(
+    'target, expected',
+    [
+        ('Copy', 0),
+        ('Unchanged', 0),
+        ('NoSchema', 1),
+    ],
+)
+def test_copy_properties_nominal(target: str, expected: int, local_tmpdir):
+    """Copy the properties specified in schema.json from Model to the target project."""
     base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
-    src = load_project(base_dir / 'Model' / 'Model.etp')
+    path_src = base_dir / 'Model' / 'Model.etp'
     target_dir = local_tmpdir / 'test_project_properties' / target
     dst = load_tmp_project(base_dir / target / f'{target}.etp', target_dir)
-    ref_dir = base_dir / 'ref'
+    ref = base_dir / 'ref' / f'{target}.etp'
     # options
     schema = target_dir / 'schema.json'
-    # copy properties
-    cls = CopyProperties(str(schema))
-    status = cls.main(src, [dst])
-    assert status == 0
-    # reset captured output
-    captured = capsys.readouterr()
-    try:
-        diff = cmp_file(ref_dir / f'{target}.etp', target_dir / f'{target}.etp', n=0)
-    except BaseException as e:
-        diff = [str(e)]
-    # not captured, thus the loop hereafter
-    # stdout.writelines(diff)
-    for line in diff:
-        print(line, end='')
-    captured = capsys.readouterr()
-    assert captured.out == ''
+
+    args = ['copy', '-p', dst.pathname, '-s', str(schema)]
+    _run_properties(path_src, args, expected, ref, Path(dst.pathname))
+
+
+def test_project_properties_robustness():
+    """
+    Run the module with an unknown command.
+
+    Use the executable to complete the coverage of __main__.py.
+    """
+    base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
+    path_src = base_dir / 'Model' / 'Model.etp'
+
+    cmd = [
+        Path(sys.executable).with_name('ansys_scade_ps_project_properties.exe'),
+        '-p',
+        str(path_src),
+        'unknown',
+    ]
+    status = subprocess.run(cmd, capture_output=True)
+    if status.stderr:
+        print(status.stderr.decode('utf-8').strip('\n'))
+    if status.stdout:
+        print(status.stdout.decode('utf-8').strip('\n'))
+    assert status.returncode != 0
