@@ -61,7 +61,7 @@ Usage
 
 .. code:: text
 
-   usage: ansys_scade_ps_project_properties copy [-h] -s <schema> [-p <project> [<project> ...]]
+   usage: ansys_scade_ps_project_properties copy [-h] -s <schema> -p <project> [<project> ...]
 
    options:
      -h, --help            show this help message and exit

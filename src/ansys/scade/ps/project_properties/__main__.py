@@ -58,7 +58,12 @@ def main():
         '-s', '--schema', metavar='<schema>', help='input schema file (JSON)', required=True
     )
     copy_parser.add_argument(
-        '-p', '--projects', metavar='<project>', help='project files to update (ETP)', nargs='+'
+        '-p',
+        '--projects',
+        metavar='<project>',
+        help='project files to update (ETP)',
+        nargs='+',
+        required=True,
     )
     copy_parser.set_defaults(cmd='copy')
 
