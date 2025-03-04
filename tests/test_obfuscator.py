@@ -32,14 +32,11 @@ compare the result files to a reference.
 """
 
 from pathlib import Path
-import subprocess
-import sys
 from typing import List
 
 import pytest
 
-from conftest import load_tmp_project
-from test_utils import diff_directories, get_resources_dir
+from conftest import get_resources_dir, load_tmp_project, run_tool
 
 
 def _run_obfuscator(exe: bool, args: List[str], expected: int, ref: Path, dst: Path):
@@ -51,27 +48,9 @@ def _run_obfuscator(exe: bool, args: List[str], expected: int, ref: Path, dst: P
     * the return code is the expected one
     * the produced files are identical to the reference ones
     """
-    if exe:
-        cmd = [
-            str(Path(sys.executable).with_name('ansys_scade_ps_obfuscator.exe')),
-        ]
-    else:
-        cmd = [
-            sys.executable,
-            '-m',
-            'ansys.scade.ps.obfuscator',
-        ]
-    cmd.extend(args)
-    status = subprocess.run(cmd, capture_output=True)
-    if status.stderr:
-        print(status.stderr.decode('utf-8').strip('\n'))
-    if status.stdout:
-        print(status.stdout.decode('utf-8').strip('\n'))
+    tool = 'ansys_scade_ps_obfuscator.exe' if exe else 'ansys.scade.ps.obfuscator'
+    status = run_tool(tool, args, ref, dst)
     assert status.returncode == expected
-    if expected == 0:
-        # no error, compare files
-        failure = diff_directories(ref, dst)
-        assert not failure
 
 
 def format_test_data(data: list) -> list:
@@ -111,5 +90,6 @@ def test_obfuscator_nominal(base, conf, libraries, internals, local_tmpdir):
     if libraries:
         args.extend(['-l'] + libraries)
     # reuse the boolean internals to select the launch mode
-    exe = internals
-    _run_obfuscator(exe, args, 0, ref_dir, target_dir)
+    tool = 'ansys_scade_ps_obfuscator.exe' if internals else 'ansys.scade.ps.obfuscator'
+    status = run_tool(tool, args, ref_dir, target_dir)
+    assert status.returncode == 0

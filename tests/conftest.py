@@ -24,10 +24,14 @@
 
 """Unit tests fixtures."""
 
+import difflib
+from os.path import relpath
 from pathlib import Path
 import random
 from shutil import copytree, rmtree
-from typing import Tuple
+import subprocess
+import sys
+from typing import List, Optional
 
 import pytest
 
@@ -47,6 +51,12 @@ seed = random.getstate()
 def pytest_configure(config):
     """Declare the markers used in this project."""
     config.addinivalue_line('markers', 'project: project to be loaded')
+
+
+def get_resources_dir() -> Path:
+    """Return the directory ./resources relative to this file's directory."""
+    script_path = Path(__file__).resolve()
+    return script_path.parent
 
 
 @pytest.fixture(scope='session')
@@ -94,49 +104,75 @@ def load_tmp_project(path: Path, target_dir: Path) -> std.Project:
     return project
 
 
-def load_tmp_project_session(path: Path, target_dir: Path) -> Tuple[std.Project, suite.Session]:
-    """Load a temporary copy of the project."""
-    # duplicate the project to edit it safely
-    copytree(path.parent, target_dir)
-    path = target_dir / path.name
-    # TODO: libraries
-    project = load_project(path)
-    session = load_session(path)
-    return project, session
+def cmp_file(fromfile: Path, tofile: Path, n=3, linejunk=None):
+    """Return the differences between two files."""
+    with fromfile.open() as fromf, tofile.open() as tof:
+        if linejunk:
+            fromlines = [line for line in fromf if not linejunk(line)]
+            tolines = [line for line in tof if not linejunk(line)]
+        else:
+            fromlines, tolines = list(fromf), list(tof)
+
+    diff = difflib.context_diff(fromlines, tolines, str(fromfile), str(tofile), n=n)
+    return diff
 
 
-@pytest.fixture(scope='function')
-def project_session(request) -> Tuple[std.Project, suite.Session]:
+def diff_files(ref: Path, dst: Path) -> bool:
+    print('compare', str(ref), str(dst))
+    diffs = cmp_file(ref, dst)
+    failure = False
+    for d in diffs:
+        print(d.rstrip('\r\n'))
+        failure = True
+    return failure
+
+
+def diff_directories(ref_dir: Path, dst_dir: Path) -> bool:
+    failure = False
+    for reference in (ref_dir).glob('**/*'):
+        if reference.is_dir():
+            continue
+        base = relpath(reference, ref_dir)
+        target = dst_dir / base
+        print('compare', str(reference), str(target))
+        try:
+            diff = cmp_file(reference, target, n=0)
+        except BaseException as e:
+            diff = [str(e)]
+        # not captured, thus the loop hereafter
+        # stdout.writelines(diff)
+        for line in diff:
+            print(line, end='')
+            failure = True
+    return failure
+
+
+def run_tool(
+    module: str, args: List[str], ref: Optional[Path], dst: Optional[Path]
+) -> subprocess.CompletedProcess:
     """
-    Load a project and the corresponding Scade model.
+    Run a tool with the specified command-line parameters.
 
-    Specify the project to load with the marker ``project``.
+    The test is successful if:
+
+    * the return code is the expected one
+    * the produced files are identical to the reference ones
     """
-    marker = request.node.get_closest_marker('project')
-    # marker is None if the test is not designed correctly
-    assert marker
-    pathname = marker.args[0]
-    project = load_project(pathname)
-    session = load_session(pathname)
-    return project, session
-
-
-@pytest.fixture(scope='module')
-def tmp_project_session(local_tmpdir, request) -> Tuple[std.Project, suite.Session]:
-    """
-    Load a temporary copy of the project.
-
-    Specify the project to load with the marker ``project``.
-    """
-    marker = request.node.get_closest_marker('project')
-    # marker is None if the test is not designed correctly
-    assert marker
-    pathname = marker.args[0]
-    # duplicate the project to edit it safely
-    target_dir = local_tmpdir / pathname.stem
-    copytree(pathname.parent, target_dir)
-    pathname = target_dir / pathname.name
-    # TODO: libraries
-    project = load_project(pathname)
-    session = load_session(pathname)
-    return project, session
+    if module.endswith('.exe'):
+        cmd = [str(Path(sys.executable).with_name(module))]
+    else:
+        cmd = [sys.executable, '-m', module]
+    cmd.extend(args)
+    status = subprocess.run(cmd, capture_output=True)
+    if status.stderr:
+        print(status.stderr.decode('utf-8').strip('\n'))
+    if status.stdout:
+        print(status.stdout.decode('utf-8').strip('\n'))
+    if status.returncode == 0 and ref:
+        # no error, compare files
+        if ref.is_dir():
+            failure = diff_directories(ref, dst)
+        else:
+            failure = diff_files(ref, dst)
+        assert not failure
+    return status

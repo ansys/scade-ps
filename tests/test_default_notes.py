@@ -31,45 +31,9 @@ The tests of this module make a copy of a reference project, create default note
 and add compare the result files to a reference.
 """
 
-from pathlib import Path
-import subprocess
-import sys
-
 import pytest
 
-from conftest import load_tmp_project
-from test_utils import diff_directories, diff_files, get_resources_dir
-
-
-def _run_default_notes(src: Path, expected: int, ref: Path, dst: Path):
-    """
-    Run default_notes with the specified command-line parameters.
-
-    The test is successful if:
-
-    * the return code is the expected one
-    * the produced files are identical to the reference ones
-    """
-    cmd = [
-        sys.executable,
-        '-m',
-        'ansys.scade.ps.default_notes',
-        '-p',
-        str(src),
-    ]
-    status = subprocess.run(cmd, capture_output=True)
-    if status.stderr:
-        print(status.stderr.decode('utf-8').strip('\n'))
-    if status.stdout:
-        print(status.stdout.decode('utf-8').strip('\n'))
-    assert status.returncode == expected
-    if expected == 0:
-        # no error, compare files
-        if ref.is_dir():
-            failure = diff_directories(ref, dst)
-        else:
-            failure = diff_files(ref, dst)
-        assert not failure
+from conftest import get_resources_dir, load_tmp_project, run_tool
 
 
 @pytest.mark.parametrize('base', ['Nominal'])
@@ -81,7 +45,9 @@ def test_default_notes_nominal(base, local_tmpdir):
     # get the reference directory
     ref_dir = base_dir / 'reference'
     # create default notes
-    _run_default_notes(Path(project.pathname), 0, ref_dir, target_dir)
+    args = ['-p', project.pathname]
+    status = run_tool('ansys.scade.ps.default_notes', args, ref_dir, target_dir)
+    assert status.returncode == 0
 
 
 def test_default_notes_empty(local_tmpdir):
@@ -93,20 +59,10 @@ def test_default_notes_empty(local_tmpdir):
     project = load_tmp_project(source, target_dir)
 
     # reset captured output
-    cmd = [
-        str(Path(sys.executable).with_name('ansys_scade_ps_default_notes.exe')),
-        '-p',
-        project.pathname,
-    ]
-    status = subprocess.run(cmd, capture_output=True)
+    args = ['-p', project.pathname]
+    status = run_tool('ansys_scade_ps_default_notes.exe', args, None, None)
     assert status.returncode == 0
-    failure = False
-    if status.stderr:
-        print(status.stderr.decode('utf-8').strip('\n'))
-        failure = True
-    if status.stdout:
-        print(status.stdout.decode('utf-8').strip('\n'))
-        failure = True
+    failure = status.stderr or status.stdout
     # nothing should have been reported
     assert not failure
     # neither created
