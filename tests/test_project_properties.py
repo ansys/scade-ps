@@ -32,43 +32,10 @@ and add compare the result files to a reference.
 """
 
 from pathlib import Path
-import subprocess
-import sys
-from typing import List
 
 import pytest
 
-from conftest import load_tmp_project
-from test_utils import diff_files, get_resources_dir
-
-
-def _run_properties(src: Path, args: List[str], expected: int, ref: Path, dst: Path):
-    """
-    Run project properties with the specified command-line parameters.
-
-    The test is successful if:
-
-    * the return code is the expected one
-    * the produced file is identical to the reference
-    """
-    cmd = [
-        sys.executable,
-        '-m',
-        'ansys.scade.ps.project_properties',
-        '-p',
-        str(src),
-    ]
-    cmd.extend(args)
-    status = subprocess.run(cmd, capture_output=True)
-    if status.stderr:
-        print(status.stderr.decode('utf-8').strip('\n'))
-    if status.stdout:
-        print(status.stdout.decode('utf-8').strip('\n'))
-    assert status.returncode == expected
-    if expected == 0:
-        # no error, compare files
-        failure = diff_files(ref, dst)
-        assert not failure
+from conftest import get_resources_dir, load_tmp_project, run_tool
 
 
 @pytest.mark.parametrize('base', ['Model'])
@@ -81,8 +48,9 @@ def test_create_template_nominal(capsys, base, local_tmpdir):
     template = target_dir / 'model_template.json'
     ref = base_dir / 'ref' / template.name
 
-    args = ['template', '-o', str(template)]
-    _run_properties(Path(source), args, 0, ref, template)
+    args = ['-p', str(source), 'template', '-o', str(template)]
+    status = run_tool('ansys.scade.ps.project_properties', args, ref, template)
+    assert status.returncode == 0
 
 
 @pytest.mark.parametrize(
@@ -103,8 +71,9 @@ def test_copy_properties_nominal(target: str, expected: int, local_tmpdir):
     # options
     schema = target_dir / 'schema.json'
 
-    args = ['copy', '-p', dst.pathname, '-s', str(schema)]
-    _run_properties(path_src, args, expected, ref, Path(dst.pathname))
+    args = ['-p', str(path_src), 'copy', '-p', dst.pathname, '-s', str(schema)]
+    status = run_tool('ansys.scade.ps.project_properties', args, ref, Path(dst.pathname))
+    assert status.returncode == expected
 
 
 def test_project_properties_robustness():
@@ -116,15 +85,6 @@ def test_project_properties_robustness():
     base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
     path_src = base_dir / 'Model' / 'Model.etp'
 
-    cmd = [
-        Path(sys.executable).with_name('ansys_scade_ps_project_properties.exe'),
-        '-p',
-        str(path_src),
-        'unknown',
-    ]
-    status = subprocess.run(cmd, capture_output=True)
-    if status.stderr:
-        print(status.stderr.decode('utf-8').strip('\n'))
-    if status.stdout:
-        print(status.stdout.decode('utf-8').strip('\n'))
-    assert status.returncode != 0
+    args = ['-p', str(path_src), 'unknown']
+    status = run_tool('ansys_scade_ps_project_properties.exe', args, None, None)
+    assert status.returncode == 2

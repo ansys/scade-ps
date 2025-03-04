@@ -46,11 +46,16 @@ def main():
     parser.add_argument(
         '-l', '--ignored_libraries', metavar='library', nargs='*', help='Ignored libraries'
     )
+    parser.add_argument(
+        '-s', '--seed', metavar='<seed>', help='Random seed for obfuscation', required=False
+    )
     options = parser.parse_args()
 
     assert declare_project
     declare_project(options.project)
-    code = obfuscator_main(options.trace, options.internals, options.ignored_libraries)
+    code = obfuscator_main(
+        options.trace, options.internals, options.ignored_libraries, options.seed
+    )
     exit(code)
 
 
