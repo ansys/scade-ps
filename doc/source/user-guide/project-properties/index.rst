@@ -9,9 +9,9 @@ This tool has several sub-commands described in the following sections.
 Usage
 =====
 
-.. code:: bash
+.. code:: text
 
-   usage: ansys_scade_ps_project_properties [-h] -p <project> {template,} ...
+   usage: ansys_scade_ps_project_properties [-h] -p <project> {template,copy} ...
 
    Ansys SCADE Power Scripts: Access to SCADE project properties
 

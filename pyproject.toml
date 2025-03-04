@@ -61,6 +61,7 @@ name = "ansys.scade.ps"
 ansys_scade_ps_obfuscator = "ansys.scade.ps.obfuscator.__main__:main"
 ansys_scade_ps_default_notes = "ansys.scade.ps.default_notes.__main__:main"
 ansys_scade_ps_project_properties = "ansys.scade.ps.project_properties.__main__:main"
+ansys_scade_ps_rename_unused = "ansys.scade.ps.rename_unused.__main__:main"
 
 [project.urls]
 source = "https://github.com/ansys-internal/scade-ps"

@@ -44,7 +44,7 @@ For a SCADE Suite project with default settings, the output template file looks 
 Usage
 =====
 
-.. code:: bash
+.. code:: text
 
    usage: ansys_scade_ps_project_properties template [-h] -o <template file>
 

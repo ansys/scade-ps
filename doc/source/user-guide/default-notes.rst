@@ -18,9 +18,9 @@ in the SCADE Suite documentation for a complete reference on annotation type fil
 Usage
 =====
 
-.. code:: bash
+.. code:: text
 
-   usage: ansys_scade_ps_default_notes [-h] [-p <projects> [<projects> ...]]
+   usage: ansys_scade_ps_default_notes [-h] -p <project> [<project> ...]
 
    Ansys SCADE Power Scripts: Create default notes for Scade models
 

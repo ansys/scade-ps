@@ -23,7 +23,7 @@
 # SOFTWARE.
 
 """
-Test suite for default_notes.py.
+Test suite for project_properties.py.
 
 Test strategy:
 
@@ -39,7 +39,7 @@ from conftest import get_resources_dir, load_tmp_project, run_tool
 
 
 @pytest.mark.parametrize('base', ['Model'])
-def test_create_template_nominal(capsys, base, local_tmpdir):
+def test_create_template_nominal(base, local_tmpdir):
     base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
     source = base_dir / base / (base + '.etp')
     target_dir = local_tmpdir / 'test_project_properties'

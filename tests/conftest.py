@@ -148,7 +148,7 @@ def diff_directories(ref_dir: Path, dst_dir: Path) -> bool:
 
 
 def run_tool(
-    module: str, args: List[str], ref: Optional[Path], dst: Optional[Path]
+    module: str, args: List[str], ref: Optional[Path] = None, dst: Optional[Path] = None
 ) -> subprocess.CompletedProcess:
     """
     Run a tool with the specified command-line parameters.
@@ -165,11 +165,14 @@ def run_tool(
     cmd.extend(args)
     status = subprocess.run(cmd, capture_output=True)
     if status.stderr:
-        print(status.stderr.decode('utf-8').strip('\n'))
+        for line in status.stderr.splitlines():
+            print(line.decode('utf-8'))
     if status.stdout:
-        print(status.stdout.decode('utf-8').strip('\n'))
+        for line in status.stdout.splitlines():
+            print(line.decode('utf-8'))
     if status.returncode == 0 and ref:
         # no error, compare files
+        assert dst
         if ref.is_dir():
             failure = diff_directories(ref, dst)
         else:

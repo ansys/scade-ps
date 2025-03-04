@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Create default notes for Scade models."""
+"""Ansys SCADE Power Scripts: Rename unused files."""
 
 import argparse
 
@@ -30,11 +30,11 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from .default_notes import main as default_notes_main, tool
+from .rename_unused import main as rename_unused_main, tool
 
 
 def main():
-    """Implement ``ansys.scade.ps.default_notes.__main__:main`` packages's script."""
+    """Implement ``ansys.scade.ps.rename_unused.__main__:main`` packages's script."""
     parser = argparse.ArgumentParser(description=tool)
     parser.add_argument(
         '-p',
@@ -49,7 +49,7 @@ def main():
     assert declare_project
     for project in options.projects:
         declare_project(project)
-    code = default_notes_main()
+    code = rename_unused_main()
     exit(code)
 
 

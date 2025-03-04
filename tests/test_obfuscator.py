@@ -32,25 +32,10 @@ compare the result files to a reference.
 """
 
 from pathlib import Path
-from typing import List
 
 import pytest
 
 from conftest import get_resources_dir, load_tmp_project, run_tool
-
-
-def _run_obfuscator(exe: bool, args: List[str], expected: int, ref: Path, dst: Path):
-    """
-    Run obfuscator with the specified command-line parameters.
-
-    The test is successful if:
-
-    * the return code is the expected one
-    * the produced files are identical to the reference ones
-    """
-    tool = 'ansys_scade_ps_obfuscator.exe' if exe else 'ansys.scade.ps.obfuscator'
-    status = run_tool(tool, args, ref, dst)
-    assert status.returncode == expected
 
 
 def format_test_data(data: list) -> list:
