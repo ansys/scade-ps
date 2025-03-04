@@ -22,37 +22,33 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Rename unused files."""
+"""
+Test suite for rename_unused.py.
 
-import argparse
+Test strategy:
 
-from ansys.scade.apitools import declare_project
+Run the tool on a directory and check the list of renamed files.
+"""
 
-# isort: split
-# must be imported after ansys.scade.apitools
-from .rename_unused import main as rename_unused_main, tool
+import pytest
 
-
-def main():
-    """Implement ``ansys.scade.ps.rename_unused.__main__:main`` packages's script."""
-    parser = argparse.ArgumentParser(description=tool)
-    parser.add_argument(
-        '-p',
-        '--projects',
-        metavar='<project>',
-        help='SCADE Suite projects',
-        nargs='+',
-        required=True,
-    )
-    options = parser.parse_args()
-
-    assert declare_project
-    for project in options.projects:
-        declare_project(project)
-    code = rename_unused_main()
-    exit(code)
+from conftest import get_resources_dir, load_tmp_project, run_tool
 
 
-if __name__ == '__main__':
-    # run with python.exe -m ansys.scade.ps.default_notes
-    main()
+@pytest.mark.parametrize('base', ['Nominal'])
+def test_rename_unused_nominal(base, local_tmpdir):
+    base_dir = get_resources_dir() / 'resources' / 'RenameUnused' / base
+    source = base_dir / 'model' / (base + '.etp')
+    target_dir = local_tmpdir / 'test_rename_unused_nominal' / base
+    project = load_tmp_project(source, target_dir)
+    # options
+    ref = base_dir / 'ref'
+    args = ['-p', project.pathname]
+    status = run_tool('ansys.scade.ps.rename_unused', args, ref, target_dir)
+    assert status.returncode == 0
+
+
+def test_rename_unused_robustness():
+    args = []
+    status = run_tool('ansys_scade_ps_rename_unused.exe', args)
+    assert status.returncode == 2

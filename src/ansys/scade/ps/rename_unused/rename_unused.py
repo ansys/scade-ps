@@ -39,7 +39,7 @@ class RenameUnused:
         # cache files
         file_refs = [Path(_.pathname) for _ in project.file_refs]
         scade_files = {_ for _ in file_refs if _.suffix.lower() in ['.scade', '.xscade']}
-        dir = Path(project.pathname).parent
+        dir = Path(project.pathname).parent.absolute()
         # model files
         for pattern in ['*.scade', '*.xscade']:
             for file in dir.glob(pattern):
@@ -56,7 +56,7 @@ class RenameUnused:
     def rename(self, file: Path):
         """Suffix the file name with ``.toremove``."""
         print(f'renaming {file.name}')
-        file.rename(file.with_name(file.name + '.toremove)'))
+        file.rename(file.with_name(file.name + '.toremove'))
 
 
 def main() -> int:
