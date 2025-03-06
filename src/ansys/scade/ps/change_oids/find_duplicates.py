@@ -100,12 +100,8 @@ class FindDuplicates:
         """
         if isinstance(object_, suite.TreeDiagram):
             path = object_.owner.get_full_path() + f'<{object_.block_kind}>'
-        elif isinstance(object_, suite.Diagram):
-            path = object_.owner.get_full_path() + object_.name
-        elif isinstance(object_, suite.EquationSet):
-            path = self.get_path(object_.owner) + '/' + object_.name
         elif isinstance(object_, suite.CompositeElement):
-            return object_.owner.get_full_path() + object_.name
+            return object_.owner.get_full_path() + f'<{object_.name}>'
         else:
             path = object_.get_full_path()
 

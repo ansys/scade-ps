@@ -15,11 +15,11 @@
 						<ConstValue value="false"/>
 					</value>
 					<pragmas>
-						<ed:Constant oid="!ed/af/6461/600C/67c802a44782" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+						<ed:Constant oid="{C12}" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
 							<comment>Present in P1 and P2, deleted from P3</comment>
 						</ed:Constant>
 						<kcg:Pragma>
-							doc &quot;Remark_1&quot; {Description = &quot;Present in P1 and P2, deleted from P3&quot;}
+							doc &quot;Remark_1&quot; {{Description = &quot;Present in P1 and P2, deleted from P3&quot;}}
 						</kcg:Pragma>
 					</pragmas>
 				</Constant>
@@ -35,11 +35,11 @@
 						<ConstValue value="false"/>
 					</value>
 					<pragmas>
-						<ed:Constant oid="!ed/c1/6461/600C/67c802b54ee5" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+						<ed:Constant oid="{C23}" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
 							<comment>Present in P2 and P3, deleted from P1</comment>
 						</ed:Constant>
 						<kcg:Pragma>
-							doc &quot;Remark_1&quot; {Description = &quot;Present in P2 and P3, deleted from P1&quot;}
+							doc &quot;Remark_1&quot; {{Description = &quot;Present in P2 and P3, deleted from P1&quot;}}
 						</kcg:Pragma>
 					</pragmas>
 				</Constant>
@@ -56,14 +56,14 @@
 										</NamedType>
 									</type>
 									<pragmas>
-										<ed:Field oid="!ed/34/6103/7324/67c855207904"/>
+										<ed:Field oid="{label}"/>
 									</pragmas>
 								</Field>
 							</fields>
 						</Struct>
 					</definition>
 					<pragmas>
-						<ed:Type oid="!ed/33/6103/7324/67c855162f6d"/>
+						<ed:Type oid="{Struct}"/>
 					</pragmas>
 				</Type>
 				<Type name="Enum">
@@ -72,28 +72,28 @@
 							<values>
 								<Value name="V1">
 									<pragmas>
-										<ed:Value oid="!ed/b5/6103/7324/67c857fe8f3"/>
+										<ed:Value oid="{V1}"/>
 									</pragmas>
 								</Value>
 							</values>
 						</Enum>
 					</definition>
 					<pragmas>
-						<ed:Type oid="!ed/ac/6103/7324/67c857ec1e21"/>
+						<ed:Type oid="{Enum}"/>
 					</pragmas>
 				</Type>
 			</declarations>
 			<pragmas>
-				<ed:Package oid="!ed/ab/6461/600C/67c802957b40" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+				<ed:Package oid="{P}" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
 					<comment>Present in P1, P2, and P3</comment>
 					<diagrams>
-						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/ac/6461/600C/67c8029578ce" blockKind="constants"/>
-						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/ad/6461/600C/67c802954173" blockKind="types"/>
-						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/ae/6461/600C/67c802955bc5" blockKind="sensors"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="{CONSTANTS}" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="{TYPES}" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="{SENSORS}" blockKind="sensors"/>
 					</diagrams>
 				</ed:Package>
 				<kcg:Pragma>
-					doc &quot;Remark_1&quot; {Description = &quot;Present in P1, P2, and P3&quot;}
+					doc &quot;Remark_1&quot; {{Description = &quot;Present in P1, P2, and P3&quot;}}
 				</kcg:Pragma>
 			</pragmas>
 		</Package>

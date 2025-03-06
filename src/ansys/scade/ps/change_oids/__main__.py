@@ -71,13 +71,10 @@ def main():
     change_parser.add_argument(
         '-f', '--file', metavar='<input file>', help='input file', required=True
     )
-    change_parser.add_argument('-l', '--log', metavar='<log file>', help='log file', default='')
     change_parser.add_argument(
         '-m', '--map', metavar='<output map file>', help='output map file', required=True
     )
-    change_parser.add_argument(
-        '-t', '--traceabiity', help='update traceability', action='store_true'
-    )
+    change_parser.add_argument('-l', '--log', metavar='<log file>', help='log file', default='')
     change_parser.set_defaults(cmd='change')
 
     options = parser.parse_args()
@@ -90,7 +87,7 @@ def main():
     else:
         assert options.cmd == 'change'
         declare_project(options.project)
-        code = new_oids_main(options.file, options.log, options.map, options.traceability)
+        code = new_oids_main(options.file, options.map, options.log)
     exit(code)
 
 

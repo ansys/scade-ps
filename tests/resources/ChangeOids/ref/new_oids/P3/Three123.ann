@@ -1,0 +1,27 @@
+Notes-Types {{ Esterel-Technologies }}  DEFINITIONS ::=
+BEGIN
+    Remark ::= SEQUENCE OF {{ SEQUENCE {{
+    annot_object OID,
+    name STRING,
+        information {{
+            Description TEXT
+            {{
+            	 NT_FIELD_HEIGHT 20 ,
+            	 NT_FIELD_WIDTH 60 }},
+            to_c BOOLEAN
+            {{
+            	 NT_DEFAULT_VALUE T ,
+            	 NT_PRINTABLE F ,
+            	 NT_LEFT_LABEL "Propagate to generated code" }}
+    }} }} }}
+
+END
+
+Notes-Values {{ Esterel-Technologies }}  DEFINITIONS ::=
+BEGIN
+    Remark ::= {{
+        {{"{P}", "Remark_1","Present in P1, P2, and P3" , T }},
+        {{"{C13}", "Remark_1","Present in P1 and P3, deleted from P2" , T }},
+        {{"{C23}", "Remark_1","Present in P2 and P3, deleted from P1" , T }}}}
+END
+

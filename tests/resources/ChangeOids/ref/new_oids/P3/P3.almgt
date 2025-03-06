@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<traceability version="1.3">
+  <object id="!ed/ab/6461/600C/67c802957b40">
+    <requirement id="P3_REQ_003" traceType="REMOVE_LINK"/>
+    <requirement id="P3_REQ_001" traceType="REMOVE_LINK"/>
+  </object>
+  <object id="!ed/c1/6461/600C/67c802b54ee5">
+    <requirement id="P3_REQ_001" traceType="REMOVE_LINK"/>
+  </object>
+  <object id="{P}">
+    <requirement id="P3_REQ_001" traceType="ADD_LINK"/>
+    <requirement id="P3_REQ_002" traceType="ADD_LINK"/>
+  </object>
+  <object id="{C13}">
+    <requirement id="P3_REQ_001" traceType="ADD_LINK"/>
+  </object>
+</traceability>

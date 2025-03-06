@@ -1,0 +1,28 @@
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    Remark ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Description TEXT
+            {
+            	 NT_FIELD_HEIGHT 20 ,
+            	 NT_FIELD_WIDTH 60 },
+            to_c BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T ,
+            	 NT_PRINTABLE F ,
+            	 NT_LEFT_LABEL "Propagate to generated code" }
+    } } }
+
+END
+
+Notes-Values { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    Remark ::= {
+        {"!ed/ab/6461/600C/67c802957b40", "Remark_1","Present in P1, P2, and P3" , T },
+        {"!ed/af/6461/600C/67c802a44782", "Remark_1","Present in P1 and P2, deleted from P3" , T },
+        {"!ed/b8/6461/600C/67c802ab52e2", "Remark_1","Present in P1 and P3, deleted from P2" , T },
+        {"!ed/c1/6461/600C/67c802b54ee5", "Remark_1","Present in P2 and P3, deleted from P1" , T }}
+END
+

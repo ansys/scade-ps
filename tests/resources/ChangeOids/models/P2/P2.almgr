@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scade_req:ReqProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scade_req="http://www.ansys.com/scade/lifecycle/almgateway/scade_req/3" id="_QaePwPp2Ee-IG8eaeQYuMg" name="" identifier="">
+  <documents xsi:type="scade_req:Specification" id="_QaePwfp2Ee-IG8eaeQYuMg" name="Reqs.docx" identifier="D:/AnsysDev/Nobackup/PyAnsys/power-scripts/tests/resources/ChangeOids/models/P2/Reqs.docx">
+    <children xsi:type="scade_req:TraceableElementRef" id="_QaePwvp2Ee-IG8eaeQYuMg" traceableElement="_QaePzfp2Ee-IG8eaeQYuMg"/>
+    <children xsi:type="scade_req:TraceableElementRef" id="_QaePw_p2Ee-IG8eaeQYuMg" traceableElement="_QaePzvp2Ee-IG8eaeQYuMg"/>
+    <children xsi:type="scade_req:TraceableElementRef" id="_QaePxPp2Ee-IG8eaeQYuMg" traceableElement="_QaePz_p2Ee-IG8eaeQYuMg"/>
+  </documents>
+  <documents xsi:type="scade_req:ScadeDocument" id="_QaePxfp2Ee-IG8eaeQYuMg" location="">
+    <children xsi:type="scade_req:TraceableElementRef" id="_QaePxvp2Ee-IG8eaeQYuMg" traceableElement="_QaeP0Pp2Ee-IG8eaeQYuMg"/>
+    <children xsi:type="scade_req:TraceableElementRef" id="_QaePx_p2Ee-IG8eaeQYuMg" traceableElement="_QaeP0fp2Ee-IG8eaeQYuMg"/>
+    <children xsi:type="scade_req:TraceableElementRef" id="_QaePyPp2Ee-IG8eaeQYuMg" traceableElement="_QaeP0vp2Ee-IG8eaeQYuMg"/>
+  </documents>
+  <traceabilityLinks id="_QaePyfp2Ee-IG8eaeQYuMg" type="Covering:trace" writable="true" source="_QaeP0Pp2Ee-IG8eaeQYuMg" target="_QaePzfp2Ee-IG8eaeQYuMg"/>
+  <traceabilityLinks id="_QaePyvp2Ee-IG8eaeQYuMg" type="Covering:trace" writable="true" source="_QaeP0Pp2Ee-IG8eaeQYuMg" target="_QaePz_p2Ee-IG8eaeQYuMg"/>
+  <traceabilityLinks id="_QaePy_p2Ee-IG8eaeQYuMg" type="Covering:trace" writable="true" source="_QaeP0fp2Ee-IG8eaeQYuMg" target="_QaePzfp2Ee-IG8eaeQYuMg"/>
+  <traceabilityLinks id="_QaePzPp2Ee-IG8eaeQYuMg" type="Covering:trace" writable="true" source="_QaeP0vp2Ee-IG8eaeQYuMg" target="_QaePzfp2Ee-IG8eaeQYuMg"/>
+  <traceableElements id="_QaePzfp2Ee-IG8eaeQYuMg" name="" identifier="P2_REQ_001" description="Linked requirement."/>
+  <traceableElements id="_QaePzvp2Ee-IG8eaeQYuMg" name="" identifier="P2_REQ_002" description="Requirement to link."/>
+  <traceableElements id="_QaePz_p2Ee-IG8eaeQYuMg" name="" identifier="P2_REQ_003" description="Requirement to unlink."/>
+  <traceableElements id="_QaeP0Pp2Ee-IG8eaeQYuMg" identifier="!ed/ab/6461/600C/67c802957b40"/>
+  <traceableElements id="_QaeP0fp2Ee-IG8eaeQYuMg" identifier="!ed/af/6461/600C/67c802a44782"/>
+  <traceableElements id="_QaeP0vp2Ee-IG8eaeQYuMg" identifier="!ed/c1/6461/600C/67c802b54ee5"/>
+</scade_req:ReqProject>

@@ -24,13 +24,17 @@
 
 """Test suite for change_oids.py."""
 
+import json
+from os.path import relpath
+from pathlib import Path
+
 import pytest
 
-from conftest import get_resources_dir, run_tool
+from conftest import cmp_file, get_resources_dir, load_tmp_project, run_tool
 
 
 @pytest.mark.parametrize('dump_paths', [False, True])
-def test_find_duplicates_nominal(dump_paths, local_tmpdir):
+def test_find_duplicates_nominal(dump_paths):
     base_dir = get_resources_dir() / 'resources' / 'ChangeOids'
     models_dir = base_dir / 'models'
     projects = [models_dir / _ / (_ + '.etp') for _ in ['P1', 'P2', 'P3']]
@@ -42,6 +46,66 @@ def test_find_duplicates_nominal(dump_paths, local_tmpdir):
     else:
         ref = base_dir / 'ref' / 'find_duplicates' / 'oids'
     status = run_tool('ansys.scade.ps.change_oids', args, ref, models_dir)
+    assert status.returncode == 0
+
+
+@pytest.mark.parametrize(
+    'base, suffix, use_abs_oids',
+    [
+        ('P1', '.testoids.txt', False),
+        ('P2', '.testpaths.txt', True),
+        ('P3', '.testoids.txt', True),
+    ],
+)
+def test_new_oids_nominal(base: str, suffix: str, use_abs_oids: bool, local_tmpdir):
+    base_dir = get_resources_dir() / 'resources' / 'ChangeOids'
+    path_src = base_dir / 'models' / base / f'{base}.etp'
+    target_dir = local_tmpdir / 'test_change_oids' / base
+    dst = load_tmp_project(path_src, target_dir)
+    ref_dir = base_dir / 'ref' / 'new_oids' / base
+
+    path_dst = Path(dst.pathname)
+    file = path_dst.with_suffix(suffix)
+    map_file = target_dir / 'map_file.json'
+    args = ['new', '-p', dst.pathname, '-f', file, '-m', map_file]
+    if use_abs_oids:
+        # strategy: produce a copy of reference files using lexical
+        # substitutions and compare with those produced by the test
+
+        # run the tool without comparing the directories
+        status = run_tool('ansys.scade.ps.change_oids', args)
+        # read the dictionary of oid abstractions
+        abs_oids = json.load((target_dir / 'map_abs_oids.json').open('r'))
+        # update it with respect to the mapping
+        substs = json.load(map_file.open('r'))
+        map_old_new = {_['old_oid']: _['new_oid'] for _ in substs}
+        # map for text substitutions
+        map_oids = {k: map_old_new.get(v, '<unknown>') for k, v in abs_oids.items()}
+        # hereafter, inlining of conftest.diff_directories
+        failure = False
+        for reference in (ref_dir).glob('**/*'):
+            if reference.is_dir():
+                continue
+            base = relpath(reference, ref_dir)
+            target = target_dir / base
+            ref_target = target.with_name(f'ref_{target.name}')
+            print('compare', str(ref_target), str(target))
+            # replace abstractions with new oids from a map
+            text = reference.read_text().format(**map_oids)
+            # and store the instantiated reference in the target directory
+            ref_target.write_text(text)
+            # usual comparison
+            try:
+                diff = cmp_file(ref_target, target, n=0)
+            except BaseException as e:
+                diff = [str(e)]
+            for line in diff:
+                print(line, end='')
+                failure = True
+        assert not failure
+    else:
+        # regular process
+        status = run_tool('ansys.scade.ps.change_oids', args, ref_dir, target_dir)
     assert status.returncode == 0
 
 
