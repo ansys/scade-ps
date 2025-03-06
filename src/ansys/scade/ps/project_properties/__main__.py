@@ -31,8 +31,8 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from .copy_properties import main as copy_properties_main
-from .create_template import main as create_template_main
+from ansys.scade.ps.project_properties.copy_properties import main as copy_properties_main
+from ansys.scade.ps.project_properties.create_template import main as create_template_main
 
 tool = 'Ansys SCADE Power Scripts: Access to SCADE project properties'
 

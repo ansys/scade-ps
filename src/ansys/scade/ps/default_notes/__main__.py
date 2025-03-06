@@ -30,7 +30,7 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from .default_notes import main as default_notes_main, tool
+from ansys.scade.ps.default_notes.default_notes import main as default_notes_main, tool
 
 
 def main():

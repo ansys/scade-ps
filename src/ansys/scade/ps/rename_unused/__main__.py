@@ -30,7 +30,7 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from .rename_unused import main as rename_unused_main, tool
+from ansys.scade.ps.rename_unused.rename_unused import main as rename_unused_main, tool
 
 
 def main():

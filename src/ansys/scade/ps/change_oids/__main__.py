@@ -30,8 +30,8 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from .find_duplicates import main as find_duplicates_main
-from .new_oids import main as new_oids_main
+from ansys.scade.ps.change_oids.find_duplicates import main as find_duplicates_main
+from ansys.scade.ps.change_oids.new_oids import main as new_oids_main
 
 tool = 'Ansys SCADE Power Scripts: Change duplicate oids'
 
