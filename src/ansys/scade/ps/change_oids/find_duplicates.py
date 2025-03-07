@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Change duplicate oids."""
+"""Ansys SCADE Power Scripts: Change duplicate OIDs."""
 
 from pathlib import Path
 from typing import List, Set
@@ -33,7 +33,7 @@ from scade.model.suite.visitors import Visit
 
 
 class CacheOids(Visit):
-    """Visitor to cache the duplicated oids."""
+    """Visitor to cache the duplicated OIDs."""
 
     def __init__(self, oids: Set[str], model: suite.Model):
         # global set of oids
@@ -57,7 +57,7 @@ class CacheOids(Visit):
 
 
 class FindDuplicates:
-    """Find duplicate oids for a set of SCADE Suite models."""
+    """Find duplicate OIDs for a set of SCADE Suite models."""
 
     def __init__(self, extension: str, dump_paths: bool):
         # options

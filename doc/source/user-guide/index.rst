@@ -33,6 +33,12 @@ This section provides additional information on each of the available tools.
 
       Learn how to find identify files that are not referenced by a project.
 
+   .. grid-item-card:: :octicon:`duplicate;1.25em` Change OIDs
+      :link: change-oids/index
+      :link-type: doc
+
+      Learn how to find duplicated OIDs and update them.
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -41,3 +47,4 @@ This section provides additional information on each of the available tools.
    default-notes
    project-properties/index
    rename-unused
+   change-oids/index

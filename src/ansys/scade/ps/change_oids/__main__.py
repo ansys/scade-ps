@@ -33,16 +33,16 @@ from ansys.scade.apitools import declare_project
 from ansys.scade.ps.change_oids.find_duplicates import main as find_duplicates_main
 from ansys.scade.ps.change_oids.new_oids import main as new_oids_main
 
-tool = 'Ansys SCADE Power Scripts: Change duplicate oids'
+tool = 'Ansys SCADE Power Scripts: Change duplicate OIDs'
 
 
 def main():
     """Implement ``ansys.scade.ps.change_oids.__main__:main`` packages's script."""
     parser = argparse.ArgumentParser(description=tool)
-    subparsers = parser.add_subparsers(help='project properties sub-commands')
+    subparsers = parser.add_subparsers(help='change_oids sub-commands')
 
     # find
-    find_parser = subparsers.add_parser('find', help='Find duplicate oids')
+    find_parser = subparsers.add_parser('find', help='Find duplicate OIDs')
     find_parser.add_argument(
         '-p',
         '--projects',
@@ -64,7 +64,7 @@ def main():
     find_parser.set_defaults(cmd='find')
 
     # change
-    change_parser = subparsers.add_parser('new', help='Create new oids')
+    change_parser = subparsers.add_parser('new', help='Create new OIDs')
     change_parser.add_argument(
         '-p', '--project', metavar='<project>', help='SCADE Suite project', required=True
     )

@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Update traceability with respect to new oids."""
+"""Ansys SCADE Power Scripts: Update traceability with respect to new OIDs."""
 
 from pathlib import Path
 from typing import Dict, List

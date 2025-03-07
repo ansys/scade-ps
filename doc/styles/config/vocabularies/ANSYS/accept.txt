@@ -2,9 +2,8 @@
 Ansys SCADE Power Scripts
 (?i)scade
 (?i)obfuscator
-endblock
-endif
-endfor
+(?i)oid
+(?i)oids
 fullname
 isort
 pytest

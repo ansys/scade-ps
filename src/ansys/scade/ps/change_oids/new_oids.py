@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Change duplicate oids."""
+"""Ansys SCADE Power Scripts: Change duplicate OIDs."""
 
 import json
 from pathlib import Path
@@ -55,7 +55,7 @@ class _Logger:
 
 
 class NewOids(Visit):
-    """Ansys SCADE Power Scripts: Change duplicate oids."""
+    """Ansys SCADE Power Scripts: Change duplicate OIDs."""
 
     def __init__(self, file: str, map: str, log: str):
         self.file = Path(file)
