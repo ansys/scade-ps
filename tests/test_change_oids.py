@@ -1,0 +1,123 @@
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2025 ANSYS, Inc. and/or its affiliates.
+# SPDX-License-Identifier: MIT
+#
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+"""Test suite for change_oids.py."""
+
+import json
+from os.path import relpath
+from pathlib import Path
+
+import pytest
+
+from conftest import cmp_file, get_resources_dir, load_tmp_project, run_tool
+
+
+@pytest.mark.parametrize('dump_paths', [False, True])
+def test_find_duplicates_nominal(dump_paths):
+    base_dir = get_resources_dir() / 'resources' / 'ChangeOids'
+    models_dir = base_dir / 'models'
+    projects = [models_dir / _ / (_ + '.etp') for _ in ['P1', 'P2', 'P3']]
+
+    args = ['find', '-p'] + [str(_) for _ in projects]
+    if dump_paths:
+        args.extend(['-d', '-x', '.duppaths.txt'])
+        ref = base_dir / 'ref' / 'find_duplicates' / 'paths'
+    else:
+        ref = base_dir / 'ref' / 'find_duplicates' / 'oids'
+    status = run_tool('ansys.scade.ps.change_oids', args, ref, models_dir)
+    assert status.returncode == 0
+
+
+@pytest.mark.parametrize(
+    'base, suffix, use_abs_oids',
+    [
+        ('P1', '.testoids.txt', False),
+        ('P2', '.testpaths.txt', True),
+        ('P3', '.testoids.txt', True),
+    ],
+)
+def test_new_oids_nominal(base: str, suffix: str, use_abs_oids: bool, local_tmpdir):
+    base_dir = get_resources_dir() / 'resources' / 'ChangeOids'
+    path_src = base_dir / 'models' / base / f'{base}.etp'
+    target_dir = local_tmpdir / 'test_change_oids' / base
+    dst = load_tmp_project(path_src, target_dir)
+    ref_dir = base_dir / 'ref' / 'new_oids' / base
+
+    path_dst = Path(dst.pathname)
+    file = path_dst.with_suffix(suffix)
+    map_file = target_dir / 'map_file.json'
+    args = ['new', '-p', dst.pathname, '-f', file, '-m', map_file]
+    if use_abs_oids:
+        # strategy: produce a copy of reference files using lexical
+        # substitutions and compare with those produced by the test
+
+        # run the tool without comparing the directories
+        status = run_tool('ansys.scade.ps.change_oids', args)
+        # read the dictionary of oid abstractions
+        abs_oids = json.load((target_dir / 'map_abs_oids.json').open('r'))
+        # update it with respect to the mapping
+        substs = json.load(map_file.open('r'))
+        map_old_new = {_['old_oid']: _['new_oid'] for _ in substs}
+        # map for text substitutions
+        map_oids = {k: map_old_new.get(v, '<unknown>') for k, v in abs_oids.items()}
+        # hereafter, inlining of conftest.diff_directories
+        failure = False
+        for reference in (ref_dir).glob('**/*'):
+            if reference.is_dir():
+                continue
+            base = relpath(reference, ref_dir)
+            target = target_dir / base
+            ref_target = target.with_name(f'ref_{target.name}')
+            print('compare', str(ref_target), str(target))
+            # replace abstractions with new oids from a map
+            text = reference.read_text().format(**map_oids)
+            # and store the instantiated reference in the target directory
+            ref_target.write_text(text)
+            # usual comparison
+            try:
+                diff = cmp_file(ref_target, target, n=0)
+            except BaseException as e:
+                diff = [str(e)]
+            for line in diff:
+                print(line, end='')
+                failure = True
+        assert not failure
+    else:
+        # regular process
+        status = run_tool('ansys.scade.ps.change_oids', args, ref_dir, target_dir)
+    assert status.returncode == 0
+
+
+def test_change_oids_robustness():
+    """
+    Run the module with an unknown command.
+
+    Use the executable to complete the coverage of __main__.py.
+    """
+    base_dir = get_resources_dir() / 'resources' / 'ChangeOids'
+    path_src = base_dir / 'models' / 'P1' / 'P1.etp'
+
+    args = ['-p', str(path_src), 'unknown']
+    status = run_tool('ansys_scade_ps_change_oids.exe', args, None, None)
+    assert status.returncode == 2

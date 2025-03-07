@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scade_req:ReqProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scade_req="http://www.ansys.com/scade/lifecycle/almgateway/scade_req/3" id="_Pa2NsPqVEe-IG8eaeQYuMg" name="" identifier="">
+  <documents xsi:type="scade_req:Specification" id="_Pa2NsfqVEe-IG8eaeQYuMg" name="Reqs.docx" identifier="D:/AnsysDev/Nobackup/PyAnsys/power-scripts/tests/resources/ChangeOids/models/P3/Reqs.docx">
+    <children xsi:type="scade_req:TraceableElementRef" id="_Pa2NsvqVEe-IG8eaeQYuMg" traceableElement="_Pa2Nu_qVEe-IG8eaeQYuMg"/>
+    <children xsi:type="scade_req:TraceableElementRef" id="_Pa2Ns_qVEe-IG8eaeQYuMg" traceableElement="_Pa2NvPqVEe-IG8eaeQYuMg"/>
+    <children xsi:type="scade_req:TraceableElementRef" id="_Pa2NtPqVEe-IG8eaeQYuMg" traceableElement="_Pa2NvfqVEe-IG8eaeQYuMg"/>
+  </documents>
+  <documents xsi:type="scade_req:ScadeDocument" id="_Pa2NtfqVEe-IG8eaeQYuMg" location="">
+    <children xsi:type="scade_req:TraceableElementRef" id="_Pa2NtvqVEe-IG8eaeQYuMg" traceableElement="_Pa2NvvqVEe-IG8eaeQYuMg"/>
+    <children xsi:type="scade_req:TraceableElementRef" id="_Pa2Nt_qVEe-IG8eaeQYuMg" traceableElement="_Pa2Nv_qVEe-IG8eaeQYuMg"/>
+  </documents>
+  <traceabilityLinks id="_Pa2NuPqVEe-IG8eaeQYuMg" type="Covering:trace" writable="true" source="_Pa2NvvqVEe-IG8eaeQYuMg" target="_Pa2NvfqVEe-IG8eaeQYuMg"/>
+  <traceabilityLinks id="_Pa2NufqVEe-IG8eaeQYuMg" type="Covering:trace" writable="true" source="_Pa2NvvqVEe-IG8eaeQYuMg" target="_Pa2Nu_qVEe-IG8eaeQYuMg"/>
+  <traceabilityLinks id="_Pa2NuvqVEe-IG8eaeQYuMg" type="Covering:trace" writable="true" source="_Pa2Nv_qVEe-IG8eaeQYuMg" target="_Pa2Nu_qVEe-IG8eaeQYuMg"/>
+  <traceableElements id="_Pa2Nu_qVEe-IG8eaeQYuMg" name="" identifier="P3_REQ_001" description="Linked requirement."/>
+  <traceableElements id="_Pa2NvPqVEe-IG8eaeQYuMg" name="" identifier="P3_REQ_002" description="Requirement to link."/>
+  <traceableElements id="_Pa2NvfqVEe-IG8eaeQYuMg" name="" identifier="P3_REQ_003" description="Requirement to unlink."/>
+  <traceableElements id="_Pa2NvvqVEe-IG8eaeQYuMg" identifier="!ed/ab/6461/600C/67c802957b40"/>
+  <traceableElements id="_Pa2Nv_qVEe-IG8eaeQYuMg" identifier="!ed/c1/6461/600C/67c802b54ee5"/>
+</scade_req:ReqProject>

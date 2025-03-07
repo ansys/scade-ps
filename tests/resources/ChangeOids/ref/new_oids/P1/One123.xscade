@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Package name="One123">
+			<declarations>
+				<Constant name="A12">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="false"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/af/6461/600C/67c802a44782" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+							<comment>Present in P1 and P2, deleted from P3</comment>
+						</ed:Constant>
+						<kcg:Pragma>
+							doc &quot;Remark_1&quot; {Description = &quot;Present in P1 and P2, deleted from P3&quot;}
+						</kcg:Pragma>
+					</pragmas>
+				</Constant>
+				<Constant name="A13">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="false"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/b8/6461/600C/67c802ab52e2" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+							<comment>Present in P1 and P3, deleted from P2</comment>
+						</ed:Constant>
+						<kcg:Pragma>
+							doc &quot;Remark_1&quot; {Description = &quot;Present in P1 and P3, deleted from P2&quot;}
+						</kcg:Pragma>
+					</pragmas>
+				</Constant>
+				<Constant name="A23">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="false"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/c1/6461/600C/67c802b54ee5" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+							<comment>Present in P2 and P3, deleted from P1</comment>
+						</ed:Constant>
+						<kcg:Pragma>
+							doc &quot;Remark_1&quot; {Description = &quot;Present in P2 and P3, deleted from P1&quot;}
+						</kcg:Pragma>
+					</pragmas>
+				</Constant>
+				<Type name="Struct">
+					<definition>
+						<Struct>
+							<fields>
+								<Field name="label">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/34/6103/7324/67c855207904"/>
+									</pragmas>
+								</Field>
+							</fields>
+						</Struct>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/33/6103/7324/67c855162f6d"/>
+					</pragmas>
+				</Type>
+				<Type name="Enum">
+					<definition>
+						<Enum>
+							<values>
+								<Value name="V1">
+									<pragmas>
+										<ed:Value oid="!ed/b5/6103/7324/67c857fe8f3"/>
+									</pragmas>
+								</Value>
+							</values>
+						</Enum>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/ac/6103/7324/67c857ec1e21"/>
+					</pragmas>
+				</Type>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/ab/6461/600C/67c802957b40" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<comment>Present in P1, P2, and P3</comment>
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/ac/6461/600C/67c8029578ce" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/ad/6461/600C/67c802954173" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/ae/6461/600C/67c802955bc5" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+				<kcg:Pragma>
+					doc &quot;Remark_1&quot; {Description = &quot;Present in P1, P2, and P3&quot;}
+				</kcg:Pragma>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

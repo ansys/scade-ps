@@ -30,7 +30,7 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from .obfuscator import main as obfuscator_main, tool
+from ansys.scade.ps.obfuscator.obfuscator import main as obfuscator_main, tool
 
 
 def main():
