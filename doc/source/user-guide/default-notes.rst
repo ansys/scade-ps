@@ -1,6 +1,23 @@
 Default notes
 #############
 
+Rationale
+=========
+
+SCADE Suite supports the creation of notes on model elements. Notes are structured data that supplement
+the model. THey may sometimes even be propagated to generated code.
+
+The policy for creating notes is governed by a configuration file (``.aty``). This file may include
+instructions to automatically create default notes whenever new model elements are created.
+
+If this policy is defined / modified for an already-existing project, it won't be retroactively
+applied to already-existing model elements. The purpose of this tool is to ensure default notes are
+created for all existing model elements.
+
+For more information on notes and ATY files, please refer to *Annotation Type Files* in section 1 of
+the *SCADE Suite Technical Manual - Editor*, available
+on `Ansys Help <https://ansyshelp.ansys.com/public/account/secured?returnurl=/Views/Secured/prod_page.html?pn=SCADE&pid=SCADE&lang=en>`_.
+
 Description
 ===========
 
@@ -11,9 +28,6 @@ specified for a project to create the missing default notes for the model elemen
 
 * Default notes are identified by the property ``default_note_boolean``
 * The cardinality properties ``min_card`` and ``max_card`` are ignored.
-
-Refer to *Annotation Type Files (ATY)* in section 1 of the *SCADE Suite Technical Manual - Editor*
-in the SCADE Suite documentation for a complete reference on annotation type files.
 
 Usage
 =====
