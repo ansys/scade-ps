@@ -1,10 +1,22 @@
 Project properties
 ##################
 
+Rationale
+=========
+
+Some software projects may be composed of dozens of interconnected SCADE models.
+Maintaining a consistent set of settings across all projects is important, to
+ensure homogeneous code generation parameters or modeling rules.
+
+However, performing this maintenance by hand can be cumbersome.
+
 Description
 ===========
 
-This tool has several sub-commands described in the following sections.
+This tool has several sub-commands described in the following sections. They
+allow a user to initiate, from a reference SCADE project, a list of properties
+and their default values, and to then propagate said default properties to other
+SCADE projects.
 
 Usage
 =====
