@@ -1,13 +1,26 @@
 Obfuscator
 ##########
 
+Rationale
+=========
+
+SCADE Suite models sometimes need to be shared with partners. Example use cases include developing
+operator libraries for a higher-level model, or trying to reproduce a specific behavior using two
+connected models developed by different teams at different companies.
+
+The model being shared may sometimes contain sensitive intellectual property. Obfuscation is often
+seen as an acceptable compromise to protect this IP while still sharing the model.
+
+This tool fills this need, preserving model functionality but making its insides hard to read
+by a human.
+
 Description
 ===========
 
 This tool obfuscates a SCADE Suite model and its libraries.
 
-* All the names are obfuscated
-* The files are renamed, and the old ones are deleted
+* All names are obfuscated
+* Files are renamed and the old ones are deleted
 * The script produces traceability matrices for both objects and file names
 
 .. Note::
