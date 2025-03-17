@@ -8,9 +8,8 @@ SCADE Suite supports the creation of notes on model elements. Notes are structur
 the model. They may sometimes be propagated to generated code.
 
 The policy for creating notes is governed by a ``.aty`` configuration file. This file may include
-instructions to automatically create default notes whenever new model elements are created.
-
-If this policy is defined / modified for an already-existing project, SCADE does not retroactively
+instructions to automatically create default notes whenever new model elements are created. However,
+if this policy is defined / modified for an already-existing project, SCADE does not retroactively
 create notes for pre-existing model elements.
 
 .. Note::
@@ -24,11 +23,11 @@ Description
 
 This tool creates default notes for a SCADE Suite model.
 
-It considers the annotability rules of the annotation type files (ATY)
-specified for a project to create the missing default notes for the model elements.
+It considers the annotability rules of the annotation type files (``.aty``)
+specified for a project to create the missing default notes for model elements.
 
 * Default notes are identified by the property ``default_note_boolean``
-* The cardinality properties ``min_card`` and ``max_card`` are ignored.
+* The cardinality properties ``min_card`` and ``max_card`` are ignored
 
 Usage
 =====
