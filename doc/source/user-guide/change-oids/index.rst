@@ -10,8 +10,8 @@ elements. These OIDs are stored in the project's files.
 In some cases, two SCADE projects that have been initiated by copy/paste, then
 developed independently, may share many overlapping OIDs. Should these projects
 need to be integrated together, this will generate conflicts in the IDE. For
-instance, traceability between requirements and model elements, that relies on
-OIDs, may be unable to unambiguously resolve.
+instance, traceability between requirements and model elements may be unable
+to unambiguously resolve, as it relies on OIDs.
 
 Description
 ===========

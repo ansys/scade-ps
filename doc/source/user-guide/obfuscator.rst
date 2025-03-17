@@ -11,9 +11,6 @@ connected models developed by different teams at different companies.
 The model being shared may sometimes contain sensitive intellectual property. Obfuscation is often
 seen as an acceptable compromise to protect this IP while still sharing the model.
 
-This tool fills this need, preserving model functionality but making its insides hard to read
-by a human.
-
 Description
 ===========
 

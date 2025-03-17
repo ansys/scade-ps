@@ -13,11 +13,13 @@ may reference them. Over time, this means a SCADE project may become encumbered
 with obsolete files.
 
 .. Note::
-Two IDE settings may be used when working with SCADE models:
-* *Tools > Settings > General > Use a creation dialog box*: prompts for an element and
-  file name upon creation of operators and packages.
-* *Tools > Settings > General > Propagate entity name changes to filename*: automatically
-  creates a new file, as required, upon renaming of a model element.
+
+   Two IDE settings may be useful to avoid accumulating obsolete files:
+   
+   - *Tools > Settings > General > Use a creation dialog box*: prompts for an element and
+     file name upon creation of operators and packages.
+   - *Tools > Settings > General > Propagate entity name changes to filename*: automatically
+     creates a new file, as required, upon renaming of a model element.
 
 Description
 ===========
