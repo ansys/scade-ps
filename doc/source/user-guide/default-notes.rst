@@ -15,8 +15,7 @@ create notes for pre-existing model elements.
 .. Note::
 
    For more information on notes and ``.aty`` files, please refer to *Annotation Type Files* in
-   section 1 of the *SCADE Suite Technical Manual - Editor*, available
-   on `Ansys Help <https://ansyshelp.ansys.com/public/account/secured?returnurl=/Views/Secured/prod_page.html?pn=SCADE&pid=SCADE&lang=en>`_.
+   section 1 of the *SCADE Suite Technical Manual - Editor*.
 
 Description
 ===========
