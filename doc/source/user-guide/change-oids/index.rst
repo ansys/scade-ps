@@ -1,6 +1,25 @@
 Change OIDs
 ###########
 
+Rationale
+=========
+
+SCADE uses generated unique identifiers (OIDs) to refer internally to model
+elements. These OIDs are stored in the model's files.
+
+A SCADE project that has been initiated by copying files from an existing one
+contains many duplicated OIDs. Should these projects need to be integrated
+together, conflicts would happen in the integration with external tools that
+rely on OIDs to refer to model elements. For instance, traceability between
+requirements in an external ALM tool and model elements would be unable
+to unambiguously resolve.
+
+.. Note::
+
+   When initiating a project from another one, a best practice is to copy/paste
+   packages and other model elements directly from the SCADE IDE rather than from
+   the file system.
+
 Description
 ===========
 

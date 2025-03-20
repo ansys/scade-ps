@@ -1,6 +1,25 @@
 Rename unused files
 ###################
 
+Rationale
+=========
+
+When renaming model elements, SCADE may sometimes create new files. For instance,
+if the "Filename" property of an operator is modified, SCADE will generate
+a new ``.xscade`` file with the new name for the operator.
+
+SCADE does not remove obsolete files in such cases. Over time, this means a SCADE
+model's directory may become encumbered with obsolete files.
+
+.. Note::
+
+   Two IDE settings are useful to limit obsolete file issues:
+
+   - *Tools > Settings > General > Use a creation dialog box*: prompts for an element and
+     file name upon creation of operators and packages.
+   - *Tools > Settings > General > Propagate entity name changes to filename*: automatically
+     creates a new file, as required, upon renaming of a model element.
+
 Description
 ===========
 
@@ -11,7 +30,7 @@ The unused files are renamed with a suffix ``.toremove``. This allows you to
 double-check the list of unused files, and then delete them easily from the
 command line or the Windows explorer.
 
-This too considers SCADE model files (XSCADE, SCADE) and annotation files (ANN).
+This tool considers SCADE model files (XSCADE, SCADE) and annotation files (ANN).
 
 Usage
 =====

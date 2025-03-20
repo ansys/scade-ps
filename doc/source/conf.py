@@ -95,6 +95,7 @@ linkcheck_ignore = [
     'https://github.com/ansys-internal/scade-ps',
     'https://github.com/ansys-internal/scade-ps/actions/workflows/ci_cd.yml',
     'https://pypi.org/project/ansys-scade-ps',
+    'https://ansyshelp.ansys.com/*',
     # The link below takes a long time to check
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',
