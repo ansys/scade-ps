@@ -43,6 +43,30 @@ Usage
      -p <project> [<project> ...], --projects <project> [<project> ...]
                            SCADE Suite projects
 
+For example:
+
+.. code:: bash
+
+   ansys_scade_ps_default_notes -p MyProject.etp
+
+If you have created new ``Package`` and ``Optional`` note types,
+and have associated them with the following annotability rule:
+
+.. code:: text
+
+   package ::= {
+       {Package T 0 1},
+       {Remark F 0 99},
+       {Design T 1 1},
+       {Optional F 0 1}
+   }
+
+The command outputs traces as follows:
+
+.. code:: text
+
+   creating Package note for Package::
+
 Limitations
 ===========
 

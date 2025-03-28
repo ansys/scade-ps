@@ -239,7 +239,7 @@ class DefaultNotes(Visit):
                         break
                 else:
                     # note not found: create one with default values
-                    print('creating note for', note_type.name)
+                    print(f'creating {note_type.name} note for {annotable.get_full_path()}')
                     self.create_note(annotable, note_type)
                     st = annotable.defined_in
                     # root tree diagrams do not have an associated file
