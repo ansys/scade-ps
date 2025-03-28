@@ -8,8 +8,8 @@ version="0.1.dev0"
 description ="Collection of command-line scripts for SCADE."
 readme="README.rst"
 
-# only 3.7. and 3.10
-requires-python = ">=3.7,!=3.8.*,!=3.9.*,<3.11"
+# only 3.7, 3.10, or >= 3.12
+requires-python = ">=3.7,!=3.8.*,!=3.9.*,!=3.11"
 license = {file = "LICENSE"}
 authors = [{name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"}]
 maintainers = [{name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"}]
@@ -17,13 +17,14 @@ classifiers=[
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
     "Operating System :: Microsoft :: Windows",
 ]
 dependencies=[
     "importlib-metadata >= 1.0; python_version < '3.8'",
     "importlib-metadata >= 4.0; python_version >= '3.8'",
-    "ansys-scade-apitools",
+    "ansys-scade-apitools >= 0.0.5",
     "lxml",
 ]
 keywords=["Scade", "script", "python"]
