@@ -92,23 +92,6 @@ The following ``tox`` commands are provided:
    * ``tox -e doc-html``: Builds the HTML documentation.
    * ``tox -e doc-links``: Checks for broken links in the documentation.
 
-.. tip::
-
-   For convenience (and advanced usage), you can set a ``SCADE_INSTALLATION_DIR`` environment
-   variable pointing to SCADE's installation directory, for example ``C:\Program Files\ANSYS Inc\vXXX\SCADE``.
-   This will allow Tox automatically discover and use the Python interpreters that ship with SCADE in
-   creating virtual environments via ``py310`` and ``py37`` factors. Using this approach, ``tox``
-   commands similar to the following formats can be used:
-
-   * ``tox -e tests-py37``: for running tests without coverage using the Python 3.7 interpreter delivered with SCADE.
-   * ``tox -e tests-coverage-py310``: for running tests with coverage using the Python 3.10 interpreter delivered with SCADE.
-
-   The host python interpreter does not have to be the one delivered with SCADE when using this approach and this
-   behavior is agnostic of the host python version in which tox itself is installed. The important point to note
-   is that Python 3.7 is compatible with SCADE releases prior to 23R2 and Python 3.10 compatibility starts with 23R2. This means
-   that ``py37`` factor should be used when testing with releases prior to 23R2 and ``py310`` factor should be used when testing
-   with releases starting from 23R2.
-
 Use raw testing
 ---------------
 If required, from the command line, you can call style commands like

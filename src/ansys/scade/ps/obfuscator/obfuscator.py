@@ -163,6 +163,11 @@ class _Rename(_FilteredVisit):
 
     def visit_storage_unit(self, storage_unit: suite.StorageUnit, *args):
         """Delete the referenced files and mark them as modified."""
+
+        def with_stem(path: Path, name: str) -> Path:
+            """Implement Path.with_stem for Python 3.7."""
+            return path.with_name(name + path.suffix)
+
         path_sao = Path(storage_unit.sao_file_name)
         new_name = self.get_name(path_sao.stem)
         if path_sao.exists():
@@ -174,14 +179,14 @@ class _Rename(_FilteredVisit):
             # - StorageUnit.save does not save annotation files
             # - Session.save_model2 does not save libraries
             # so rename the annotation files since they are not modified
-            path_ann.rename(path_ann.with_stem(new_name))
+            path_ann.rename(with_stem(path_ann, new_name))
         self.state.units.append(storage_unit)
         # path of the file
-        storage_unit.sao_file_name = str(path_sao.with_stem(new_name))
-        storage_unit.ann_file_name = str(path_ann.with_stem(new_name))
+        storage_unit.sao_file_name = str(with_stem(path_sao, new_name))
+        storage_unit.ann_file_name = str(with_stem(path_ann, new_name))
         # reference of the file
         persist_as = Path(storage_unit.persist_as)
-        new_persist_as = persist_as.with_stem(new_name)
+        new_persist_as = with_stem(persist_as, new_name)
         storage_unit.persist_as = str(new_persist_as)
         # record the name change
         suffix = path_sao.suffix
@@ -252,7 +257,10 @@ class Obfuscator:
                 projects.append((project, path.with_name(new_name)))
         # second pass to save the renamed projects
         for project, path in projects:
-            Path(project.pathname).unlink(missing_ok=True)
+            path_project = Path(project.pathname)
+            if path_project.exists():
+                # missing_ok not available Python 3.7
+                path_project.unlink()
             project.save(str(path))
 
     def dump_traceability(self, f, src: Dict[suite.Object, str], dst: Dict[suite.Object, str]):

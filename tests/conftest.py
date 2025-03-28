@@ -162,7 +162,7 @@ def run_tool(
         cmd = [str(Path(sys.executable).with_name(module))]
     else:
         cmd = [sys.executable, '-m', module]
-    cmd.extend(args)
+    cmd.extend([str(_) for _ in args])
     status = subprocess.run(cmd, capture_output=True)
     if status.stderr:
         for line in status.stderr.splitlines():
