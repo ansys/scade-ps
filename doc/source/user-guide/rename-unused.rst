@@ -46,6 +46,18 @@ Usage
      -p <project> [<project> ...], --projects <project> [<project> ...]
                            SCADE Suite projects
 
+For example:
+
+.. code:: bash
+
+   ansys_scade_ps_rename_unused -p Nominal.etp
+
+This command renames the files not referenced by ``Nominal.etp``.
+
+.. image:: /_static/ruf_file_view.png
+.. image:: /_static/ruf_explorer_view.png
+
+
 Limitations
 ===========
 
