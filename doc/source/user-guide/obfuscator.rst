@@ -49,12 +49,33 @@ Usage
      -s <seed>, --seed <seed>
                            Random seed for obfuscation
 
+For example:
+
+.. code:: bash
+
+   ansys_scade_ps_obfuscator -p MyProject.etp -t Mapping.txt -l libdigital libmath
+
+This command obfuscates ``MyProject.etp`` and its libraries except those named ``libdigital`` or ``libmath``.
+
+The traceability information between old and new names is output to ``Mapping.txt``, as follows:
+
+.. code:: text
+
+   Behavior::	BGK375::
+   Behavior::Impl::	BGK375::UBJ269::
+   Behavior::Impl::Iter/	BGK375::UBJ269::YOM827/
+   Behavior::Impl::Iter/'T/	BGK375::UBJ269::YOM827/'FOP322/
+   Behavior::Impl::Iter/Iter	BGK375::UBJ269::YOM827/YOM827
+   ...
+
 Limitations
 ===========
 
 * Project properties are unchanged: root, expanded, instrumented operators, etc.
-* KCG ``pragma name`` are unchanged
-* Imported code is unchanged
-* Project files accessed with an absolute path are modified
-* Symbol files (SSL) are not taken into account
-* Projects with files with same names in different directories are not supported
+* KCG ``pragma name`` are unchanged.
+* Imported code is unchanged.
+* Project files accessed with an absolute path are modified.
+* Symbol files (SSL) are not taken into account.
+* Projects with files with same names in different directories are not supported.
+* Homonymy is preserved: model elements with the same name, for example an operator
+  and its diagram, have the same obfuscated name.
