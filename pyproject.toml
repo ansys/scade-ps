@@ -24,7 +24,7 @@ classifiers=[
 dependencies=[
     "importlib-metadata >= 1.0; python_version < '3.8'",
     "importlib-metadata >= 4.0; python_version >= '3.8'",
-    "ansys-scade-apitools >= 0.0.5",
+    "ansys-scade-apitools >= 0.5.0",
     "lxml",
 ]
 keywords=["Scade", "script", "python"]
