@@ -38,21 +38,6 @@ import pytest
 from conftest import get_resources_dir, load_tmp_project, run_tool
 
 
-@pytest.mark.parametrize('base', ['Model'])
-def test_create_template_nominal(base, local_tmpdir):
-    base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
-    source = base_dir / base / (base + '.etp')
-    target_dir = local_tmpdir / 'test_project_properties'
-    target_dir.mkdir(exist_ok=True, parents=True)
-    # options
-    template = target_dir / 'model_template.json'
-    ref = base_dir / 'ref' / template.name
-
-    args = ['-p', str(source), 'template', '-o', str(template)]
-    status = run_tool('ansys.scade.ps.project_properties', args, ref, template)
-    assert status.returncode == 0
-
-
 @pytest.mark.parametrize(
     'target, expected',
     [
@@ -71,7 +56,7 @@ def test_copy_properties_nominal(target: str, expected: int, local_tmpdir):
     # options
     schema = target_dir / 'schema.json'
 
-    args = ['-p', str(path_src), 'copy', '-p', dst.pathname, '-s', str(schema)]
+    args = ['-r', str(path_src), '-p', dst.pathname, '-s', str(schema)]
     status = run_tool('ansys.scade.ps.project_properties', args, ref, Path(dst.pathname))
     assert status.returncode == expected
 
@@ -85,6 +70,6 @@ def test_project_properties_robustness():
     base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
     path_src = base_dir / 'Model' / 'Model.etp'
 
-    args = ['-p', str(path_src), 'unknown']
+    args = ['-r', str(path_src), 'unknown']
     status = run_tool('ansys_scade_ps_project_properties.exe', args, None, None)
     assert status.returncode == 2

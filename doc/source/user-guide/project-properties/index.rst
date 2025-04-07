@@ -12,30 +12,78 @@ performing this maintenance by hand can be cumbersome and error-prone.
 Description
 ===========
 
-This tool has several sub-commands described in the following sections.
+This sub-command copies a selection of tool properties from a reference project
+to targets projects. The properties are propagated for all the configurations
+they appear in the reference project. A configuration is created in the
+target project if needed.
 
-- ``template``: initiate, from a reference SCADE project, a list of properties
-  and their default values
-- ``copy``: propagate default properties to another SCADE project
+The properties to consider should be specified in a configuration file (JSON):
+
+* keys: Identifiers of the tools
+* values: Identifiers of the properties.
+
+  When a property designates a file that can be relative to the project, prefix
+  its identifier with ``@``.
+
+.. Note::
+
+    * A tool property is saved in a project file with the name
+      ``@<tool>:<property>`` and has a list of values. It is optionally linked
+      to a configuration.
+    * Properties with default values are not stored in the project files.
+    * The identifiers used to store properties in a project file are not
+      documented. To find the identifiers, tool and property, corresponding
+      to a given setting, you can compare the project files before and after
+      modifying this single setting. This may lead to the creation of a new
+      property if you override the default, or the deletion of a property if
+      you restore its default value.
+
+For example, the following schema corresponds to the `Configuration` settings of KCG:
+
+.. image:: /_static/settings_configuration.png
+
+.. code:: json
+
+   {
+       "GENERATOR": [
+           "GLOBAL_ROOT_CONTEXT",
+           "WRAP_C_OPS",
+           "MACRO_ON_ASSERT",
+           "PROBES",
+           "STATE_VECTOR",
+           "NO_BITWISE",
+           "NO_TIMESTAMP",
+           "GLOBALS_PREFIX",
+           "NAME_LENGTH",
+           "SIGNIFICANCE_LENGTH",
+           "@USER_CONFIG",
+           "@HEADER",
+       ]
+   }
 
 Usage
 =====
 
 .. code:: text
 
-   usage: ansys_scade_ps_project_properties [-h] -p <project> {template,copy} ...
+   usage: ansys_scade_ps_project_properties [-h] -r <reference> -s <schema> -p <project> [<project> ...]
 
-   Ansys SCADE Power Scripts: Access to SCADE project properties
-
-   positional arguments:
-     {template,copy}       project properties sub-commands
-       template            Create a schema template
-       copy                Copy tool properties
+   Ansys SCADE Power Scripts: Copy SCADE project properties
 
    options:
      -h, --help            show this help message and exit
-     -p <project>, --project <project>
-                           SCADE Suite project
+     -r <reference>, --reference <reference>
+                           reference project (ETP)
+     -s <schema>, --schema <schema>
+                           input schema file (JSON)
+     -p <project> [<project> ...], --projects <project> [<project> ...]
+                           project files to update (ETP)
+
+For example:
+
+.. code:: bash
+
+   ansys_scade_ps_project_properties -r Reference.etp -s MySchema.json -p P1.etp P2.etp
 
 Sub-commands
 ============
