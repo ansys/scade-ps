@@ -100,3 +100,4 @@ all the contained properties, as they appear in the IDE, with the
    :maxdepth: 1
 
    code-generator
+   metrics-rules
