@@ -1,0 +1,49 @@
+{
+    "REPORTER": [
+        "DOCUMENT",
+        "SCRIPT",
+        "FORMAT",
+
+        "ReportStructure",
+        "ReportListOfFigures",
+        "ReportHeaderAndFooter",
+        "ReportListOfTables",
+        "ImagesInLineWithText",
+        "IssueNr",
+        "ReferenceNr",
+        "CorporateLogo",
+        "SCADEDisplayReport",
+        "SCADEDisplayReportConf",
+
+        "Classification",
+        "Distribution",
+        "Image",
+        "Summary",
+
+        "Title",
+        "Subtitle",
+        "Description",
+
+        "CompanyInfo",
+        "Authors",
+        "Reference",
+        "Index",
+        "Date",
+
+        "Header",
+        "Footer",
+
+        "DisplayCtx",
+        "DisplayCalledAndCalling",
+        "DisplayVarCtx",
+        "DisplayKCGPragma",
+        "DisplayReqDescr",
+        "AllowRowToBreak",
+        "diagDisplayType",
+        "cstDisplayType",
+        "RotateLandscape",
+
+        "LIBRARIES",
+        "LibrariesList"
+    ]
+}

@@ -101,3 +101,4 @@ all the contained properties, as they appear in the IDE, with the
 
    code-generator
    metrics-rules
+   reporter
