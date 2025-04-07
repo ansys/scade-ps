@@ -85,11 +85,18 @@ For example:
 
    ansys_scade_ps_project_properties -r Reference.etp -s MySchema.json -p P1.etp P2.etp
 
-Sub-commands
-============
+Resources
+=========
+
+The next sections present the properties for the most popular SCADE tools.
+The corresponding schemas, to be considered as templates for your own configurations,
+are delivered with the package's sources, ``<python>/Lib/site-packages/ansys/scade/ps/project_properties/res`` directory.
+
+Each section mentions the name of the resource template and lists
+all the contained properties, as they appear in the IDE, with the
+``Project/<tool>/Settings...`` command.
 
 .. toctree::
    :maxdepth: 1
 
-   template
-   copy
+   code-generator
