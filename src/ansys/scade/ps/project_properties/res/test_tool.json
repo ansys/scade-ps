@@ -1,0 +1,58 @@
+{
+    "QTE": [
+        "USE_PROCEDURES_LIST",
+        "PROCEDURES_LIST_SELECTION_MODE",
+        "SELECTED_PROCEDURES",
+        "NOT_SELECTED_PROCEDURES",
+
+        "TEE_CONF",
+        "TEE_TARGET_DIR",
+        "TEE_NO_BUILD",
+        "TEE_DETAILS_FAILED",
+
+        "MC_CONF",
+        "MC_TARGET_DIR",
+        "MC_COVERAGE_CRITERION",
+        "MC_NO_BUILD",
+        "MC_FAQ11",
+        "MC_MERGE_PREV_RESULTS",
+        "MC_INSTRUMENTATION_MODE",
+        "MC_INSTRUMENTED_NODES",
+        "MC_NOT_INSTRUMENTED_NODES",
+        "MC_OBSERVER_LIBS",
+
+        "DV_MC_TIMEOUT",
+        "DV_MC_BMC_DEPTH",
+        "DV_MC_THREADS",
+        "DV_MC_STRATEGY",
+        "DV_MC_FPSUBVALUES",
+        "DV_MC_ORACLE_GENERATION",
+        "DV_MC_TCGEN_TOOL",
+        "DV_MC_DONTCARES_REMOVAL",
+        "DV_MC_ABSTRACTION_LIBS",
+        "DV_MC_ANALYZE_NO_J",
+
+        "THG_CONF",
+        "THG_TARGET_DIR",
+        "TARGET",
+
+        "TARGET_RTRT",
+
+        "TARGET_TBRUN",
+
+        "TARGET_VCAST"
+    ],
+    "RTRT": [
+        "C89",
+        "USER_INIT"
+    ],
+    "TBRUN": [
+        "USER_INIT"
+    ],
+    "VCAST": [
+        "SENSOR_UNIT",
+        "SPLIT",
+        "LINE_LENGTH",
+        "USER_INIT"
+    ]
+}
