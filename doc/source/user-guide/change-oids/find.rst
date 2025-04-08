@@ -6,7 +6,7 @@ Description
 
 This sub-command lists the duplicated OIDs for a set of projects.
 There is one output file per project, that can be reviewed, and used as input
-for the :doc:`command </user-guide/project-properties/copy>` that performs the
+for the :doc:`command </user-guide/change-oids/new>` that performs the
 changes for a project.
 
 The output file is the project's path with a different extension, ``.dupoids.txt``

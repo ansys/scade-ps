@@ -5,7 +5,7 @@ Description
 ===========
 
 This sub-command reads the duplicated OIDs from the file produced by the
-:doc:`find </user-guide/project-properties/copy>` command, computes new OIDs for each
+:doc:`find </user-guide/change-oids/find>` command, computes new OIDs for each
 corresponding element and saves the model.
 
 This command also produces a mapping file (JSON) containing the pairs (old oid, new oid)
