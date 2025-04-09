@@ -26,12 +26,11 @@
 
 from pathlib import Path
 
-from scade.model.project.stdproject import Project, get_roots as get_projects
+from scade.model.project.stdproject import get_roots as get_projects
 
 from ansys.scade.apitools.create import create_configuration, save_project
 
 for project in get_projects():
-    assert isinstance(project, Project)
     configuration = project.find_configuration('KCG')
     # make sure the configuration exists
     if not configuration:

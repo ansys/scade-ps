@@ -254,7 +254,7 @@
 		</Prop>
 		<Prop id="87" name="@SCADE:NOTEFILE">
 			<value>$(SCADE)/lib/DefaultAty.aty</value>
-			<value>..\..\..\resources\ProjectProperties\Model\Dummy.aty</value>
+			<value>..\..\..\resources\CopyProperties\Model\Dummy.aty</value>
 		</Prop>
 		<Prop id="88" name="@STUDIO:TOOLCONF">
 			<value>DiffAnalyzer</value>

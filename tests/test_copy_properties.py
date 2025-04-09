@@ -23,7 +23,7 @@
 # SOFTWARE.
 
 """
-Test suite for project_properties.py.
+Test suite for copy_properties.py.
 
 Test strategy:
 
@@ -48,28 +48,28 @@ from conftest import get_resources_dir, load_tmp_project, run_tool
 )
 def test_copy_properties_nominal(target: str, expected: int, local_tmpdir):
     """Copy the properties specified in schema.json from Model to the target project."""
-    base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
+    base_dir = get_resources_dir() / 'resources' / 'CopyProperties'
     path_src = base_dir / 'Model' / 'Model.etp'
-    target_dir = local_tmpdir / 'test_project_properties' / target
+    target_dir = local_tmpdir / 'test_copy_properties' / target
     dst = load_tmp_project(base_dir / target / f'{target}.etp', target_dir)
     ref = base_dir / 'ref' / f'{target}.etp'
     # options
     schema = target_dir / 'schema.json'
 
     args = ['-r', str(path_src), '-p', dst.pathname, '-s', str(schema)]
-    status = run_tool('ansys.scade.ps.project_properties', args, ref, Path(dst.pathname))
+    status = run_tool('ansys.scade.ps.copy_properties', args, ref, Path(dst.pathname))
     assert status.returncode == expected
 
 
-def test_project_properties_robustness():
+def test_copy_properties_robustness():
     """
     Run the module with an unknown command.
 
     Use the executable to complete the coverage of __main__.py.
     """
-    base_dir = get_resources_dir() / 'resources' / 'ProjectProperties'
+    base_dir = get_resources_dir() / 'resources' / 'CopyProperties'
     path_src = base_dir / 'Model' / 'Model.etp'
 
     args = ['-r', str(path_src), 'unknown']
-    status = run_tool('ansys_scade_ps_project_properties.exe', args, None, None)
+    status = run_tool('ansys_scade_ps_copy_properties.exe', args, None, None)
     assert status.returncode == 2

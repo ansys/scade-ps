@@ -62,7 +62,7 @@ name = "ansys.scade.ps"
 [project.scripts]
 ansys_scade_ps_obfuscator = "ansys.scade.ps.obfuscator.__main__:main"
 ansys_scade_ps_default_notes = "ansys.scade.ps.default_notes.__main__:main"
-ansys_scade_ps_project_properties = "ansys.scade.ps.project_properties.__main__:main"
+ansys_scade_ps_copy_properties = "ansys.scade.ps.copy_properties.__main__:main"
 ansys_scade_ps_rename_unused = "ansys.scade.ps.rename_unused.__main__:main"
 ansys_scade_ps_change_oids = "ansys.scade.ps.change_oids.__main__:main"
 

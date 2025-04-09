@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Access to SCADE project properties."""
+"""Ansys SCADE Power Scripts: Copy SCADE project properties."""
 
 import argparse
 from pathlib import Path
@@ -31,7 +31,7 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from ansys.scade.ps.project_properties.copy_properties import main as copy_properties_main
+from ansys.scade.ps.copy_properties.copy_properties import main as copy_properties_main
 
 tool = 'Ansys SCADE Power Scripts: Copy SCADE project properties'
 
@@ -65,6 +65,6 @@ def main():
 
 
 if __name__ == '__main__':
-    # run with python.exe -m ansys.scade.ps.project_properties
+    # run with python.exe -m ansys.scade.ps.copy_properties
     main()
-# else:  # run with ansys_scade_ps_project_properties.exe
+# else:  # run with ansys_scade_ps_copy_properties.exe

@@ -1,5 +1,5 @@
-Project properties
-##################
+Copy properties
+###############
 
 Rationale
 =========
@@ -66,7 +66,7 @@ Usage
 
 .. code:: text
 
-   usage: ansys_scade_ps_project_properties [-h] -r <reference> -s <schema> -p <project> [<project> ...]
+   usage: ansys_scade_ps_copy_properties [-h] -r <reference> -s <schema> -p <project> [<project> ...]
 
    Ansys SCADE Power Scripts: Copy SCADE project properties
 
@@ -83,14 +83,14 @@ For example:
 
 .. code:: bash
 
-   ansys_scade_ps_project_properties -r Reference.etp -s MySchema.json -p P1.etp P2.etp
+   ansys_scade_ps_copy_properties -r Reference.etp -s MySchema.json -p P1.etp P2.etp
 
 Resources
 =========
 
 The next sections present the properties for the most popular SCADE tools.
 The corresponding schemas, to be considered as templates for your own configurations,
-are delivered with the package's sources, ``<python>/Lib/site-packages/ansys/scade/ps/project_properties/res`` directory.
+are delivered with the package's sources, ``<python>/Lib/site-packages/ansys/scade/ps/copy_properties/res`` directory.
 
 Each section mentions the name of the resource template and lists
 all the contained properties, as they appear in the IDE, with the
@@ -108,7 +108,7 @@ all the contained properties, as they appear in the IDE, with the
 Alternative
 ===========
 
-There are use cases where ``ansys_scade_ps_project_properties`` is not suitable:
+There are use cases where ``ansys_scade_ps_copy_properties`` is not suitable:
 
 For example:
 
@@ -127,7 +127,6 @@ sets a few properties for one configuration:
     from ansys.scade.apitools.create import create_configuration, save_project
 
     for project in get_projects():
-        assert isinstance(project, Project)
         configuration = project.find_configuration('KCG')
         # make sure the configuration exists
         if not configuration:
