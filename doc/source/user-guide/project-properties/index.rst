@@ -104,3 +104,62 @@ all the contained properties, as they appear in the IDE, with the
    reporter
    test-tool
    timing-stack
+
+Alternative
+===========
+
+There are use cases where ``ansys_scade_ps_project_properties`` is not suitable:
+
+For example:
+
+* Dynamic properties: set the Code Generator target directory to ``../code/<model name>``
+* Review: use a text editor to review the reference project instead of the SCADE IDE
+
+You can set the properties of a project programmatically. The small following example
+sets a few properties for one configuration:
+
+.. code:: python
+
+    from pathlib import Path
+
+    from scade.model.project.stdproject import Project, get_roots as get_projects
+
+    from ansys.scade.apitools.create import create_configuration, save_project
+
+    for project in get_projects():
+        assert isinstance(project, Project)
+        configuration = project.find_configuration('KCG')
+        # make sure the configuration exists
+        if not configuration:
+            configuration = create_configuration(project, 'KCG')
+
+        # set a scalar property based on the project's name
+        base_name = Path(project.pathname).stem
+        DEFAULT_TARGET_DIR = ''  # this is not the exact default value, it does not matter here
+        project.set_scalar_tool_prop_def(
+            'GENERATOR',
+            'TARGET_DIR',
+            f'../code/{base_name}',
+            DEFAULT_TARGET_DIR,
+            configuration,
+        )
+
+        # set a boolean property
+        DEFAULT_DEBUG = False
+        project.set_bool_tool_prop_def('GENERATOR', 'DEBUG', False, DEFAULT_DEBUG, configuration)
+
+        # set a regular property: list of values
+        extensions = ['SdyChecker', 'SnapshotApi']
+        project.set_tool_prop_def('GENERATOR', 'OTHER_EXTENSIONS', extensions, [], configuration)
+
+        # save the project
+        save_project(project)
+
+
+Usage: ``scade.exe -script <script> <project>+``
+
+.. Note::
+
+   It is not necessary to consider the exact default value of the properties you want to set.
+   When you provide a default different from your value, the property is always created or updated.
+   The only impact is a larger project file size when to explicitly add properties with default values.
