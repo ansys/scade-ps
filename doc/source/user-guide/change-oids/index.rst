@@ -20,6 +20,10 @@ to unambiguously resolve.
    packages and other model elements directly from the SCADE IDE rather than from
    the file system.
 
+.. Note::
+
+   **This tool requires Ansys SCADE 2024 R1 or greater.**
+
 Description
 ===========
 
