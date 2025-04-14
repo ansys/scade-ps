@@ -21,6 +21,10 @@ The tool inserts commands for removing traceability links for the old OIDs, and 
 traceability links for new OIDs. It takes into account old OIDs already present in the trace file,
 either to add and/or remove a link. A regular ALM Gateway export updates the traceability in the ALM tool.
 
+.. Note::
+
+   The update of the traceability requires Ansys SCADE 2024 R1 or greater.
+
 Usage
 =====
 

@@ -12,6 +12,10 @@ changes for a project.
 The output file is the project's path with a different extension, ``.dupoids.txt``
 by default.
 
+.. Note::
+
+   The libraries are not considered: they must be specified on the command line.
+
 Usage
 =====
 
