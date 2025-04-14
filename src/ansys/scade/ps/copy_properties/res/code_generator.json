@@ -1,0 +1,88 @@
+{
+    "GENERATOR": [
+        "ROOTNODE",
+        "GENERATOR",
+        "TARGET_DIR",
+        "SET_WARNINGS_AS_ERRORS",
+        "SKIP_UNUSED",
+        "SKIP_COMMENTED",
+        "COMMENTEDNODES",
+
+        "EXPAND_MODE",
+        "EXPANDED_NODES",
+        "NOT_EXPANDED_NODES",
+
+        "SEP_IO_MODE",
+        "SEP_IO_NODES",
+        "NO_SEP_IO_NODES",
+
+        "TARGET_ADAPTOR",
+        "OTHER_EXTENSIONS",
+        "PERIODICITY_MODE",
+        "PERIODICITY_PERIOD",
+        "PERIODICITY_OFFSET",
+        "PERIODICITY_UNIT",
+        "USER_SENSORS_DECL",
+
+        "DEBUG",
+        "OBSERVE_MODE",
+        "OBSERVED_NODES",
+        "NOT_OBSERVED_NODES",
+
+        "STATIC",
+        "INPUT_THRESHOLD",
+
+        "GLOBAL_ROOT_CONTEXT",
+        "WRAP_C_OPS",
+        "MACRO_ON_ASSERT",
+        "PROBES",
+        "STATE_VECTOR",
+        "NO_BITWISE",
+        "NO_TIMESTAMP",
+        "GLOBALS_PREFIX",
+        "NAME_LENGTH",
+        "SIGNIFICANCE_LENGTH",
+        "USER_CONFIG",
+        "HEADER",
+        "ROOT_PACKAGE",
+        "IMP_ROOT_PACKAGE",
+        "GENERATOR",
+
+        "AIT_GENERATE_ANNOTATIONS",
+        "AIT_GENERATE_COPY_FUNC"
+    ],
+    "SIMULATOR": [
+        "COMPILER",
+        "CPU_TYPE"
+    ],
+    "GNU Cwin32": [
+        "PREPROC_DEF",
+        "ADD_COMP_OPTIONS",
+        "ADD_LINK_OPTIONS"
+    ],
+    "GNU Cwin64": [
+        "PREPROC_DEF",
+        "ADD_COMP_OPTIONS",
+        "ADD_LINK_OPTIONS"
+    ],
+    "VS2022win32": [
+        "PREPROC_DEF",
+        "ADD_COMP_OPTIONS",
+        "ADD_LINK_OPTIONS"
+    ],
+    "VS2022win64": [
+        "PREPROC_DEF",
+        "ADD_COMP_OPTIONS",
+        "ADD_LINK_OPTIONS"
+    ],
+    "COMPILER": [
+        "ADD_INCLUDE_DIR",
+        "IGNORED_FILES"
+    ],
+    "SSMGUI": [
+        "GUIEXTFILE",
+        "DBLSIM",
+        "DBLSIMPRJ",
+        "DBLSIMCONF"
+    ]
+}

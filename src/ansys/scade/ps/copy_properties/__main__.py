@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Access to SCADE project properties."""
+"""Ansys SCADE Power Scripts: Copy SCADE project properties."""
 
 import argparse
 from pathlib import Path
@@ -31,33 +31,22 @@ from ansys.scade.apitools import declare_project
 
 # isort: split
 # must be imported after ansys.scade.apitools
-from ansys.scade.ps.project_properties.copy_properties import main as copy_properties_main
-from ansys.scade.ps.project_properties.create_template import main as create_template_main
+from ansys.scade.ps.copy_properties.copy_properties import main as copy_properties_main
 
-tool = 'Ansys SCADE Power Scripts: Access to SCADE project properties'
+tool = 'Ansys SCADE Power Scripts: Copy SCADE project properties'
 
 
 def main():
     """Implement ``ansys.scade.ps.project_properties.__main__:main`` packages's script."""
     parser = argparse.ArgumentParser(description=tool)
     parser.add_argument(
-        '-p', '--project', metavar='<project>', help='SCADE Suite project', required=True
+        '-r', '--reference', metavar='<reference>', help='reference project (ETP)', required=True
     )
-    subparsers = parser.add_subparsers(help='project properties sub-commands')
 
-    # schema
-    template_parser = subparsers.add_parser('template', help='Create a schema template')
-    template_parser.add_argument(
-        '-o', '--output', metavar='<template file>', help='output template file', required=True
-    )
-    template_parser.set_defaults(cmd='template')
-
-    # copy
-    copy_parser = subparsers.add_parser('copy', help='Copy tool properties')
-    copy_parser.add_argument(
+    parser.add_argument(
         '-s', '--schema', metavar='<schema>', help='input schema file (JSON)', required=True
     )
-    copy_parser.add_argument(
+    parser.add_argument(
         '-p',
         '--projects',
         metavar='<project>',
@@ -65,22 +54,17 @@ def main():
         nargs='+',
         required=True,
     )
-    copy_parser.set_defaults(cmd='copy')
 
     options = parser.parse_args()
     assert declare_project
-    declare_project(options.project)
-    if options.cmd == 'template':
-        code = create_template_main(options.output)
-    else:
-        assert options.cmd == 'copy'
-        for project in options.projects:
-            declare_project(project)
-        code = copy_properties_main(Path(options.project).name, options.schema)
+    declare_project(options.reference)
+    for project in options.projects:
+        declare_project(project)
+    code = copy_properties_main(Path(options.reference).name, options.schema)
     exit(code)
 
 
 if __name__ == '__main__':
-    # run with python.exe -m ansys.scade.ps.project_properties
+    # run with python.exe -m ansys.scade.ps.copy_properties
     main()
-# else:  # run with ansys_scade_ps_project_properties.exe
+# else:  # run with ansys_scade_ps_copy_properties.exe

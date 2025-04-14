@@ -1,0 +1,19 @@
+{
+    "a3": [
+        "SESSION_NAME",
+        "VERSION",
+        "AIT_BINDIR",
+        "CPU",
+        "BASIC_CLOCK",
+        "UNIT",
+        "AIS_FILE",
+
+        "INTERACTIVE",
+        "MAX_UNROLL",
+        "DEFAULT_UNROLL",
+        "XTC_FILE",
+
+        "SPECIFIED_OPERATORS",
+        "EXTERNAL_FUNCTIONS"
+    ]
+}

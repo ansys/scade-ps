@@ -21,11 +21,11 @@ This section provides additional information on each of the available tools.
 
       Learn how to obfuscate a SCADE Suite model.
 
-   .. grid-item-card:: :material-regular:`settings_applications;1.25em` Project properties
-      :link: project-properties/index
+   .. grid-item-card:: :material-regular:`settings_applications;1.25em` Copy properties
+      :link: copy-properties/index
       :link-type: doc
 
-      Learn how to access and update the properties of a SCADE project.
+      Learn how to update the properties of a SCADE project.
 
    .. grid-item-card:: :material-regular:`drive_file_rename_outline;1.25em` Rename unused files
       :link: rename-unused
@@ -45,6 +45,6 @@ This section provides additional information on each of the available tools.
 
    obfuscator
    default-notes
-   project-properties/index
+   copy-properties/index
    rename-unused
    change-oids/index

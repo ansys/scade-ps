@@ -1,0 +1,14 @@
+{
+    "METRICS_RULES": [
+        "SELECTED_ROOTS",
+        "SELECTED_NODES",
+        "CHECK_ROOTS",
+
+        "SELECTED_METRICS",
+
+        "SELECTED_RULES",
+        "RULES_PARAM",
+
+        "USER_DEF_FILES"
+    ]
+}

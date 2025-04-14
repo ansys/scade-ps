@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE Power Scripts: Access to SCADE project properties."""
+"""Ansys SCADE Power Scripts: Copy SCADE project properties."""
 
 import json
 import os
