@@ -127,7 +127,7 @@ jobs:
       - uses: ansys/actions/doc-build@v10
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
-          
+
   build-library:
     name: "Build library basic example"
     runs-on: ubuntu-latest
