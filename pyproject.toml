@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name="ansys-scade-ps"
-version="0.1.dev0"
+version="0.3.dev0"
 description ="Collection of command-line scripts for SCADE."
 readme="README.rst"
 
