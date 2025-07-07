@@ -37,6 +37,7 @@ html_theme_options = {
         'json_url': f'https://{cname}/versions.json',
         'version_match': switcher_version,
     },
+    # TODO: remove this after public release
     'check_switcher': False,
     'logo': 'pyansys',
 }

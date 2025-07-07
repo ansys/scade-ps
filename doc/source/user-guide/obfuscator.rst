@@ -22,11 +22,11 @@ This tool obfuscates a SCADE Suite model and its libraries.
 
 .. Note::
 
-   * The model and its libraries are modified in place: **copy
-     your files** to another directory before proceeding.
-   * Make sure your model does not refer to a library that is not part of your project,
-     such as ``$(SCADE)/libraries/libdigital.etp``, or use the option ``-l`` to
-     exclude it from the obfuscation process. for example: ``-l libdigital``.
+ * The model and its libraries are modified in place: **copy
+   your files** to another directory before proceeding.
+ * Make sure your model does not refer to a library that is not part of your project,
+   such as ``$(SCADE)/libraries/libdigital.etp``, or use the option ``-l`` to
+   exclude it from the obfuscation process. for example: ``-l libdigital``.
 
 Usage
 =====
