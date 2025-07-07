@@ -19,10 +19,26 @@ concurrency:
 
 jobs:
 
+
+  label-syncer:
+    name: Syncer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: micnncim/action-label-syncer@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Label pull-request"
+        uses: actions/labeler@v5.0.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
   pr-name:
     if: github.event_name == 'pull_request'
     name: Check PR title
     runs-on: ubuntu-latest
+    needs: [label-syncer]
     steps:
       - name: "Check commit name"
         uses: ansys/actions/check-pr-title@v10
