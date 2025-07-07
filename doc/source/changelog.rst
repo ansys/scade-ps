@@ -9,6 +9,61 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.2.0 <https://github.com/ansys-internal/scade-ps/releases/tag/v0.2.0>`_ - April 14, 2025
+==========================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Added
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - feat: change *Project Properties* to *Copy Properties*
+          - `#18 <https://github.com/ansys-internal/scade-ps/pull/18>`_
+
+
+  .. tab-item:: Documentation
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - chore: update CHANGELOG for v0.1.0
+          - `#13 <https://github.com/ansys-internal/scade-ps/pull/13>`_
+
+        * - chore: Cleanup repository configuration
+          - `#14 <https://github.com/ansys-internal/scade-ps/pull/14>`_
+
+        * - docs: Add command examples
+          - `#15 <https://github.com/ansys-internal/scade-ps/pull/15>`_
+
+        * - docs: Add details about the usage of Change OIDs
+          - `#17 <https://github.com/ansys-internal/scade-ps/pull/17>`_
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - build(deps): Bump the dependencies group with 2 updates
+          - `#16 <https://github.com/ansys-internal/scade-ps/pull/16>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - ci: Do not use trust-publishers to publish a release
+          - `#19 <https://github.com/ansys-internal/scade-ps/pull/19>`_
+
+
 `0.1.0 <https://github.com/ansys-internal/scade-ps/releases/tag/v0.1.0>`_ - March 20, 2025
 ==========================================================================================
 
