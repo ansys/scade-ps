@@ -38,6 +38,7 @@ html_theme_options = {
         'version_match': switcher_version,
     },
     # TODO: remove this after public release
+    # https://github.com/ansys-internal/scade-ps/issues/24
     'check_switcher': False,
     'logo': 'pyansys',
 }
@@ -78,6 +79,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # TODO: remove ignore links after public release
+# https://github.com/ansys-internal/scade-ps/issues/24
 linkcheck_ignore = [
     'https://github.com/ansys-internal/scade-ps',
     'https://github.com/ansys-internal/scade-ps/actions/workflows/ci_cd.yml',
