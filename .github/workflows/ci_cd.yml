@@ -110,13 +110,12 @@ jobs:
           checkout: false
           scade-version: ${{ matrix.scade-version }}
 
-      # ci fails with codecov/codecov-action@v5 if the repo si not public
-      # - name: "Upload coverage reports to Codecov"
-      #   uses: codecov/codecov-action@v5
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     slug: ansys/scade-ps
-      #     files: .cov/xml
+      - name: "Upload coverage reports to Codecov"
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ansys/scade-ps
+          files: .cov/xml
 
   doc-build:
     name: "Build documentation"
