@@ -90,7 +90,8 @@ def load_project(pathname: Path) -> std.Project:
 
     Note: Undocumented API.
     """
-    project = scade.load_project(str(pathname))
+    # scade is a CPython module defined dynamically
+    project = scade.load_project(str(pathname))  # type: ignore
     return project
 
 

@@ -202,7 +202,8 @@ class _Rename(_FilteredVisit):
 
     def visit_text_diagram(self, text_diagram: suite.TextDiagram, *args):
         """Remove formatting, if any."""
-        text_diagram.text_area = None
+        # None is a legal value to remove an association
+        text_diagram.text_area = None  # type: ignore
         super().visit_text_diagram(text_diagram, *args)
 
     def visit_model(self, model: suite.Model, *args):
@@ -240,7 +241,8 @@ class Obfuscator:
         # first pass to update the file references
         for model in session.loaded_models:
             path = Path(model.descriptor.model_file_name)
-            project = scade.load_project(str(path))
+            # scade is a CPython module defined dynamically
+            project = scade.load_project(str(path))  # type: ignore
             assert isinstance(project, Project)
             # referenced files
             for file_ref in project.file_refs:
