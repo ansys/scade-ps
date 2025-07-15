@@ -56,7 +56,7 @@ def main():
     )
 
     options = parser.parse_args()
-    assert declare_project
+    assert declare_project  # nosec B101  # declare_project must be defined on Windows
     declare_project(options.reference)
     for project in options.projects:
         declare_project(project)

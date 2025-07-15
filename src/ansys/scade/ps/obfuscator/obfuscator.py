@@ -29,7 +29,6 @@ import random
 from typing import Dict, List, Optional
 
 import scade
-from scade.model.project.stdproject import Project
 import scade.model.suite as suite
 from scade.model.suite import get_roots as get_sessions
 from scade.model.suite.visitors import Visit
@@ -242,8 +241,8 @@ class Obfuscator:
         for model in session.loaded_models:
             path = Path(model.descriptor.model_file_name)
             # scade is a CPython module defined dynamically
+            # scade is a CPython module defined dynamically
             project = scade.load_project(str(path))  # type: ignore
-            assert isinstance(project, Project)
             # referenced files
             for file_ref in project.file_refs:
                 path_file = Path(file_ref.pathname)
