@@ -37,6 +37,8 @@ html_theme_options = {
         'json_url': f'https://{cname}/versions.json',
         'version_match': switcher_version,
     },
+    # TODO: remove this after public release
+    # https://github.com/ansys-internal/scade-ps/issues/24
     'check_switcher': False,
     'logo': 'pyansys',
 }
@@ -48,20 +50,6 @@ extensions = [
     'sphinx_design',
 ]
 
-# Optionally include api generation.
-BUILD_API = os.environ.get('BUILD_API', 'false') == 'true'
-if BUILD_API:
-    extensions.append('ansys_sphinx_theme.extension.autoapi')
-    html_theme_options['ansys_sphinx_theme_autoapi'] = {
-        'project': project,
-        'own_page_level': 'function',
-        'class_content': 'both',  # documentation in https://sphinxdocs.ansys.com/version/stable/user-guide/autoapi.html
-        'member_order': 'alphabetical',
-    }
-
-# Configuration for Sphinx autoapi
-# dependencies might not be found when building the documentation
-suppress_warnings = ['autoapi.python_import_resolution']
 
 # Intersphinx mapping
 intersphinx_mapping = {
@@ -91,6 +79,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # TODO: remove ignore links after public release
+# https://github.com/ansys-internal/scade-ps/issues/24
 linkcheck_ignore = [
     'https://github.com/ansys-internal/scade-ps',
     'https://github.com/ansys-internal/scade-ps/actions/workflows/ci_cd.yml',

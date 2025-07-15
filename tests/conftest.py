@@ -99,7 +99,6 @@ def load_tmp_project(path: Path, target_dir: Path) -> std.Project:
     # duplicate the project to edit it safely
     copytree(path.parent, target_dir)
     path = target_dir / path.name
-    # TODO: libraries
     project = load_project(path)
     return project
 
