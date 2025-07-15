@@ -25,6 +25,9 @@
 """Ansys SCADE Power Scripts: Obfuscator for Scade models."""
 
 from pathlib import Path
+
+# nosec B311: usage of random is acceptable for obfuscation
+# it allows to provide seeds for reproducible unit tests.
 import random
 from typing import Dict, List, Optional
 
@@ -128,8 +131,8 @@ class _Rename(_FilteredVisit):
         name = self.state.names.get(old_name, '')
         while not name:
             name = ''.join(
-                ['%c' % (65 + random.randrange(0, 26)) for _ in range(3)]
-                + ['%c' % (48 + random.randrange(0, 10)) for _ in range(3)]
+                ['%c' % (65 + random.randrange(0, 26)) for _ in range(3)]  # nosec B311
+                + ['%c' % (48 + random.randrange(0, 10)) for _ in range(3)]  # nosec B311
             )
             # check uniqueness
             if name in self.state.names:
