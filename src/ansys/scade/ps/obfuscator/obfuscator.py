@@ -26,7 +26,7 @@
 
 from pathlib import Path
 
-# nosec B311: usage of random is acceptable for obfuscation
+# nosec B311  # usage of random is acceptable for obfuscation
 # it allows to provide seeds for reproducible unit tests.
 import random
 from typing import Dict, List, Optional
