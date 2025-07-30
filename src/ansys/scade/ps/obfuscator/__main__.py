@@ -51,7 +51,7 @@ def main():
     )
     options = parser.parse_args()
 
-    assert declare_project
+    assert declare_project  # nosec B101  # declare_project must be defined on Windows
     declare_project(options.project)
     code = obfuscator_main(
         options.trace, options.internals, options.ignored_libraries, options.seed

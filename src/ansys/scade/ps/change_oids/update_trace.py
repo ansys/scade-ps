@@ -78,7 +78,7 @@ class LLR:
         elif req in self.adds:
             # new requirement: remove it from the list
             elem = self.adds.pop(req)
-            assert self.elem is not None
+            assert self.elem is not None  # nosec B101  # addresses linter
             self.elem.remove(elem)
         else:
             # register for deletion
@@ -112,7 +112,7 @@ class GTFile:
 
     def save(self, trace: Path):
         """Save the trace file."""
-        assert self.tree
+        assert self.tree is not None  # nosec B101  # addresses linter
         root = self.tree.getroot()
         for llr in self.llrs.values():
             if llr.is_empty():

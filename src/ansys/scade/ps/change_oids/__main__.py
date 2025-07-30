@@ -79,13 +79,14 @@ def main():
 
     options = parser.parse_args()
 
-    assert declare_project
+    assert declare_project  # nosec B101  # declare_project must be defined on Windows
+    # cmd is either find or change
     if options.cmd == 'find':
         for project in options.projects:
             declare_project(project)
         code = find_duplicates_main(options.extension, options.dump_paths)
     else:
-        assert options.cmd == 'change'
+        # assert options.cmd == 'change'
         declare_project(options.project)
         code = new_oids_main(options.file, options.map, options.log)
     exit(code)

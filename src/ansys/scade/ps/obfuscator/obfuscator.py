@@ -25,11 +25,13 @@
 """Ansys SCADE Power Scripts: Obfuscator for Scade models."""
 
 from pathlib import Path
+
+# nosec B311  # usage of random is acceptable for obfuscation
+# it allows to provide seeds for reproducible unit tests.
 import random
 from typing import Dict, List, Optional
 
 import scade
-from scade.model.project.stdproject import Project
 import scade.model.suite as suite
 from scade.model.suite import get_roots as get_sessions
 from scade.model.suite.visitors import Visit
@@ -129,8 +131,8 @@ class _Rename(_FilteredVisit):
         name = self.state.names.get(old_name, '')
         while not name:
             name = ''.join(
-                ['%c' % (65 + random.randrange(0, 26)) for _ in range(3)]
-                + ['%c' % (48 + random.randrange(0, 10)) for _ in range(3)]
+                ['%c' % (65 + random.randrange(0, 26)) for _ in range(3)]  # nosec B311
+                + ['%c' % (48 + random.randrange(0, 10)) for _ in range(3)]  # nosec B311
             )
             # check uniqueness
             if name in self.state.names:
@@ -202,7 +204,8 @@ class _Rename(_FilteredVisit):
 
     def visit_text_diagram(self, text_diagram: suite.TextDiagram, *args):
         """Remove formatting, if any."""
-        text_diagram.text_area = None
+        # None is a legal value to remove an association
+        text_diagram.text_area = None  # type: ignore
         super().visit_text_diagram(text_diagram, *args)
 
     def visit_model(self, model: suite.Model, *args):
@@ -240,8 +243,9 @@ class Obfuscator:
         # first pass to update the file references
         for model in session.loaded_models:
             path = Path(model.descriptor.model_file_name)
-            project = scade.load_project(str(path))
-            assert isinstance(project, Project)
+            # scade is a CPython module defined dynamically
+            # scade is a CPython module defined dynamically
+            project = scade.load_project(str(path))  # type: ignore
             # referenced files
             for file_ref in project.file_refs:
                 path_file = Path(file_ref.pathname)

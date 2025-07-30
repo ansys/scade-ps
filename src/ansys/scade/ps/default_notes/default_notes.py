@@ -25,6 +25,7 @@
 """Ansys SCADE Power Scripts: Create default notes for Scade models."""
 
 from enum import Enum
+from typing import Dict
 
 import scade.model.suite as suite
 from scade.model.suite import get_roots as get_sessions
@@ -54,8 +55,8 @@ class DefaultNotes(Visit):
 
     def __init__(self):
         # runtime properties
-        self.categories = {}  # type: Dict[str, ann.AnnCategory]
-        self.defaults = {}  # type: Dict[ann.AnnAttDefinition, str]
+        self.categories: Dict[str, ann.AnnCategory] = {}
+        self.defaults: Dict[ann.AnnAttDefinition, str] = {}
 
     def build_categories(self, model: suite.Model):
         """Create a map of all categories allowing a faster access."""
