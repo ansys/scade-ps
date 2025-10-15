@@ -39,6 +39,12 @@ This section provides additional information on each of the available tools.
 
       Learn how to find duplicated OIDs and update them.
 
+   .. grid-item-card:: :material-regular:`format_color_fill;1.25em` Set equation sets style
+      :link: set-styles
+      :link-type: doc
+
+      Learn how to set automatically styles to equation sets.
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -48,3 +54,4 @@ This section provides additional information on each of the available tools.
    copy-properties/index
    rename-unused
    change-oids/index
+   set-styles
