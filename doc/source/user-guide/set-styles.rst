@@ -32,7 +32,7 @@ For example, the equation sets of the following diagram have been assigned a dif
 Usage
 =====
 
-The script can not be executed on the command line, it must be run from the IDE:
+The script must be run from the IDE:
 
 * Load ``set_styles.py`` into the IDE.
 * Execute ``Tools/Execute script`` command.
