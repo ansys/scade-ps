@@ -9,6 +9,31 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.3.1 <https://github.com/ansys-internal/scade-ps/releases/tag/v0.3.1>`_ - October 17, 2025
+
+.. tab-set::
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump twine from 6.1.0 to 6.2.0 in the dependencies group
+          - `#30 <https://github.com/ansys-internal/scade-ps/pull/30>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump the actions group with 3 updates
+          - `#31 <https://github.com/ansys-internal/scade-ps/pull/31>`_
+
+
 `0.3.0 <https://github.com/ansys-internal/scade-ps/releases/tag/v0.3.0>`_ - October 17, 2025
 ============================================================================================
 
