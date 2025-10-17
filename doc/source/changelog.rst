@@ -9,6 +9,77 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.3.0 <https://github.com/ansys-internal/scade-ps/releases/tag/v0.3.0>`_ - October 17, 2025
+============================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Added
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - feat: technical review
+          - `#23 <https://github.com/ansys-internal/scade-ps/pull/23>`_
+
+        * - Add Set styles tool
+          - `#32 <https://github.com/ansys-internal/scade-ps/pull/32>`_
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Enhance robustness
+          - `#26 <https://github.com/ansys-internal/scade-ps/pull/26>`_
+
+
+  .. tab-item:: Documentation
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - chore: update CHANGELOG for v0.2.0
+          - `#20 <https://github.com/ansys-internal/scade-ps/pull/20>`_
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump numpydoc from 1.8.0 to 1.9.0 in the dependencies group
+          - `#22 <https://github.com/ansys-internal/scade-ps/pull/22>`_
+
+        * - Bump build from 1.2.2.post1 to 1.3.0 in the dependencies group
+          - `#28 <https://github.com/ansys-internal/scade-ps/pull/28>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - ci: Bump ansys/actions from 8 to 9 in the actions group
+          - `#21 <https://github.com/ansys-internal/scade-ps/pull/21>`_
+
+        * - Update the pr title job
+          - `#25 <https://github.com/ansys-internal/scade-ps/pull/25>`_
+
+        * - Bump ansys/actions from 10.0.12 to 10.0.13 in the actions group
+          - `#27 <https://github.com/ansys-internal/scade-ps/pull/27>`_
+
+        * - Bump the actions group with 3 updates
+          - `#29 <https://github.com/ansys-internal/scade-ps/pull/29>`_
+
+
 `0.2.0 <https://github.com/ansys-internal/scade-ps/releases/tag/v0.2.0>`_ - April 14, 2025
 ==========================================================================================
 
