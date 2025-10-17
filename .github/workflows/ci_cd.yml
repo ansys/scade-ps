@@ -169,7 +169,7 @@ jobs:
     steps:
 
       - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@v9
+        uses: ansys/actions/release-pypi-private@c2fa7c93f6883114e0e643599431b33d29f0b13f # v10.1.4
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           twine-username: "__token__"
