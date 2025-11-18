@@ -43,14 +43,14 @@ This section provides additional information on each of the available tools.
       :link: set-styles
       :link-type: doc
 
-      Learn how to set automatically styles to equation sets.
+      Learn how to automatically set styles to equation sets.
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   obfuscator
    default-notes
+   obfuscator
    copy-properties/index
    rename-unused
    change-oids/index

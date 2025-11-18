@@ -56,7 +56,7 @@ Tool: ``REPORTER``
      - ReportListOfFigures
      - `true`
      -
-   * - Generate headers/Footers
+   * - Generate headers/footers
      - ReportHeaderAndFooter
      - `true`
      -

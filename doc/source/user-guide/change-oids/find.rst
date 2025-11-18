@@ -9,7 +9,7 @@ There is one output file per project, that can be reviewed, and used as input
 for the :doc:`command </user-guide/change-oids/new>` that performs the
 changes for a project.
 
-The output file is the project's path with a different extension, ``.dupoids.txt``
+The output file is the project path with a different extension, ``.dupoids.txt``
 by default.
 
 .. Note::

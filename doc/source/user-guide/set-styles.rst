@@ -4,9 +4,9 @@ Set equation sets styles
 Rationale
 =========
 
-SCADE Suite modeler creates equation sets with the ``Equation Set`` default style,
-that makes difficult to identify them. The following diagram has 5 equation sets,
-that can be identified one by one, with a double-click.
+SCADE Suite modeler creates all equation sets with the ``Equation Set`` default style,
+that makes it difficult to identify them. The following diagram has five equation sets,
+that can only be identified one by one, with a double-click.
 
 .. image:: /_static/no_styles.png
 
@@ -15,7 +15,7 @@ It is possible to associate a different style to each equation set: this is a ma
 Description
 ===========
 
-This tool sets a style to equation sets, so that it is unique within a diagram:
+This tool sets different styles to equation sets, so that they are unique within a diagram:
 
 * Each equation set is assigned the style ``<prefix><count>`` where
   ``<count>`` starts from 1 and is reset for each diagram, ``<prefix>`` is the
@@ -47,6 +47,6 @@ otherwise it is installed in the Python distribution you have selected.
 Limitations
 ===========
 
-* The styles must exist else the script makes old versions of SCADE Suite IDE crash.
+* The styles must exist otherwise the script makes old versions of SCADE Suite IDE crash.
   For example, if a diagram has eight equation sets, the styles ``EQS1``, ``EQS2``, …, ``EQS8`` must exist.
 

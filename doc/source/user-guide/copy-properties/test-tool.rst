@@ -144,7 +144,7 @@ Tool: ``QTE``
      - DV_MC_TIMEOUT
      - `120`
      -
-   * - Maximum scenario's length
+   * - Maximum scenario length
      - DV_MC_BMC_DEPTH
      - `4`
      -

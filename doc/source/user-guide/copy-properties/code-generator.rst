@@ -144,7 +144,7 @@ Tool: ``GENERATOR``
      - PERIODICITY_UNIT
      - `ms`
      -
-   * - User-provided sensors declaration-
+   * - User-provided sensors declaration
      - USER_SENSORS_DECL
      - `false`
      -
@@ -305,7 +305,7 @@ Tool: ``SIMULATOR``
      - `win32`
      -
 
-The name of the tool for the renaming properties of this tab are the
+The name of the tool for the renaming properties of this tab is the
 concatenation of the name of the selected compiler and CPU type.
 For example, the tables hereafter show the most popular ones:
 

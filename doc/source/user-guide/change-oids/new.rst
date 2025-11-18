@@ -17,7 +17,7 @@ This file is created if it does not exist.
 
 *Reminder, this trace file contains the traceability changes between two ALM Gateway exports.*
 
-The tool inserts commands for removing traceability links for the old OIDs, and commands for adding new
+The tool inserts commands to remove traceability links for the old OIDs, and commands to add new
 traceability links for new OIDs. It takes into account old OIDs already present in the trace file,
 either to add and/or remove a link. A regular ALM Gateway export updates the traceability in the ALM tool.
 

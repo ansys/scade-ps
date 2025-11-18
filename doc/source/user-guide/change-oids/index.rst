@@ -5,14 +5,14 @@ Rationale
 =========
 
 SCADE uses generated unique identifiers (OIDs) to refer internally to model
-elements. These OIDs are stored in the model's files.
+elements. These OIDs are stored in the model files.
 
 A SCADE project that has been initiated by copying files from an existing one
-contains many duplicated OIDs. Should these projects need to be integrated
+contains many duplicated OIDs. If these projects need to be integrated
 together, conflicts would happen in the integration with external tools that
 rely on OIDs to refer to model elements. For instance, traceability between
 requirements in an external ALM tool and model elements would be unable
-to unambiguously resolve.
+to resolve unambiguously.
 
 .. Note::
 
@@ -29,8 +29,8 @@ Description
 
 This tool has several sub-commands described in the following sections.
 
-* ``find``: List the duplicated OIDs
-* ``new``: Replace the duplicated OIDs and update references
+* ``find``: lists the duplicated OIDs.
+* ``new``: replaces the duplicated OIDs and update references.
 
 Usage
 =====
@@ -43,8 +43,8 @@ Usage
 
    positional arguments:
      {find,new}       change_oids sub-commands
-       find           Find duplicate OIDs
-       new            Create new OIDs
+       find           find duplicate OIDs
+       new            create new OIDs
 
    options:
      -h, --help            show this help message and exit
