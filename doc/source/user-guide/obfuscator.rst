@@ -4,21 +4,20 @@ Obfuscator
 Rationale
 =========
 
-SCADE Suite models sometimes need to be shared with partners. Example use cases include developing
+SCADE Suite models sometimes need to be shared with partners. Example use cases include: developing
 operator libraries for a higher-level model, or trying to reproduce a specific behavior using two
 connected models developed by different teams at different companies.
 
-The model being shared may sometimes contain sensitive intellectual property. Obfuscation is often
-seen as an acceptable compromise to protect this IP while still sharing the model.
+The model being shared sometimes contains sensitive intellectual property. Obfuscation can be an acceptable compromise to protect this IP while still sharing the model.
 
 Description
 ===========
 
 This tool obfuscates a SCADE Suite model and its libraries.
 
-* All names are obfuscated
-* Files are renamed and the old ones are deleted
-* The script produces traceability matrices for both objects and file names
+* All names are obfuscated.
+* Files are renamed and the old ones are deleted.
+* The script produces traceability matrices for both objects and file names.
 
 .. Note::
 
@@ -26,7 +25,7 @@ This tool obfuscates a SCADE Suite model and its libraries.
    your files** to another directory before proceeding.
  * Make sure your model does not refer to a library that is not part of your project,
    such as ``$(SCADE)/libraries/libdigital.etp``, or use the option ``-l`` to
-   exclude it from the obfuscation process. for example: ``-l libdigital``.
+   exclude it from the obfuscation process. For example: ``-l libdigital``.
 
 Usage
 =====
@@ -38,7 +37,7 @@ Usage
    Ansys SCADE Power Scripts: Obfuscator for Scade models
 
    options:
-     -h, --help            show this help message and exit
+     -h, --help            Show this help message and exit
      -p <project>, --project <project>
                            SCADE Suite project
      -t <trace>, --trace <trace>
@@ -57,7 +56,7 @@ For example:
 
 This command obfuscates ``MyProject.etp`` and its libraries except those named ``libdigital`` or ``libmath``.
 
-The traceability information between old and new names is output to ``Mapping.txt``, as follows:
+The traceability information between old and new names stored into the file ``Mapping.txt``, as follows:
 
 .. code:: text
 

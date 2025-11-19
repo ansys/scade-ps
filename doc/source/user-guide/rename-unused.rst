@@ -4,27 +4,27 @@ Rename unused files
 Rationale
 =========
 
-When renaming model elements, SCADE may sometimes create new files. For instance,
+When renaming model elements, SCADE sometimes creates new files. For instance,
 if the "Filename" property of an operator is modified, SCADE generates
 a new ``.xscade`` file with the new name for the operator.
 
 SCADE does not remove obsolete files in such cases. Over time, this means a SCADE
-model's directory may become encumbered with obsolete files.
+model's directory can become encumbered with obsolete files.
 
 .. Note::
 
    Two IDE settings are useful to limit obsolete file issues:
 
    - *Tools > Settings > General > Use a creation dialog box*: prompts for an element and
-     filename upon creation of operators and packages.
+     filename when creating operators and packages.
    - *Tools > Settings > General > Propagate entity name changes to filename*: automatically
-     creates a new file, as required, upon renaming of a model element.
+     creates a new file, as required, when renaming a model element.
 
 Description
 ===========
 
 This tool identifies the model files that are not referenced in a SCADE Suite
-project, for example after the renaming of an operator or a package.
+project, for example after renaming an operator or a package.
 
 The unused files are renamed with a suffix ``.toremove``. This allows you to
 double-check the list of unused files, and then delete them easily from the
@@ -61,4 +61,4 @@ This command renames the files not referenced by ``Nominal.etp``.
 Limitations
 ===========
 
-* The symbol files are not considered
+* The symbol files are not considered.

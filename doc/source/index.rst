@@ -9,7 +9,7 @@ Ansys SCADE Power Scripts
       :link: getting-started/index
       :link-type: doc
 
-      Learn how to install and use Ansys SCADE Power Scripts.
+      Learn how to install and run Ansys SCADE Power Scripts.
 
    .. grid-item-card:: :material-regular:`description;1.25em` User guide
       :link: user-guide/index

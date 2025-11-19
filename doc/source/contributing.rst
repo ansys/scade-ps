@@ -53,9 +53,9 @@ source and enhance it.
 
       python -m pip install -U pip     # Upgrading pip
       python -m pip install tox        # Installing tox (optional)
-      python -m pip install .[build]   # for building the wheels
-      python -m pip install .[tests]   # for testing the package
-      python -m pip install .[doc]     # for building the documentation
+      python -m pip install .[build]   # To build the wheels
+      python -m pip install .[tests]   # To test the package
+      python -m pip install .[doc]     # To build the documentation
 
 #. Install the project in editable mode:
 
@@ -85,12 +85,12 @@ to guarantee the project's integrity.
 
 The following ``tox`` commands are provided:
 
-* ``tox -e code-style``: Checks for coding style quality.
-* ``tox -e tests``: Checks for unit testing without code coverage.
-* ``tox -e tests-coverage``: Checks for unit testing with code coverage.
-* ``tox -e doc``: Checks for the documentation-building process.
-   * ``tox -e doc-html``: Builds the HTML documentation.
-   * ``tox -e doc-links``: Checks for broken links in the documentation.
+* ``tox -e code-style``: checks for coding style quality.
+* ``tox -e tests``: checks for unit testing without code coverage.
+* ``tox -e tests-coverage``: checks for unit testing with code coverage.
+* ``tox -e doc``: checks for the documentation-building process.
+   * ``tox -e doc-html``: builds the HTML documentation.
+   * ``tox -e doc-links``: checks for broken links in the documentation.
 
 Use raw testing
 ---------------
@@ -115,7 +115,7 @@ You can also install this as a pre-commit hook by running this command::
 
   pre-commit install
 
-This way, it's not possible for you to push code that fails the style checks::
+This way, it is not possible for you to push code that fails the style checks::
 
   $ pre-commit install
   $ git commit -am "added my cool feature"
@@ -133,7 +133,7 @@ This way, it's not possible for you to push code that fails the style checks::
 
 Build documentation
 ===================
-For building documentation, you can run the usual rules provided in the
+To build documentation, you can run the usual rules provided in the
 `Sphinx`_ ``make`` file. Here are some examples:
 
 .. code:: bash
@@ -171,13 +171,13 @@ Use the `Ansys SCADE Power Scripts Issues <https://github.com/ansys-internal/sca
 page to submit questions, report bugs, and request new features. When possible, use
 these templates:
 
-* Bug, problem, error: For filing a bug report
-* Documentation error: For requesting modifications to the documentation
-* Adding an example: For proposing a new example
-* New feature: For requesting enhancements to the code
+* Bug, problem, error: to file a bug report
+* Documentation error: to request modifications to the documentation
+* Adding an example: to propose a new example
+* New feature: to request enhancements to the code
 
 If your issue does not fit into one of these template categories, click
-the link for opening a blank issue.
+the link to open a blank issue.
 
 To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 

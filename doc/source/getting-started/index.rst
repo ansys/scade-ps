@@ -20,7 +20,7 @@ Install in user mode
 ====================
 The following steps are for installing Ansys SCADE Power Scripts in user mode. If you want to
 contribute to Ansys SCADE Power Scripts,
-see :ref:`contribute_scade_ps` for installing in developer mode.
+see :ref:`contribute_scade_ps` to install in developer mode.
 
 #. Before installing Ansys SCADE Power Scripts in user mode, run this command to ensure that
    you have the latest version of `pip`_:
@@ -45,7 +45,7 @@ executable or Python module.
 
 They rely on `Ansys SCADE API Tools`_ to select the version of SCADE to use at runtime.
 Refer to `Advanced usage with API tools`_ for details or if you want to select a
-given release of SCADE.
+specific release of SCADE.
 
 Executable
 ----------

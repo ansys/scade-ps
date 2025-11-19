@@ -4,7 +4,7 @@ Copy properties
 Rationale
 =========
 
-Some software projects may be composed of dozens of interconnected SCADE models.
+Some software projects are composed of dozens of interconnected SCADE models.
 Maintaining a consistent set of settings across all projects is important, to
 ensure homogeneous code generation parameters or modeling rules. However,
 performing this maintenance by hand can be cumbersome and error-prone.
@@ -14,12 +14,12 @@ Description
 
 This sub-command copies a selection of tool properties from a reference project
 to targets projects. The properties are propagated for all the configurations
-they appear in the reference project. A configuration is created in the
+where they appear in the reference project. A configuration is created in the
 target project if needed.
 
 The properties to consider should be specified in a configuration file (JSON):
 
-* keys: Identifiers of the tools
+* keys: Identifiers of the tools.
 * values: Identifiers of the properties.
 
   When a property designates a file that can be relative to the project, prefix
@@ -108,14 +108,14 @@ all the contained properties, as they appear in the IDE, with the
 Alternative
 ===========
 
-There are use cases where ``ansys_scade_ps_copy_properties`` is not suitable:
+There are use cases where ``ansys_scade_ps_copy_properties`` is not suitable.
 
 For example:
 
-* Dynamic properties: set the Code Generator target directory to ``../code/<model name>``
-* Review: use a text editor to review the reference project instead of the SCADE IDE
+* Dynamic properties: set the Code Generator target directory to ``../code/<model name>``.
+* Review: use a text editor to review the reference project instead of the SCADE IDE.
 
-You can set the properties of a project programmatically. The small following example
+You can set the properties of a project programmatically. The following example
 sets a few properties for one configuration:
 
 .. code:: python
@@ -161,4 +161,4 @@ Usage: ``scade.exe -script <script> <project>+``
 
    It is not necessary to consider the exact default value of the properties you want to set.
    When you provide a default different from your value, the property is always created or updated.
-   The only impact is a larger project file size when to explicitly add properties with default values.
+   The only impact is a larger project file size when explicitly adding properties with default values.
