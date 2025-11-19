@@ -124,6 +124,7 @@ venv*/
 ENV/
 env.bak/
 venv.bak/
+Shell*.bat
 
 # Spyder project settings
 .spyderproject

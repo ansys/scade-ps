@@ -18,7 +18,7 @@ model's directory can become encumbered with obsolete files.
    - *Tools > Settings > General > Use a creation dialog box*: prompts for an element and
      filename when creating operators and packages.
    - *Tools > Settings > General > Propagate entity name changes to filename*: automatically
-     creates a new file, as required, when renaming of model element.
+     creates a new file, as required, when renaming a model element.
 
 Description
 ===========
