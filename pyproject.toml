@@ -60,11 +60,11 @@ ansys_scade_ps_rename_unused = "ansys.scade.ps.rename_unused.__main__:main"
 ansys_scade_ps_change_oids = "ansys.scade.ps.change_oids.__main__:main"
 
 [project.urls]
-source = "https://github.com/ansys-internal/scade-ps"
-issues = "https://github.com/ansys-internal/scade-ps/issues"
-discussions = "https://github.com/ansys-internal/scade-ps/discussions"
+source = "https://github.com/ansys/scade-ps"
+issues = "https://github.com/ansys/scade-ps/issues"
+discussions = "https://github.com/ansys/scade-ps/discussions"
 documentation = "https://ps.scade.docs.pyansys.com"
-releases = "https://github.com/ansys-internal/scade-ps/releases"
+releases = "https://github.com/ansys/scade-ps/releases"
 homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
 [tool.ruff]
@@ -137,8 +137,8 @@ directory = "doc/changelog.d"
 filename = "doc/source/changelog.rst"
 start_string = ".. towncrier release notes start\n"
 template = "doc/changelog.d/changelog_template.jinja"
-title_format = "`{version} <https://github.com/ansys-internal/scade-ps/releases/tag/v{version}>`_ - {project_date}"
-issue_format = "`#{issue} <https://github.com/ansys-internal/scade-ps/pull/{issue}>`_"
+title_format = "`{version} <https://github.com/ansys/scade-ps/releases/tag/v{version}>`_ - {project_date}"
+issue_format = "`#{issue} <https://github.com/ansys/scade-ps/pull/{issue}>`_"
 
 [[tool.towncrier.type]]
 directory = "added"
