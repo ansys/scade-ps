@@ -27,7 +27,7 @@ cname = os.getenv('DOCUMENTATION_CNAME', 'ps.scade.docs.pyansys.com')
 
 # specify the location of your github repo
 html_theme_options = {
-    'github_url': 'https://github.com/ansys-internal/scade-ps',
+    'github_url': 'https://github.com/ansys/scade-ps',
     'show_prev_next': False,
     'show_breadcrumbs': True,
     'additional_breadcrumbs': [
@@ -38,7 +38,7 @@ html_theme_options = {
         'version_match': switcher_version,
     },
     # TODO: remove this after public release
-    # https://github.com/ansys-internal/scade-ps/issues/24
+    # https://github.com/ansys/scade-ps/issues/24
     'check_switcher': False,
     'logo': 'pyansys',
 }
@@ -79,10 +79,10 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # TODO: remove ignore links after public release
-# https://github.com/ansys-internal/scade-ps/issues/24
+# https://github.com/ansys/scade-ps/issues/24
 linkcheck_ignore = [
-    'https://github.com/ansys-internal/scade-ps',
-    'https://github.com/ansys-internal/scade-ps/actions/workflows/ci_cd.yml',
+    'https://github.com/ansys/scade-ps',
+    'https://github.com/ansys/scade-ps/actions/workflows/ci_cd.yml',
     'https://pypi.org/project/ansys-scade-ps',
     'https://ansyshelp.ansys.com/*',
     # The link below takes a long time to check
@@ -91,6 +91,4 @@ linkcheck_ignore = [
 ]
 
 if switcher_version != 'dev':
-    linkcheck_ignore.append(
-        f'https://github.com/ansys-internal/scade-ps/releases/tag/v{__version__}'
-    )
+    linkcheck_ignore.append(f'https://github.com/ansys/scade-ps/releases/tag/v{__version__}')

@@ -19,12 +19,12 @@ Ansys SCADE Power Scripts
    :target: https://pypi.org/project/ansys-scade-ps
    :alt: PyPI
 
-.. |codecov| image:: https://codecov.io/gh/ansys-internal/scade-ps/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/ansys-internal/scade-ps
+.. |codecov| image:: https://codecov.io/gh/ansys/scade-ps/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/ansys/scade-ps
    :alt: Codecov
 
-.. |GH-CI| image:: https://github.com/ansys-internal/scade-ps/actions/workflows/ci_cd.yml/badge.svg
-   :target: https://github.com/ansys-internal/scade-ps/actions/workflows/ci_cd.yml
+.. |GH-CI| image:: https://github.com/ansys/scade-ps/actions/workflows/ci_cd.yml/badge.svg
+   :target: https://github.com/ansys/scade-ps/actions/workflows/ci_cd.yml
 
 .. |MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
    :target: https://opensource.org/licenses/MIT
@@ -64,7 +64,7 @@ In the upper right corner of the documentation's title bar, there is an option f
 switching from viewing the documentation for the latest stable release to viewing the
 documentation for the development version or previously released versions.
 
-On the `Ansys SCADE Power Scripts Issues <https://github.com/ansys-internal/scade-ps/issues>`_
+On the `Ansys SCADE Power Scripts Issues <https://github.com/ansys/scade-ps/issues>`_
 page, you can create issues to report bugs and request new features. On the `Discussions <https://discuss.ansys.com/>`_
 page on the Ansys Developer portal, you can post questions, share ideas, and get community feedback.
 
