@@ -9,6 +9,41 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.4.1 <https://github.com/ansys/scade-ps/releases/tag/v0.4.1>`_ - November 21, 2025
+====================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Documentation
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Review and modify the scade-ps documentation
+          - `#36 <https://github.com/ansys/scade-ps/pull/36>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Update CHANGELOG for v0.3.0
+          - `#33 <https://github.com/ansys/scade-ps/pull/33>`_
+
+        * - Update CHANGELOG for v0.3.1
+          - `#34 <https://github.com/ansys/scade-ps/pull/34>`_
+
+        * - Bump the actions group with 2 updates
+          - `#35 <https://github.com/ansys/scade-ps/pull/35>`_
+
+        * - Update project's links
+          - `#37 <https://github.com/ansys/scade-ps/pull/37>`_
+
+
 `0.3.1 <https://github.com/ansys/scade-ps/releases/tag/v0.3.1>`_ - October 17, 2025
 
 .. tab-set::
