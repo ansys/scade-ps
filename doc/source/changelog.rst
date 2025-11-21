@@ -9,7 +9,7 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
-`0.4.0 <https://github.com/ansys/scade-ps/releases/tag/v0.4.0>`_ - November 20, 2025
+`0.4.1 <https://github.com/ansys/scade-ps/releases/tag/v0.4.1>`_ - November 21, 2025
 ====================================================================================
 
 .. tab-set::
