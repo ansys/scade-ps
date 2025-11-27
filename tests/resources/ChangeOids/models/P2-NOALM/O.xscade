@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="O">
+			<inputs>
+				<Variable name="i">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/3f/6103/7324/67c855543b84"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="o">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/48/6103/7324/67c85559df5"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="State1">
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/64/6103/7324/67c855723b4"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- o = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="o"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/5d/6103/7324/67c855701a95"/>
+									</pragmas>
+								</Equation>
+								<!-- _L1 = i; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="i"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/63/6103/7324/67c8557269a6"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/56/6103/7324/67c855676930"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/51/6103/7324/67c855657f94"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator oid="!ed/3d/6103/7324/67c855454009" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<diagrams>
+						<NetDiagram name="O" landscape="true" format="A4 (210 297)" oid="!ed/3e/6103/7324/67c855457840">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/51/6103/7324/67c855657f94">
+									<position>
+										<Point x="1323" y="953"/>
+									</position>
+									<size>
+										<Size width="5239" height="4128"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/56/6103/7324/67c855676930">
+									<position>
+										<Point x="1535" y="1191"/>
+									</position>
+									<size>
+										<Size width="4710" height="3598"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/5d/6103/7324/67c855701a95">
+									<position>
+										<Point x="4974" y="2831"/>
+									</position>
+									<size>
+										<Size width="318" height="503"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/63/6103/7324/67c8557269a6">
+									<position>
+										<Point x="2381" y="2831"/>
+									</position>
+									<size>
+										<Size width="265" height="503"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/63/6103/7324/67c8557269a6" dstEquation="!ed/5d/6103/7324/67c855701a95">
+									<positions>
+										<Point x="2646" y="3096"/>
+										<Point x="3836" y="3096"/>
+										<Point x="3836" y="3096"/>
+										<Point x="5027" y="3096"/>
+									</positions>
+								</Edge>
+							</presentationElements>
+							<equationSets>
+								<EquationSet name="EquationSet" oid="!ed/6f/6103/7324/67c855b8741e">
+									<presentable>!ed/63/6103/7324/67c8557269a6</presentable>
+									<presentable>!ed/5d/6103/7324/67c855701a95</presentable>
+								</EquationSet>
+							</equationSets>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>
