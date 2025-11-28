@@ -56,6 +56,7 @@ def test_find_duplicates_nominal(dump_paths):
         ('P1', '.testoids.txt', False),
         ('P2', '.testpaths.txt', True),
         ('P3', '.testoids.txt', True),
+        ('P2-NOALM', '.testpaths.txt', True),
     ],
 )
 def test_new_oids_nominal(base: str, suffix: str, use_abs_oids: bool, local_tmpdir):
