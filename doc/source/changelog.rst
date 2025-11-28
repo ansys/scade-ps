@@ -9,6 +9,22 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.4.3 <https://github.com/ansys/scade-ps/releases/tag/v0.4.3>`_ - November 28, 2025
+====================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Catch exceptions raised by ALM Gateway when there is no traceability project
+          - `#41 <https://github.com/ansys/scade-ps/pull/41>`_
+
+
 `0.4.1 <https://github.com/ansys/scade-ps/releases/tag/v0.4.1>`_ - November 21, 2025
 ====================================================================================
 
