@@ -77,7 +77,13 @@ class NewOids(Visit):
 
         # read the requirements, if any
         path = Path(session.model.project.pathname)
-        req_project = traceability.load(str(path)) if traceability else None
+        if traceability:
+            try:
+                req_project = traceability.load(str(path))
+            except BaseException:
+                req_project = None
+        else:
+            req_project = None
         if req_project:
             for element in req_project.traceable_elements:
                 self.map_traceability_links[element.identifier] = [
