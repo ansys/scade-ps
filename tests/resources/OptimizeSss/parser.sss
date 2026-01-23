@@ -1,0 +1,48 @@
+##############################################################################
+#
+# Scenario Description
+#
+##############################################################################
+
+# limitations
+# all 'columns' must be declared before the first cycle
+# the conversion/optimization of the scenario is not done wrt the model, syntax only:
+
+## inputs
+SSM::set ii 0
+SSM::set fi 0.0
+SSM::set ai (0.0,0.0,0.0)
+SSM::set si (P::A,0.0,0.0)
+SSM::set P::Root/bi {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))}
+SSM::check io 0
+SSM::check fo 0.0
+SSM::check ao (0.0,0.0,0.0)
+SSM::check so (P::A,0.0,0.0)
+SSM::check P::Root/bo {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))}
+
+SSM::cycle
+
+SSM::set fi 1.00001
+SSM::check fo 1.0 sustain=2
+SSM::set si (P::B,0.0,0.0)
+SSM::check ii 0 sustain=forever
+
+SSM::cycle 3
+
+SSM::set_tolerance path=fo real=0.001
+SSM::check fo 1.0 sustain=2
+SSM::set ii 1
+SSM::set si (P::B,0.0,1.0)
+SSM::set ai (0.0,1.0,0.0)
+
+SSM::cycle
+SSM::cycle
+
+SSM::set_tolerance path=fo real=0.0
+SSM::check fo 1.0 real=0.1
+SSM::set ii 0
+
+SSM::cycle 2
+SSM::uncheck ii
+
+SSM::cycle

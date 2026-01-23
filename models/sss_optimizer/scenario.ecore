@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Scenario">
+  <eAnnotations source="lbsjv">
+    <details key="oid" value="1"/>
+    <details key="lastOid" value="158"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Scenario" abstract="true">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="2"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="84"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" upperBound="-1" eType="#//Step"
+        containment="true" eOpposite="#//Step/scenario">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="85"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" eType="#//Sequence"
+        eOpposite="#//Sequence/scenario">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="87"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SssScenario" eSuperTypes="#//Scenario">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="6"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CsvScenario" eSuperTypes="#//Scenario">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="7"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="8"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tolerance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="88"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="89"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cycles" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="90"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="directive" upperBound="-1"
+        eType="#//Directive" containment="true" eOpposite="#//Directive/step">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="91"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scenario" eType="#//Scenario"
+        eOpposite="#//Scenario/step">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="92"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IO" eSuperTypes="#//ScadeProxy">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="11"/>
+    </eAnnotations>
+    <eOperations name="Bind">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="93"/>
+      </eAnnotations>
+      <eParameters name="model" eType="ecore:EClass scade.ecore#//ScConstVar">
+        <eAnnotations source="lbsjv">
+          <details key="oid" value="94"/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="isOutput" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="151"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="directive" upperBound="-1"
+        eType="#//Directive" eOpposite="#//Directive/io">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="98"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constvar" eType="ecore:EClass scade.ecore#//ScConstVar"
+        derived="true">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="99"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" eType="#//Sequence"
+        eOpposite="#//Sequence/io">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="143"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="147"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//ScadeProxy">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="22"/>
+    </eAnnotations>
+    <eOperations name="Bind">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="110"/>
+      </eAnnotations>
+      <eParameters name="model" eType="ecore:EClass scade.ecore#//ScModel">
+        <eAnnotations source="lbsjv">
+          <details key="oid" value="111"/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" upperBound="-1"
+        eType="#//Sequence" containment="true" eOpposite="#//Sequence/application">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="113"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="ecore:EClass scade.ecore#//ScModel"
+        derived="true">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="116"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetCheck" abstract="true" eSuperTypes="#//Directive">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="36"/>
+    </eAnnotations>
+    <eOperations name="patchIO">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="149"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueTree" eType="#//ValueTree"
+        defaultValueLiteral="[]">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="128"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Set" eSuperTypes="#//SetCheck">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="39"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Check" eSuperTypes="#//SetCheck">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="41"/>
+    </eAnnotations>
+    <eOperations name="patchIO">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="150"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sustain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="130"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tolerance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="131"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScadeProxy" abstract="true">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="63"/>
+    </eAnnotations>
+    <eOperations name="Bind">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="132"/>
+      </eAnnotations>
+      <eParameters name="model" eType="ecore:EClass scade.ecore#//ScObject">
+        <eAnnotations source="lbsjv">
+          <details key="oid" value="133"/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scelement" eType="ecore:EClass scade.ecore#//ScObject">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="134"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="74"/>
+    </eAnnotations>
+    <eOperations name="Load" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="136"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="CreateScenario" eType="#//Scenario">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="137"/>
+      </eAnnotations>
+      <eParameters name="pathname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="lbsjv">
+          <details key="oid" value="138"/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="FindIO" eType="#//IO">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="145"/>
+      </eAnnotations>
+      <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="lbsjv">
+          <details key="oid" value="146"/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="#//Application"
+        eOpposite="#//Application/sequence">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="139"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scenario" upperBound="-1"
+        eType="#//Scenario" containment="true" eOpposite="#//Scenario/sequence">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="140"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" eType="#//AliasTable"
+        transient="true" defaultValueLiteral="{}">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="141"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="io" upperBound="-1" eType="#//IO"
+        containment="true" eOpposite="#//IO/sequence">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="144"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="AliasTable" instanceClassName="dict"
+      serializable="false">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="78"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValueTree" instanceClassName="class">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="148"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tolerance" eSuperTypes="#//Directive">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="152"/>
+    </eAnnotations>
+    <eOperations name="patchIO">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="153"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tolerance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="154"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Directive" abstract="true">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="155"/>
+    </eAnnotations>
+    <eOperations name="patchIO">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="156"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" eType="#//Step" eOpposite="#//Step/directive">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="157"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="io" eType="#//IO" eOpposite="#//IO/directive">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="158"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="lbsjv">
+        <details key="oid" value="125"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

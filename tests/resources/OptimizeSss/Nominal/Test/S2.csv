@@ -1,0 +1,28 @@
+#$CsvFormat=0
+*SCRIPT*;P::Root/ii;P::Root/fi;P::Root/ai;P::Root/si;P::Root/bi;P::Root/fo;P::Root/bo
+#----------------------------------------------------------------------------
+# Corner test cases
+# - global tolerance vs individual
+# - optimization
+# - overlapped sustain directives
+# - unused outputs
+#----------------------------------------------------------------------------
+# initial values
+Tol;;;;;;0.001;
+;0;0.0;(0.0,0.0,0.0);(P::A,0.0,0.0);(false,'!',0,(0.0,0.1,0.2),(P::A,0.3,0.4));;
+# set the global tolerance
+# check a structure for 5 cycles
+# check a table for 5 cycles
+Tol;;;;;;;0.002
+Repeat 2;;;;;;;(?,?,?,(0.0,0.1,0.2),(P::A,0.3,0.4))
+# check a structure element for 15 cycles
+# check a list element for 15 cycles
+Repeat 3;;;;;;;(,,,(0.01,,),(,,0.41))
+Repeat 7;;;;;;;(,,,(,?,?),(?,?,))
+# check a structure for 5 cycles
+# check a table for 5 cycles
+Repeat 2;;;;;;;(,,,(0.02,0.12,0.22),(P::A,0.32,0.42))
+# uncheck a structure element
+# uncheck a list element
+Repeat 3;;;;;;;(,,,(?,,),(,,?))
+Last, Repeat 7;;;;;;;(,,,(,?,?),(?,?,))

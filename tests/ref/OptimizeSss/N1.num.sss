@@ -1,0 +1,58 @@
+#----------------------------------------------------------------------------
+# Test scenario for numbering
+#----------------------------------------------------------------------------
+
+# initial values
+SSM::set ii 0
+SSM::set P::Root/bi {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))}
+
+# step 1
+# perform one cycle
+SSM::check io 0
+SSM::check P::Root/bo {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))}
+SSM::cycle
+
+# step 2
+# reset
+SSM::check reset true
+SSM::check whatever 31
+SSM::cycle
+SSM::check reset false
+
+# steps 3-7
+# what about 5 cycles?
+SSM::cycle 5
+
+# one cycle with a wrong steps
+# step 8
+SSM::cycle
+
+# step 9
+# pair of cycles
+SSM::cycle
+# step 10
+SSM::cycle
+
+# not separated parts
+SSM::check whatever 9
+# step 11
+SSM::cycle
+# step 12
+SSM::check whatever 12
+SSM::cycle
+
+# blah blah
+incorrect syntax by the way
+
+one more line followed by two empty lines
+
+
+# several steps
+SSM::check whatever 46
+# steps 13-14
+SSM::check whatever 65
+SSM::check whatever 12
+SSM::cycle 2
+
+# end part without cycle
+SSM::check whatever 81

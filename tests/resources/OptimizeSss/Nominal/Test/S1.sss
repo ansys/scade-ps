@@ -1,0 +1,49 @@
+#----------------------------------------------------------------------------
+# Nominal test cases
+# - aliases
+# - sustain
+# - simple tolerance
+#----------------------------------------------------------------------------
+
+# initial values and checks for one cycle
+SSM::set ii 0
+SSM::set fi 0.0
+SSM::set ai (0.0,0.0,0.0)
+SSM::set si (P::A,0.0,0.0)
+SSM::set P::Root/bi {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))}
+SSM::check io 0
+SSM::check fo 0.0
+SSM::check ao (0.0,0.0,0.0)
+SSM::check so (P::A,0.0,0.0)
+SSM::check P::Root/bo {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))}
+SSM::cycle
+
+# change 2 inputs
+SSM::set fi 1.00001
+SSM::set si (P::B,0.0,0.0)
+# check sustained less than the 3 cycles
+SSM::check fo 1.0 sustain=2
+SSM::check io 0 sustain=forever
+SSM::cycle 3
+
+# tolerance for one output
+# new check on fo with the same value
+SSM::set_tolerance path=fo real=0.001
+SSM::check fo 1.0 sustain=2
+# few changes in the input values
+SSM::set ii 1
+SSM::set si (P::B,0.0,1.0)
+SSM::set ai (0.0,1.0,0.0)
+# 2 identical cycles to be merged
+SSM::cycle
+SSM::cycle
+
+SSM::set_tolerance path=fo real=0.0
+# unsupported tolerance associated to a check
+SSM::check fo 1.0 real=0.1
+SSM::set ii 0
+SSM::cycle 2
+
+# test uncheck
+SSM::uncheck io
+SSM::cycle
