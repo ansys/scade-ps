@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Scenario">
   <eAnnotations source="lbsjv">
     <details key="oid" value="1"/>
-    <details key="lastOid" value="158"/>
+    <details key="lastOid" value="159"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Scenario" abstract="true">
     <eAnnotations source="lbsjv">
@@ -150,7 +150,7 @@
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueTree" eType="#//ValueTree"
-        defaultValueLiteral="[]">
+        defaultValueLiteral="">
       <eAnnotations source="lbsjv">
         <details key="oid" value="128"/>
       </eAnnotations>
@@ -300,10 +300,15 @@
         <details key="oid" value="158"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="#//SubPath">
       <eAnnotations source="lbsjv">
         <details key="oid" value="125"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="SubPath" instanceClassName="class">
+    <eAnnotations source="lbsjv">
+      <details key="oid" value="159"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

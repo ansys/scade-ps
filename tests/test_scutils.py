@@ -119,12 +119,19 @@ def test_tree_to_str(case):
 
 
 @pytest.mark.parametrize(
-    'case', [('P::BIG/', '(,,,(,,),(,,))'), ('P::E/', ''), ('P::S/', '(,,)'), ('P::T/', '(,,)')]
+    'case',
+    [
+        ('P::BIG/', '(,,,(,,),(,,))'),
+        ('P::E/', ''),
+        ('P::S/', '(,,)'),
+        ('P::T/', '(,,)'),
+    ],
 )
 def test_get_default_value(model_ro, case):
     path, default = case
     type_ = model_ro.get_object_from_path(path)
-    assert scutils.tree_to_str(scutils.get_default_value(type_)) == default
+    value = scutils.get_default_value(type_)
+    assert scutils.tree_to_str(value) == default
 
 
 @pytest.mark.parametrize(
@@ -169,7 +176,9 @@ def test_get_type_width(model_ro, case):
 def test_resolve_path(model_ro, case):
     pathtype, path, result, cls = case
     type_ = model_ro.get_object_from_path(pathtype)
-    _, index, subtype = scutils.resolve_path(scutils.get_default_value(type_), type_, path)
+    value = scutils.get_default_value(type_)
+    assert isinstance(value, list)
+    _, index, subtype = scutils.resolve_path(value, type_, path)
     assert index == result
     assert type(scutils.get_type_definition(subtype)) is cls
 

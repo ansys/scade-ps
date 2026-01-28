@@ -31,7 +31,7 @@ from ansys.scade.ps.optimize_sss.scenario import (
     Scenario,
     Sequence,
     SustainTree,
-    ValueTree,
+    ValueTreeImpl,
 )
 from ansys.scade.ps.optimize_sss.scutils import reduce_value, tree_to_str
 
@@ -80,6 +80,7 @@ def save_as_csv(scenario: Scenario, pathname: str):
     buffer_cycles = 0
 
     # support only usual format: step by lines (format 0)
+    assert scenario.sequence is not None  # nosec B101  # addresses linter
     sequence = scenario.sequence
     path = Path(pathname)
     try:
@@ -92,11 +93,13 @@ def save_as_csv(scenario: Scenario, pathname: str):
         f.write('#$CsvFormat=0\n')
         # runtime values: current and reference
         for io in sequence.ios:
+            assert io.constvar is not None  # nosec B101  # addresses linter
             io._reference = None
-            io._value = ValueTree.default(io.constvar.type)
+            io._value = ValueTreeImpl.default(io.constvar.type)
         # outputs: separate list with mask initialized to 0 (no check)
         os = [io for io in sequence.ios if io.is_output()]
         for o in os:
+            assert io.constvar is not None  # nosec B101  # addresses linter
             o._sustain = SustainTree(io.constvar.type)
             o._active_checks = 0
 
@@ -110,6 +113,7 @@ def save_as_csv(scenario: Scenario, pathname: str):
 
             # default values for the current step: previous ones
             for io in sequence.ios:
+                assert io._value is not None  # nosec B101  # addresses linter
                 io._reference = io._value
                 io._value = io._reference.clone()
                 io._tol_reference = io._tol_value
@@ -121,13 +125,14 @@ def save_as_csv(scenario: Scenario, pathname: str):
 
             # apply active sustain
             for o in os:
+                assert o._sustain is not None  # nosec B101  # addresses linter
                 if o._sustain.active:
+                    assert isinstance(o._value, ValueTreeImpl)  # nosec B101  # addresses linter
                     o._sustain.apply(o._value)
 
             # current row
             cells = [
-                tree_to_str(reduce_value(io._value.value, io._reference.value))
-                for io in sequence.ios
+                tree_to_str(reduce_value(io.value_tree, io.reference_tree)) for io in sequence.ios
             ]
             if step.tolerance:
                 # patch tolerance for outputs w/o tolerance
@@ -144,11 +149,14 @@ def save_as_csv(scenario: Scenario, pathname: str):
                 changed = False
                 # default values for the current cycle: previous ones
                 for io in sequence.ios:
+                    assert io._value is not None  # nosec B101  # addresses linter
                     io._reference = io._value
                     io._value = io._reference.clone()
 
                 for o in os:
+                    assert o._sustain is not None  # nosec B101  # addresses linter
                     if o._sustain.active:
+                        assert isinstance(o._value, ValueTreeImpl)  # nosec B101  # addresses linter
                         if o._sustain.apply(o._value):
                             # the current cells must be flushed
                             changed = True
@@ -159,7 +167,7 @@ def save_as_csv(scenario: Scenario, pathname: str):
 
                     # current row
                     cells = [
-                        tree_to_str(reduce_value(io._value.value, io._reference.value))
+                        tree_to_str(reduce_value(io.value_tree, io.reference_tree))
                         for io in sequence.ios
                     ]
                     # tolerance line necessary empty

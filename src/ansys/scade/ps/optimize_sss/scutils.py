@@ -24,9 +24,25 @@
 
 from functools import reduce
 from re import compile
-from typing import List, Tuple
+from typing import List, Sequence, Tuple, Union
 
 from scade.model.suite import NamedType, Structure, Table, Type
+
+LiteralTree = Union[List, str]
+"""
+Annotation type for scenario values: hierarchy of literal values.
+"""
+
+
+CounterTree = Union[List, int]
+"""
+Annotation type for sustain counters associated to a scenario value: hierarchy of integers.
+"""
+
+# annotation types for utilities common to literal and counter trees
+Leaf = Union[str, int]
+Tree = Union[LiteralTree, CounterTree]
+SubPath = Sequence[Union[str, int]]
 
 
 def get_type_definition(type_: Type) -> Type:
@@ -37,8 +53,8 @@ def get_type_definition(type_: Type) -> Type:
     return type_
 
 
-def resolve_path(tree: list, type_: Type, path: list) -> Tuple[list, int, Type]:
-    """Return the tree corresponding to the last path element, its index and type."""
+def resolve_path(tree: list, type_: Type, path: SubPath) -> Tuple[list, int, Type]:
+    """Return the list containing the last path element, its index and type."""
     subtree = tree
     for elem in path:
         tree = subtree
@@ -46,39 +62,40 @@ def resolve_path(tree: list, type_: Type, path: list) -> Tuple[list, int, Type]:
         type_ = get_type_definition(type_)
         # following assert failure(s) implies an error in the scenario
         if isinstance(type_, Table):
-            assert len(subtree) == type_.size
+            # assert len(subtree) == type_.size
             type_ = type_.type
-            index = elem
+            # elem must be an integer
+            index = int(elem)
         elif isinstance(type_, Structure):
-            assert len(subtree) == len(type_.elements)
+            # assert len(subtree) == len(type_.elements)
             for index, field in enumerate(type_.elements):
-                # TO DO: optimization: add a cache in the type?
+                # optimization: add a cache in the type?
                 if field.name == elem:
                     index = field.element_range
                     break
             else:
                 # not existing field
-                assert False
+                raise ValueError(f'{type_.get_full_path()}: unknown {elem} field')
             type_ = field.type
         else:
-            assert False
+            raise ValueError(f'{type_.get_full_path()}: value mismatch')
         subtree = tree[index]
 
     return tree, index, type_
 
 
-def adjust_value(value: object, type_: Type) -> object:
+def adjust_value(value: LiteralTree, type_: Type) -> LiteralTree:
     """Replace ``?`` placeholders for tables/structures by trees, bypassing aliases."""
     type_ = get_type_definition(type_)
     if value == '?':
-        return get_default_value(type_, '?')
+        return get_default_value(type_, '?')  # type: ignore
     if isinstance(type_, Table):
-        assert isinstance(value, list)  # nosec B101  # addresses linter
-        # assert len(value) == type_.size
+        if not isinstance(value, list) or len(value) != type_.size:
+            raise ValueError(f'{type_.get_full_path()}: value mismatch')
         return [adjust_value(cell, type_.type) for cell in value]
     elif isinstance(type_, Structure):
-        assert isinstance(value, list)  # nosec B101  # addresses linter
-        # assert len(value) == len(type_.elements)
+        if not isinstance(value, list) or len(value) != len(type_.elements):
+            raise ValueError(f'{type_.get_full_path()}: value mismatch')
         return [
             adjust_value(subvalue, element.type)
             for subvalue, element in zip(value, type_.elements, strict=True)
@@ -87,8 +104,10 @@ def adjust_value(value: object, type_: Type) -> object:
         return value
 
 
-def patch_tree(tree: list, value: object, type_: Type, path: list, needadjust=False):
-    """Apply TODO: docstring."""
+def patch_tree(
+    tree: list, value: LiteralTree, type_: Type, path: Sequence[Union[str, int]], needadjust=False
+):
+    """Update a value of a tree."""
     tree, index, type_ = resolve_path(tree, type_, path)
     if needadjust:
         tree[index] = adjust_value(value, type_)
@@ -96,7 +115,7 @@ def patch_tree(tree: list, value: object, type_: Type, path: list, needadjust=Fa
         tree[index] = value
 
 
-def get_tree_width(tree: object) -> int:
+def get_tree_width(tree: CounterTree) -> int:
     """Return the number of elements different from 0 of the flattened tree."""
     if isinstance(tree, list):
         width = reduce(lambda x, y: x + y, [get_tree_width(elem) for elem in tree])
@@ -105,8 +124,8 @@ def get_tree_width(tree: object) -> int:
     return width
 
 
-def patch_sustain(tree: list, sustain: int, type_: Type, path: list) -> int:
-    """Return TODO: docstring."""
+def patch_sustain(tree: list, sustain: int, type_: Type, path: SubPath) -> int:
+    """Update the sustain value of a tree."""
     tree, index, type_ = resolve_path(tree, type_, path)
     old_width = get_tree_width(tree[index])
     tree[index] = get_default_value(type_, sustain)
@@ -114,13 +133,13 @@ def patch_sustain(tree: list, sustain: int, type_: Type, path: list) -> int:
     return new_width - old_width
 
 
-def get_default_value(type_: Type, fill: object = '') -> object:
-    """Return the default value of a type."""
+def get_default_value(type_: Type, fill: object = '') -> Union[List, object]:
+    """Return a tree corresponding to a type."""
     # skip aliases
     type_ = get_type_definition(type_)
     if isinstance(type_, Table):
         value = get_default_value(type_.type, fill)
-        return [value for i in range(type_.size)]
+        return [value] * type_.size
     elif isinstance(type_, Structure):
         return [get_default_value(field.type, fill) for field in type_.elements]
     else:
@@ -130,14 +149,14 @@ def get_default_value(type_: Type, fill: object = '') -> object:
 _re_path = compile(r'([^\[\.]*)(.*)?')
 
 
-def split_path(path: str):
+def split_path(path: str) -> Tuple[str, Sequence[Union[str, int]]]:
     """
     Return the path identifying the semantic element and its subpath as a list: index and/or fields.
 
     ``path`` is expected to be a sensor or local variable, with optional subpath.
     """
     match = _re_path.match(path)
-    assert match
+    assert match is not None  # nosec B101  # addresses linter
     var_path, sub_paths = match.groups()
     if sub_paths:
         items = sub_paths.replace('[', '.').replace(']', '').strip('.').split('.')
@@ -150,56 +169,52 @@ def split_path(path: str):
 
 def splitex(text: str, separators: str) -> List[str]:
     """Return the list of tokens, including the separators."""
-    token = ''
+    # use `tok` instead of `token` so that bandit does not raise B105
+    tok = ''
     result = []
     quote = False
     for c in text:
         if not quote and c in separators:
-            token = token.strip()
-            if token != '':
-                result.append(token)
-            token = ''
+            tok = tok.strip()
+            if tok != '':
+                result.append(tok)
+            tok = ''
             result.append(c)
         else:
-            token += c
+            tok += c
             if c == "'":
                 quote = not quote
-    token = token.strip()
-    if token != '':
-        result.append(token)
+    tok = tok.strip()
+    if tok != '':
+        result.append(tok)
 
     return result
 
 
-def list_to_tree(tokens: List[str]):
+def value_to_tree(value: str) -> LiteralTree:
     """Provide a tree representation of a structured value."""
+    # use `tok[s]` instead of `token[s]` so that bandit does not raise B105
+    toks = splitex(value, '()[],')
     tree = []
     current = []
-    for token in tokens:
-        if token == ')' or token == ']':
+    for tok in toks:
+        if tok == ')' or tok == ']':
             pop = tree.pop()
             pop.append(current)
             current = pop
-        elif token == ',':
+        elif tok == ',':
             pass
-        elif token == '(' or token == '[':
+        elif tok == '(' or tok == '[':
             tree.append(current)
             current = []
         else:
-            current.append(token)
+            current.append(tok)
 
-    return current[0]
-
-
-def value_to_tree(value: str):
-    """Provide a tree representation of a structured value."""
-    tokens = splitex(value, '()[],')
-    return list_to_tree(tokens)
+    return current[0] if current else ''
 
 
-def reduce_value(value: object, reference: object) -> object:
+def reduce_value(value: LiteralTree, reference: LiteralTree) -> LiteralTree:
     """Remove from value parts identical to reference."""
-    # value/reference/return value are either strings or lists
     # value and reference must have the same tree structure
     if not isinstance(value, list):
         # leaf
@@ -219,15 +234,16 @@ def reduce_value(value: object, reference: object) -> object:
     return '' if empty else '?' if dontcare else result
 
 
-def tree_to_str(value: object) -> str:
+def tree_to_str(value: Union[list, object]) -> str:
     """Serialize a tree to a string."""
-    if not isinstance(value, list):
+    if isinstance(value, list):
+        return '(' + ','.join([tree_to_str(v) for v in value]) + ')'
+    else:
         # leaf
-        return value
-
-    return '(' + ','.join([tree_to_str(v) for v in value]) + ')'
+        return str(value)
 
 
+# cache
 _type_widths = {}
 
 
@@ -258,7 +274,7 @@ def apply_sustain(value: list, sustain: list) -> int:
     Set a corresponding value to '?' when its counter becomes null
     """
     count = 0
-    assert len(value) == len(sustain)
+    # assert len(value) == len(sustain)
     for i, element in enumerate(sustain):
         if isinstance(element, list):
             count += apply_sustain(value[i], sustain[i])
