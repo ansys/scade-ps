@@ -29,8 +29,7 @@ from pathlib import Path
 import pytest
 import scade.model.suite as suite
 
-from ansys.scade.ps.optimize_sss.sssopt import _main as sssopt_main
-from conftest import cmp_file, load_session
+from conftest import cmp_file, load_session, run_tool
 
 
 @pytest.fixture(scope='session')
@@ -44,10 +43,13 @@ def model_ro() -> suite.Model:
 
 @pytest.mark.parametrize(
     'case',
-    [('Nominal/Test/A.sss', 'Nominal/Test/S1.sss'), ('Nominal/Test/A.sss', 'Nominal/Test/S2.sss')],
+    [
+        ('Nominal/Test/A.sss', 'Nominal/Test/S1.sss', False),
+        ('Nominal/Test/A.sss', 'Nominal/Test/S2.sss', True),
+    ],
 )
 def test_sss_opt(model_ro, tmpdir, case, capsys):
-    base_alias, base_scenario = case
+    base_alias, base_scenario, internal = case
 
     test_dir = Path(__file__).parent
     alias = test_dir / 'resources/OptimizeSss' / base_alias
@@ -55,14 +57,25 @@ def test_sss_opt(model_ro, tmpdir, case, capsys):
 
     basename = scenario.with_suffix('.csv').name
     output = Path(tmpdir) / basename
-    ref = test_dir / 'ref' / 'OptimizeSss' / basename
 
-    print('scenario', scenario)
-    print('alias', alias)
-    print('output', output)
-    sssopt_main(model_ro, scenario, alias, str(output))
+    # run the optimization
+    args = [
+        '-m',
+        model_ro.descriptor.model_file_name,
+        '-a',
+        str(alias),
+        '-s',
+        str(scenario),
+        '-o',
+        str(output),
+    ]
+    # reuse the boolean internals to select the launch mode
+    tool = 'ansys_scade_ps_optimize_sss.exe' if internal else 'ansys.scade.ps.optimize_sss'
+    status = run_tool(tool, args)
+    assert status.returncode == 0
 
     # ignore any message issued prior this text: banner, warnings, etc.
+    ref = test_dir / 'ref' / 'OptimizeSss' / basename
     captured = capsys.readouterr()
     diff = cmp_file(ref, output, n=0)
     for line in list(diff):
