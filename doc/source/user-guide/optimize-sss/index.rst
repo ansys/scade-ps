@@ -5,7 +5,7 @@ Rationale
 =========
 
 SCADE Test scenarios (SSS) may be produced from recording sessions or by any tools.
-Such scenarios may contain large number of cycles and data that lead to huge file sizes.
+Such scenarios can contain large number of cycles and data that lead to huge file sizes.
 
 However, SCADE Test offers means to minimize the verbosity of test scenarios:
 
@@ -42,7 +42,7 @@ Usage
 
 .. Note::
 
-   * The ``--alias`` parameter is required: provide an empty file if no alias file is available.
+   * The ``--alias`` parameter is required. Provide an empty file if no alias file is available.
 
 For example:
 
@@ -118,9 +118,9 @@ Limitations
    * ``<lambda>`` expressions
    * ``<range>`` expressions
 
-* The alias directives are not reported to the produced output scenario.
-* Setting a tolerance between a check and a cycle directives produces a different output scenario.
-  Indeed, the tolerances line are written before the cycle lines.
+* The alias directives are used by the script but not referenced in the produced output scenario.
+* Setting a tolerance between a check directive and a cycle directive produces a different output scenario.
+  Indeed, the tolerances line is written before the cycle lines.
 
   Input scenario:
 
@@ -139,4 +139,4 @@ Limitations
      Tol;0.0001;0.0001
      Last;3.15;6.024
 
-* A tolerance cannot be set on a part of a variable
+* A tolerance cannot be set on a part of a variable.
