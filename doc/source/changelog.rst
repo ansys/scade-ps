@@ -9,6 +9,57 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.5.0 <https://github.com/ansys/scade-ps/releases/tag/v0.5.0>`_ - February 12, 2026
+====================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Added
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Add a tool to optimize SCADE Test scenarios (SSS)
+          - `#50 <https://github.com/ansys/scade-ps/pull/50>`_
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump build from 1.3.0 to 1.4.0 in the dependencies group
+          - `#49 <https://github.com/ansys/scade-ps/pull/49>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Update CHANGELOG for v0.4.0
+          - `#38 <https://github.com/ansys/scade-ps/pull/38>`_
+
+        * - Update CHANGELOG for v0.4.1
+          - `#39 <https://github.com/ansys/scade-ps/pull/39>`_
+
+        * - Update CHANGELOG for v0.4.3
+          - `#42 <https://github.com/ansys/scade-ps/pull/42>`_
+
+        * - Update license headers
+          - `#45 <https://github.com/ansys/scade-ps/pull/45>`_
+
+        * - Reuse ansys/scade-actions reusable workflow
+          - `#46 <https://github.com/ansys/scade-ps/pull/46>`_
+
+        * - Bump actions/download-artifact from 6.0.0 to 7.0.0 in the actions group across 1 directory
+          - `#48 <https://github.com/ansys/scade-ps/pull/48>`_
+
+
 `0.4.3 <https://github.com/ansys/scade-ps/releases/tag/v0.4.3>`_ - November 28, 2025
 ====================================================================================
 
