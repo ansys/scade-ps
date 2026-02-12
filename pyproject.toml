@@ -58,6 +58,7 @@ ansys_scade_ps_default_notes = "ansys.scade.ps.default_notes.__main__:main"
 ansys_scade_ps_copy_properties = "ansys.scade.ps.copy_properties.__main__:main"
 ansys_scade_ps_rename_unused = "ansys.scade.ps.rename_unused.__main__:main"
 ansys_scade_ps_change_oids = "ansys.scade.ps.change_oids.__main__:main"
+ansys_scade_ps_optimize_sss = "ansys.scade.ps.optimize_sss.__main__:main"
 
 [project.urls]
 source = "https://github.com/ansys/scade-ps"
@@ -81,6 +82,10 @@ select = [
     "PTH",  # flake8-use-pathlib, https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
     "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
 ]
+exclude = [
+    # (partially) generated files: need manual review
+    "scenario.py",
+]
 ignore = [
     "TD002", # Missing author in TODOs comment
 ]
@@ -88,6 +93,10 @@ ignore = [
 [tool.ruff.format]
 quote-style = "single"
 indent-style = "space"
+exclude = [
+    # (partially) generated files: need manual review
+    "scenario.py",
+]
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
@@ -129,6 +138,8 @@ exclude = [
     '\._',  # ignore private definitions
     'conftest.',
     'test.',
+    # generated files
+    "scenario.",
 ]
 
 [tool.towncrier]

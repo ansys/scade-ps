@@ -1,0 +1,26 @@
+#$CsvFormat=0
+*SCRIPT*;P::Root/ii;P::Root/fi;P::Root/ai;P::Root/si;P::Root/bi;P::Root/io;P::Root/fo;P::Root/ao;P::Root/so;P::Root/bo
+#----------------------------------------------------------------------------
+# Nominal test cases
+# - aliases
+# - sustain
+# - simple tolerance
+#----------------------------------------------------------------------------
+# initial values and checks for one cycle
+;0;0.0;(0.0,0.0,0.0);(P::A,0.0,0.0);(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0));0;0.0;(0.0,0.0,0.0);(P::A,0.0,0.0);(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))
+# change 2 inputs
+# check sustained less than the 3 cycles
+Repeat 2;;1.00001;;(P::B,,);;;1.0;?;?;?
+;;;;;;;?;;;
+# tolerance for one output
+# new check on fo with the same value
+# few changes in the input values
+# 2 identical cycles to be merged
+Tol;;;;;;;0.001;;;
+Repeat 2;1;;(,1.0,);(,,1.0);;;1.0;;;
+# unsupported tolerance associated to a check
+Tol;;;;;;;0.0;;;
+;0;;;;;;;;;
+;;;;;;;?;;;
+# test uncheck
+Last;;;;;;?;;;;

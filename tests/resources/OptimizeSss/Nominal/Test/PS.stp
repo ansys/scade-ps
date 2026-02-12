@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns:test="http://www.esterel-technologies.com/ns/testenv/2" oid="65B300C1-5466-46BF-94E4-BAEFF75ACE86" name="PS" operator="P::Root">
+	<testElements>
+		<Record oid="F56CAC01-3155-4ABF-A3A1-F38657E81A43" name="R1" description="Record1">
+			<inits>
+				<Scenario oid="53C68905-E594-4F19-9858-0608A8226DC0" persistAs="A.sss"/>
+			</inits>
+			<scenarios>
+				<Scenario oid="5F656664-95D1-4CF0-AE2E-18B3D12F8764" persistAs="S1.sss"/>
+			</scenarios>
+		</Record>
+		<Record oid="DFB40D49-0EA1-41B1-80DA-0AE43321829A" name="R1CSV" description="Record1">
+			<inits>
+				<Scenario oid="76523E45-6781-457F-A732-136E4BAA939B" persistAs="A.sss"/>
+			</inits>
+			<scenarios>
+				<Scenario oid="AA078F45-5EA6-41FC-9E6D-B62713C5A8FB" persistAs="S1.csv"/>
+			</scenarios>
+		</Record>
+		<Record oid="9F5587C0-C066-42AD-806C-119C358C2D5E" name="R2" description="Record1">
+			<inits>
+				<Scenario oid="CE67FFE1-729E-4E0E-83B1-D55ADA04F7D5" persistAs="A.sss"/>
+			</inits>
+			<scenarios>
+				<Scenario oid="2AD2DA59-E16C-49EB-842B-F915978D7395" persistAs="S2.sss"/>
+			</scenarios>
+		</Record>
+		<Record oid="8FC60226-9FF1-4D5F-B0AA-D876BCB87E5B" name="R2CSV" description="Record1">
+			<inits>
+				<Scenario oid="AA13EC37-A9C3-4D2D-BDAF-29C741F6D976" persistAs="A.sss"/>
+			</inits>
+			<scenarios>
+				<Scenario oid="773577B9-488A-4838-B0C7-46801023A91A" persistAs="S2.csv"/>
+			</scenarios>
+		</Record>
+	</testElements>
+</Procedure>

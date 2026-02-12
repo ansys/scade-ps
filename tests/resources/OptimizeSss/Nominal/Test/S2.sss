@@ -1,0 +1,42 @@
+#----------------------------------------------------------------------------
+# Corner test cases
+# - global tolerance vs individual
+# - optimization
+# - overlapped sustain directives
+# - unused outputs
+#----------------------------------------------------------------------------
+
+# initial values
+SSM::set ii 0
+SSM::set fi 0.0
+SSM::set ai (0.0,0.0,0.0)
+SSM::set si (P::A,0.0,0.0)
+SSM::set P::Root/bi {(false,'!',0,(0.0,0.1,0.2),(P::A,0.3,0.4))}
+SSM::set_tolerance path=fo real=0.001
+SSM::cycle
+
+# set the global tolerance
+SSM::set_tolerance real=0.002
+# check a structure for 5 cycles
+SSM::check P::Root/bo.s (P::A,0.3,0.4) sustain=5
+# check a table for 5 cycles
+SSM::check P::Root/bo.t (0.0,0.1,0.2) sustain=5
+SSM::cycle 2
+
+# check a structure element for 15 cycles
+SSM::check P::Root/bo.s.y 0.41 sustain=15
+# check a list element for 15 cycles
+SSM::check {P::Root/bo.t[0]} 0.01 sustain=15
+SSM::cycle 10
+
+# check a structure for 5 cycles
+SSM::check P::Root/bo.s (P::A,0.32,0.42) sustain=5
+# check a table for 5 cycles
+SSM::check P::Root/bo.t (0.02,0.12,0.22) sustain=5
+SSM::cycle 2
+
+# uncheck a structure element
+SSM::uncheck P::Root/bo.s.y
+# uncheck a list element
+SSM::uncheck {P::Root/bo.t[0]}
+SSM::cycle 10

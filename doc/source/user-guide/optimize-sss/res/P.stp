@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns:test="http://www.esterel-technologies.com/ns/testenv/2" oid="4E550E46-41C3-41B5-8D8E-5D684EE91E9A" name="P" operator="P::Root">
+	<testElements>
+		<Record oid="4AC65BC8-7888-4459-A8B5-87CC2A1B874D" name="Record" description="Record1">
+			<inits>
+				<Scenario oid="6ECFDDFA-78A7-416D-99EA-0F8CF6C4741D" persistAs="Alias.sss"/>
+			</inits>
+			<scenarios>
+				<Scenario oid="617D2B84-7665-4C10-B002-24CA0A61F87A" persistAs="S1.sss"/>
+			</scenarios>
+		</Record>
+	</testElements>
+</Procedure>

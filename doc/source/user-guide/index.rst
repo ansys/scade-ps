@@ -45,6 +45,12 @@ This section provides additional information on each of the available tools.
 
       Learn how to automatically set styles to equation sets.
 
+   .. grid-item-card:: :material-regular:`compress;1.25em` Optimize scenarios (SSS)
+      :link: optimize-sss/index
+      :link-type: doc
+
+      Learn how to optimize SCADE Test scenarios (SSS).
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -55,3 +61,4 @@ This section provides additional information on each of the available tools.
    rename-unused
    change-oids/index
    set-styles
+   optimize-sss/index

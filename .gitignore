@@ -164,3 +164,7 @@ cython_debug/
 *.sln
 *.pyproj
 TestResults/
+/.metadata/
+src/ansys/scade/ps/optimize_sss/backup/
+models/sss_optimizer/backup/
+**/*_TEE/*.txt

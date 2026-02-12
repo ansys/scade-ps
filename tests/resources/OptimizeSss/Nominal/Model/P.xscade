@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Package name="P">
+			<declarations>
+				<Type name="T">
+					<definition>
+						<Table>
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="float64"/>
+									</type>
+								</NamedType>
+							</type>
+							<size>
+								<ConstValue value="3"/>
+							</size>
+						</Table>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/1c/924/514/5e25b0466d44"/>
+					</pragmas>
+				</Type>
+				<Type name="S">
+					<definition>
+						<Struct>
+							<fields>
+								<Field name="e">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="E"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/40/924/514/5e25b0811e01"/>
+									</pragmas>
+								</Field>
+								<Field name="x">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="float64"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/36/924/514/5e25b06a6817"/>
+									</pragmas>
+								</Field>
+								<Field name="y">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="float64"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/37/924/514/5e25b06c59b2"/>
+									</pragmas>
+								</Field>
+							</fields>
+						</Struct>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/1d/924/514/5e25b04d3e8d"/>
+					</pragmas>
+				</Type>
+				<Type name="E">
+					<definition>
+						<Enum>
+							<values>
+								<Value name="A">
+									<pragmas>
+										<ed:Value oid="!ed/52/924/514/5e25b09d19f4"/>
+									</pragmas>
+								</Value>
+								<Value name="B">
+									<pragmas>
+										<ed:Value oid="!ed/59/924/514/5e25b0a85326"/>
+									</pragmas>
+								</Value>
+								<Value name="C">
+									<pragmas>
+										<ed:Value oid="!ed/60/924/514/5e25b0a9155"/>
+									</pragmas>
+								</Value>
+							</values>
+						</Enum>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/51/924/514/5e25b0981779"/>
+					</pragmas>
+				</Type>
+				<Type name="BIG">
+					<definition>
+						<Struct>
+							<fields>
+								<Field name="b">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/7f/417/4CA8/5e2b0b056894"/>
+									</pragmas>
+								</Field>
+								<Field name="c">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="char"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/88/417/4CA8/5e2b0b1a7ac6"/>
+									</pragmas>
+								</Field>
+								<Field name="i">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="int32"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/91/417/4CA8/5e2b0b21104f"/>
+									</pragmas>
+								</Field>
+								<Field name="t">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="T"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/9b/417/4CA8/5e2b0b302aff"/>
+									</pragmas>
+								</Field>
+								<Field name="s">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="S"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Field oid="!ed/a5/417/4CA8/5e2b0b3c4903"/>
+									</pragmas>
+								</Field>
+							</fields>
+						</Struct>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/7e/417/4CA8/5e2b0af814f"/>
+					</pragmas>
+				</Type>
+				<Operator kind="function" name="Root">
+					<inputs>
+						<Variable name="ii">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="int32"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/6a/924/514/5e25b0ca736f"/>
+							</pragmas>
+						</Variable>
+						<Variable name="fi">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="float64"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/73/924/514/5e25b0d65acc"/>
+							</pragmas>
+						</Variable>
+						<Variable name="ai">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="T"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/7c/924/514/5e25b0ea3d0c"/>
+							</pragmas>
+						</Variable>
+						<Variable name="si">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="S"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/99/924/514/5e25b109587f"/>
+							</pragmas>
+						</Variable>
+						<Variable name="bi">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="BIG"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/b8/417/4CA8/5e2b0bee6e5e"/>
+							</pragmas>
+						</Variable>
+					</inputs>
+					<outputs>
+						<Variable name="io">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="int32"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/a8/924/514/5e25b1403e3b"/>
+							</pragmas>
+						</Variable>
+						<Variable name="fo">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="float64"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/ae/924/514/5e25b1402ede"/>
+							</pragmas>
+						</Variable>
+						<Variable name="ao">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="T"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/b5/924/514/5e25b14078ef"/>
+							</pragmas>
+						</Variable>
+						<Variable name="so">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="S"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/bc/924/514/5e25b1405a42"/>
+							</pragmas>
+						</Variable>
+						<Variable name="bo">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="BIG"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/c2/417/4CA8/5e2b0bf845f0"/>
+							</pragmas>
+						</Variable>
+					</outputs>
+					<locals>
+						<Variable name="_L1">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="int32"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/c2/924/514/5e25b1626826"/>
+							</pragmas>
+						</Variable>
+						<Variable name="_L2">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="float64"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/c4/924/514/5e25b1621a72"/>
+							</pragmas>
+						</Variable>
+						<Variable name="_L3">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="T"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/c6/924/514/5e25b162729e"/>
+							</pragmas>
+						</Variable>
+						<Variable name="_L4">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="S"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/c8/924/514/5e25b1627319"/>
+							</pragmas>
+						</Variable>
+						<Variable name="_L5">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="BIG"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Variable oid="!ed/d2/417/4CA8/5e2b0c0a1b4c"/>
+							</pragmas>
+						</Variable>
+					</locals>
+					<data>
+						<!-- _L1 = ii; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="_L1"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="ii"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/c1/924/514/5e25b1627cd8"/>
+							</pragmas>
+						</Equation>
+						<!-- _L2 = fi; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="_L2"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="fi"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/c3/924/514/5e25b16212c6"/>
+							</pragmas>
+						</Equation>
+						<!-- _L3 = ai; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="_L3"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="ai"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/c5/924/514/5e25b16295a"/>
+							</pragmas>
+						</Equation>
+						<!-- _L4 = si; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="_L4"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="si"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/c7/924/514/5e25b1622034"/>
+							</pragmas>
+						</Equation>
+						<!-- io = _L1; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="io"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="_L1"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/cd/924/514/5e25b16873f3"/>
+							</pragmas>
+						</Equation>
+						<!-- fo = _L2; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="fo"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="_L2"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/ce/924/514/5e25b16866e4"/>
+							</pragmas>
+						</Equation>
+						<!-- ao = _L3; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="ao"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="_L3"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/cf/924/514/5e25b1681c26"/>
+							</pragmas>
+						</Equation>
+						<!-- so = _L4; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="so"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="_L4"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/d0/924/514/5e25b168249a"/>
+							</pragmas>
+						</Equation>
+						<!-- bo = _L5; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="bo"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="_L5"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/cc/417/4CA8/5e2b0c057c52"/>
+							</pragmas>
+						</Equation>
+						<!-- _L5 = bi; -->
+						<Equation>
+							<lefts>
+								<VariableRef name="_L5"/>
+							</lefts>
+							<right>
+								<IdExpression>
+									<path>
+										<ConstVarRef name="bi"/>
+									</path>
+								</IdExpression>
+							</right>
+							<pragmas>
+								<ed:Equation oid="!ed/d1/417/4CA8/5e2b0c0a779f"/>
+							</pragmas>
+						</Equation>
+					</data>
+					<pragmas>
+						<ed:Operator oid="!ed/1a/924/514/5e25b03035ba" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6">
+							<diagrams>
+								<NetDiagram name="Root_1" landscape="true" format="A4 (210 297)" oid="!ed/1b/924/514/5e25b03064f4">
+									<presentationElements>
+										<EquationGE presentable="!ed/c1/924/514/5e25b1627cd8">
+											<position>
+												<Point x="1746" y="1296"/>
+											</position>
+											<size>
+												<Size width="265" height="503"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/c3/924/514/5e25b16212c6">
+											<position>
+												<Point x="1746" y="2328"/>
+											</position>
+											<size>
+												<Size width="265" height="503"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/c5/924/514/5e25b16295a">
+											<position>
+												<Point x="1746" y="3360"/>
+											</position>
+											<size>
+												<Size width="265" height="503"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/c7/924/514/5e25b1622034">
+											<position>
+												<Point x="1746" y="4392"/>
+											</position>
+											<size>
+												<Size width="265" height="503"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/cd/924/514/5e25b16873f3">
+											<position>
+												<Point x="6191" y="1296"/>
+											</position>
+											<size>
+												<Size width="318" height="502"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/ce/924/514/5e25b16866e4">
+											<position>
+												<Point x="6191" y="2328"/>
+											</position>
+											<size>
+												<Size width="318" height="502"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/cf/924/514/5e25b1681c26">
+											<position>
+												<Point x="6191" y="3360"/>
+											</position>
+											<size>
+												<Size width="318" height="503"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/d0/924/514/5e25b168249a">
+											<position>
+												<Point x="6191" y="4392"/>
+											</position>
+											<size>
+												<Size width="318" height="503"/>
+											</size>
+										</EquationGE>
+										<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/c1/924/514/5e25b1627cd8" dstEquation="!ed/cd/924/514/5e25b16873f3">
+											<positions>
+												<Point x="2011" y="1561"/>
+												<Point x="4128" y="1561"/>
+												<Point x="4128" y="1561"/>
+												<Point x="6244" y="1561"/>
+											</positions>
+										</Edge>
+										<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/c3/924/514/5e25b16212c6" dstEquation="!ed/ce/924/514/5e25b16866e4">
+											<positions>
+												<Point x="2011" y="2593"/>
+												<Point x="4128" y="2593"/>
+												<Point x="4128" y="2593"/>
+												<Point x="6244" y="2593"/>
+											</positions>
+										</Edge>
+										<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/c5/924/514/5e25b16295a" dstEquation="!ed/cf/924/514/5e25b1681c26">
+											<positions>
+												<Point x="2011" y="3625"/>
+												<Point x="4128" y="3625"/>
+												<Point x="4128" y="3625"/>
+												<Point x="6244" y="3625"/>
+											</positions>
+										</Edge>
+										<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/c7/924/514/5e25b1622034" dstEquation="!ed/d0/924/514/5e25b168249a">
+											<positions>
+												<Point x="2011" y="4657"/>
+												<Point x="4128" y="4657"/>
+												<Point x="4128" y="4657"/>
+												<Point x="6244" y="4657"/>
+											</positions>
+										</Edge>
+										<EquationGE presentable="!ed/cc/417/4CA8/5e2b0c057c52">
+											<position>
+												<Point x="6191" y="5424"/>
+											</position>
+											<size>
+												<Size width="317" height="502"/>
+											</size>
+										</EquationGE>
+										<EquationGE presentable="!ed/d1/417/4CA8/5e2b0c0a779f">
+											<position>
+												<Point x="1746" y="5424"/>
+											</position>
+											<size>
+												<Size width="264" height="503"/>
+											</size>
+										</EquationGE>
+										<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/d1/417/4CA8/5e2b0c0a779f" dstEquation="!ed/cc/417/4CA8/5e2b0c057c52">
+											<positions>
+												<Point x="2011" y="5689"/>
+												<Point x="4128" y="5689"/>
+												<Point x="4128" y="5689"/>
+												<Point x="6244" y="5689"/>
+											</positions>
+										</Edge>
+									</presentationElements>
+								</NetDiagram>
+							</diagrams>
+						</ed:Operator>
+					</pragmas>
+				</Operator>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/16/924/514/5e25b0272507" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6">
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/17/924/514/5e25b027780d" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/18/924/514/5e25b02718bd" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/19/924/514/5e25b0277696" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

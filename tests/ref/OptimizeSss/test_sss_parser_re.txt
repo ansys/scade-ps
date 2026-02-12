@@ -1,0 +1,38 @@
+##############################################################################
+#
+# Scenario Description
+#
+##############################################################################
+# limitations
+# all 'columns' must be declared before the first cycle
+# the conversion/optimization of the scenario is not done wrt the model, syntax only:
+## inputs
+p ii v 0
+p fi v 0.0
+p ai v (0.0,0.0,0.0)
+p si v (P::A,0.0,0.0)
+p P::Root/bi v {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))}
+p io v 0 s None r None
+p fo v 0.0 s None r None
+p ao v (0.0,0.0,0.0) s None r None
+p so v (P::A,0.0,0.0) s None r None
+p P::Root/bo v {(false,'!',0,(0.0,0.0,0.0),(P::A,0.0,0.0))} s None r None
+c None
+p fi v 1.00001
+p fo v 1.0 s 2 r None
+p si v (P::B,0.0,0.0)
+p ii v 0 s forever r None
+c 3
+p fo r 0.001
+p fo v 1.0 s 2 r None
+p ii v 1
+p si v (P::B,0.0,1.0)
+p ai v (0.0,1.0,0.0)
+c None
+c None
+p fo r 0.0
+p fo v 1.0 s None r 0.1
+p ii v 0
+c 2
+p ii
+c None
