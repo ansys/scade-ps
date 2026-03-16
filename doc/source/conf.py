@@ -80,6 +80,7 @@ master_doc = 'index'
 
 linkcheck_ignore = [
     # The link below takes a long time to check
+    'https://ansyshelp.ansys.com/*',
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',
 ]
