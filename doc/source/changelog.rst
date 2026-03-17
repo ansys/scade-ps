@@ -9,6 +9,32 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`refs/tags/0.5.1 <https://github.com/ansys/scade-ps/releases/tag/vrefs/tags/0.5.1>`_ - March 17, 2026
+=====================================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Documentation
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Update \`\`CONTRIBUTORS.md\`\` with the latest contributors
+          - `#52 <https://github.com/ansys/scade-ps/pull/52>`_, `#53 <https://github.com/ansys/scade-ps/pull/53>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump Python and SCADE versions
+          - `#54 <https://github.com/ansys/scade-ps/pull/54>`_
+
+
 `0.5.0 <https://github.com/ansys/scade-ps/releases/tag/v0.5.0>`_ - February 12, 2026
 ====================================================================================
 
