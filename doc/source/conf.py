@@ -78,17 +78,9 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-# TODO: remove ignore links after public release
-# https://github.com/ansys/scade-ps/issues/24
 linkcheck_ignore = [
-    'https://github.com/ansys/scade-ps',
-    'https://github.com/ansys/scade-ps/actions/workflows/ci_cd.yml',
-    'https://pypi.org/project/ansys-scade-ps',
-    'https://ansyshelp.ansys.com/*',
     # The link below takes a long time to check
+    'https://ansyshelp.ansys.com/*',
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',
 ]
-
-if switcher_version != 'dev':
-    linkcheck_ignore.append(f'https://github.com/ansys/scade-ps/releases/tag/v{__version__}')

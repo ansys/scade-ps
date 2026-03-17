@@ -49,7 +49,8 @@ The ``ansys-scade-ps`` package supports only the versions of Python delivered wi
 Ansys SCADE, starting from 2021 R2:
 
 * 2021 R2 through 2023 R1: Python 3.7
-* 2023 R2 and later: Python 3.10
+* 2023 R2 through 2025 R2: Python 3.10
+* 2026 R1 and later: Python 3.12
 
 Ansys SCADE Power Scripts has two installation modes: user and developer. To install for use,
 see `Getting started <https://ps.scade.docs.pyansys.com/version/stable/getting-started/index.html>`_.
