@@ -97,8 +97,7 @@ def adjust_value(value: LiteralTree, type_: Type) -> LiteralTree:
         if not isinstance(value, list) or len(value) != len(type_.elements):
             raise ValueError(f'{type_.get_full_path()}: value mismatch')
         return [
-            adjust_value(subvalue, element.type)
-            for subvalue, element in zip(value, type_.elements, strict=True)
+            adjust_value(subvalue, element.type) for subvalue, element in zip(value, type_.elements)
         ]
     else:
         return value
