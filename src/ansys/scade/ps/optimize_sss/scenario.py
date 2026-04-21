@@ -32,24 +32,24 @@ DO NOT EDIT GENERATED BLOCKS, delimited by ``{{`` and ``}}`` markers.
 
 from copy import deepcopy
 from pathlib import Path
-from typing import List, Dict, Optional, Union, Sequence as Seq
+from typing import List, Optional, Sequence as Seq, Union
 
 # aliases used in ecore references
 import scade.model.suite as suite
-from scade.model.suite import Object as ScObject, Model as ScModel, ConstVar as ScConstVar
+from scade.model.suite import ConstVar as ScConstVar, Model as ScModel, Object as ScObject
 
 from ansys.scade.ps.optimize_sss.scenparser import SSSParser
 from ansys.scade.ps.optimize_sss.scutils import (
     CounterTree,
     LiteralTree,
-    split_path,
-    value_to_tree,
-    patch_tree,
-    get_default_value,
     adjust_value,
+    apply_sustain,
+    get_default_value,
     get_type_width,
     patch_sustain,
-    apply_sustain,
+    patch_tree,
+    split_path,
+    value_to_tree,
 )
 
 # ---------------------------------------------------------------------------

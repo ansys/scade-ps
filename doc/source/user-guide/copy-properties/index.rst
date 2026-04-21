@@ -127,29 +127,29 @@ sets a few properties for one configuration:
     from ansys.scade.apitools.create import create_configuration, save_project
 
     for project in get_projects():
-        configuration = project.find_configuration('KCG')
+        configuration = project.find_configuration("KCG")
         # make sure the configuration exists
         if not configuration:
-            configuration = create_configuration(project, 'KCG')
+            configuration = create_configuration(project, "KCG")
 
         # set a scalar property based on the project's name
         base_name = Path(project.pathname).stem
-        DEFAULT_TARGET_DIR = ''  # this is not the exact default value, it does not matter here
+        DEFAULT_TARGET_DIR = ""  # this is not the exact default value, it does not matter here
         project.set_scalar_tool_prop_def(
-            'GENERATOR',
-            'TARGET_DIR',
-            f'../code/{base_name}',
+            "GENERATOR",
+            "TARGET_DIR",
+            f"../code/{base_name}",
             DEFAULT_TARGET_DIR,
             configuration,
         )
 
         # set a boolean property
         DEFAULT_DEBUG = False
-        project.set_bool_tool_prop_def('GENERATOR', 'DEBUG', False, DEFAULT_DEBUG, configuration)
+        project.set_bool_tool_prop_def("GENERATOR", "DEBUG", False, DEFAULT_DEBUG, configuration)
 
         # set a regular property: list of values
-        extensions = ['SdyChecker', 'SnapshotApi']
-        project.set_tool_prop_def('GENERATOR', 'OTHER_EXTENSIONS', extensions, [], configuration)
+        extensions = ["SdyChecker", "SnapshotApi"]
+        project.set_tool_prop_def("GENERATOR", "OTHER_EXTENSIONS", extensions, [], configuration)
 
         # save the project
         save_project(project)
