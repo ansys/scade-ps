@@ -1,0 +1,646 @@
+[
+    {
+        "objectID": "user-guide/copy-properties/metrics-rules",
+        "href": "user-guide/copy-properties/metrics-rules.html#metrics-and-rules-checker",
+        "title": "Metrics and Rules Checker",
+        "section": "Metrics and Rules Checker",
+        "text": "Template: metrics_and_rules_checker.json.\nMetrics and Rules Checker\nmetrics_and_rules_checker.json"
+    },
+    {
+        "objectID": "user-guide/copy-properties/metrics-rules",
+        "href": "user-guide/copy-properties/metrics-rules.html#model",
+        "title": "Metrics and Rules Checker > Model",
+        "section": "Model",
+        "text": "Tool: METRICS_RULES\nSettings\nProp\nDefault\nComment\nUse selected objects below\nSELECTED_ROOTS\nlist of scade paths, or empty for all\nSELECTED_NODES\nlist of scade paths enclosed by {} and suffixed by /[SELF]\nUse current selection\nCHECK_ROOTS\nfalse\nModel\nMETRICS_RULES"
+    },
+    {
+        "objectID": "user-guide/copy-properties/metrics-rules",
+        "href": "user-guide/copy-properties/metrics-rules.html#metrics",
+        "title": "Metrics and Rules Checker > Metrics",
+        "section": "Metrics",
+        "text": "Tool: METRICS_RULES\nSettings\nProp\nDefault\nComment\nSELECTED_METRICS\nlist of metric identifiers\nMetrics\nMETRICS_RULES"
+    },
+    {
+        "objectID": "user-guide/copy-properties/metrics-rules",
+        "href": "user-guide/copy-properties/metrics-rules.html#rules",
+        "title": "Metrics and Rules Checker > Rules",
+        "section": "Rules",
+        "text": "Tool: METRICS_RULES\nSettings\nProp\nDefault\nComment\nSELECTED_RULES\nlist of rule identifiers\nRULES_PARAM\nlist of rule parameters, encoded as <ID>,<PARAM>\nRules\nMETRICS_RULES"
+    },
+    {
+        "objectID": "user-guide/copy-properties/metrics-rules",
+        "href": "user-guide/copy-properties/metrics-rules.html#manage-metrics-and-rules",
+        "title": "Metrics and Rules Checker > Manage metrics and rules",
+        "section": "Manage metrics and rules",
+        "text": "Tool: METRICS_RULES\nSettings\nProp\nDefault\nComment\nDefined in files\nUSER_DEF_FILES\nlist of files\nManage metrics and rules\nMETRICS_RULES"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#contribute",
+        "title": "Contribute",
+        "section": "Contribute",
+        "text": "Overall guidance on contributing to a PyAnsys library appears in\nContributing\nin the PyAnsys developer’s guide. Ensure that you are thoroughly familiar\nwith this guide before attempting to contribute to Ansys SCADE Power Scripts.\nThe following contribution information is specific to Ansys SCADE Power Scripts.\nContribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#install-in-developer-mode",
+        "title": "Contribute > Install in developer mode",
+        "section": "Install in developer mode",
+        "text": "Installing Ansys SCADE Power Scripts in developer mode allows you to modify the\nsource and enhance it.\nClone the ansys-scade-ps repository:\nAccess the scade-ps directory where the repository has been cloned:\nCreate a clean Python 3.10 environment and activate it:\nYou should use the interpreter delivered with Ansys SCADE. For example,\nC:\\Program Files\\ANSYS Inc\\v241\\SCADE\\contrib\\Python310\\python.exe.\nMake sure that you have the latest required build system, documentation, testing,\nand CI tools:\nInstall the project in editable mode:\nUse tox to verify your development installation:\nInstall in developer mode\nansys-scade-ps\nscade-ps\nC:\\Program Files\\ANSYS Inc\\v241\\SCADE\\contrib\\Python310\\python.exe"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#test",
+        "title": "Contribute > Test",
+        "section": "Test",
+        "text": "Ansys SCADE Power Scripts uses tox for testing. This tool allows you to\nautomate common development tasks (similar to Makefile), but it is oriented\ntowards Python development.\nTest\nMakefile"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-tox",
+        "title": "Contribute > Use tox",
+        "section": "Use tox",
+        "text": "While Makefile has rules, tox has environments. In fact, tox creates its\nown virtual environment so that anything being tested is isolated from the project\nto guarantee the project’s integrity.\nThe following tox commands are provided:\ntox -e code-style: Checks for coding style quality.\ntox -e tests: Checks for unit testing without code coverage.\ntox -e tests-coverage: Checks for unit testing with code coverage.\ntox -e doc-html: Builds the HTML documentation.\ntox -e doc-links: Checks for broken links in the documentation.\nUse tox\ntox\nMakefile\ntox\ntox\ntox\ntox -e code-style\ntox -e tests\ntox -e tests-coverage\ntox -e doc\ntox -e doc-html\ntox -e doc-links"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-raw-testing",
+        "title": "Contribute > Use raw testing",
+        "section": "Use raw testing",
+        "text": "If required, from the command line, you can call style commands like\nblack, isort, and flake8. You can also call unit testing commands like pytest.\nHowever, running these commands does not guarantee that your project is being tested in an\nisolated environment, which is the reason why tools like tox exist.\nUse raw testing\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-pre-commit",
+        "title": "Contribute > Use pre-commit",
+        "section": "Use pre-commit",
+        "text": "Ansys SCADE Power Scripts follows the PEP8 standard as outlined in\nPEP 8 in\nthe PyAnsys developer’s guide and implements style checking using\npre-commit.\nTo ensure your code meets minimum code styling standards, run the following commands:\nYou can also install this as a pre-commit hook by running this command:\nThis way, it’s not possible for you to push code that fails the style checks:\nUse pre-commit\npre-commit"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#build-documentation",
+        "title": "Contribute > Build documentation",
+        "section": "Build documentation",
+        "text": "For building documentation, you can run the usual rules provided in the\nSphinx make file. Here are some examples:\nHowever, the recommended way of checking documentation integrity is to use\ntox:\nBuild documentation\nmake\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#distribute",
+        "title": "Contribute > Distribute",
+        "section": "Distribute",
+        "text": "If you would like to create either source or wheel files, start by installing\nthe building requirements and then executing the build module:\nDistribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#post-issues",
+        "title": "Contribute > Post issues",
+        "section": "Post issues",
+        "text": "Use the Ansys SCADE Power Scripts Issues\npage to submit questions, report bugs, and request new features. When possible, use\nthese templates:\nBug, problem, error: For filing a bug report\nDocumentation error: For requesting modifications to the documentation\nAdding an example: For proposing a new example\nNew feature: For requesting enhancements to the code\nIf your issue does not fit into one of these template categories, click\nthe link for opening a blank issue.\nTo reach the project support team, email pyansys.core@ansys.com.\nPost issues"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#release-notes",
+        "title": "Release notes",
+        "section": "Release notes",
+        "text": "This document contains the release notes for the project.\nRelease notes"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#020---april-14-2025",
+        "title": "Release notes > 0.2.0 - April 14, 2025",
+        "section": "0.2.0 - April 14, 2025",
+        "text": "feat: change Project Properties to Copy Properties\n#18\nchore: update CHANGELOG for v0.1.0\n#13\nchore: Cleanup repository configuration\n#14\ndocs: Add command examples\n#15\ndocs: Add details about the usage of Change OIDs\n#17\nbuild(deps): Bump the dependencies group with 2 updates\n#16\nci: Do not use trust-publishers to publish a release\n#19\n0.2.0 - April 14, 2025"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#010---march-20-2025",
+        "title": "Release notes > 0.1.0 - March 20, 2025",
+        "section": "0.1.0 - March 20, 2025",
+        "text": "feat: Obfuscation of SCADE Suite models\n#3\nfeat: Create default notes for a SCADE Suite model\n#6\nfeat: Find unused SCADE files\n#9\nfeat: Change duplicated OIDs\n#10\nbuild(deps): Bump the dependencies group with 2 updates\n#2\nchore: Initialize the repository from the template\n#1\nrefactor: rename power_scripts and power-scripts to ps\n#4\ndocs: Redesign the layout for the catalog of tools\n#5\nfeat: Project properties\n#7\ntest: Refactor the unit tests\n#8\ndocs: rationales\n#11\nci: Fix steps for creating a release\n#12\n0.1.0 - March 20, 2025"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#reporter",
+        "title": "Reporter",
+        "section": "Reporter",
+        "text": "Template: reporter.json.\nReporter\nreporter.json"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#general",
+        "title": "Reporter > General",
+        "section": "General",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nOutput file\nDOCUMENT\n<project name>.<format>\nReporter script\nSCRIPT\nReporter/ScadeReport.tcl\nFormat\nFORMAT\nhtml\nhtml, rtf\nGeneral\nREPORTER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#structure",
+        "title": "Reporter > Structure",
+        "section": "Structure",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nGenerate cover, TOC, and first section\nReportStructure\ntrue\nGenerate list of figures\nReportListOfFigures\ntrue\nGenerate headers/Footers\nReportHeaderAndFooter\ntrue\nGenerate list of tables\nReportListOfTables\ntrue\nIn-line images\nImagesInLineWithText\ntrue\nIssue number\nIssueNr\n&lt;issue number&gt;\nReference number\nReferenceNr\n&lt;reference number&gt;\nCorporate logo\nCorporateLogo\nSCADE Display co-report\nSCADEDisplayReport\nComplete\nComplete, Connection Tables, None\nConf\nSCADEDisplayReportConf\nStructure\nREPORTER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#cover",
+        "title": "Reporter > Cover",
+        "section": "Cover",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nDocument classification\nClassification\n&lt;document classification&gt;\nDistribution list\nDistribution\n&lt;distribution list&gt;\nImage file\nImage\nReport summary\nSummary\n&lt;summary&gt;\nCover\nREPORTER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#project-description",
+        "title": "Reporter > Project Description",
+        "section": "Project Description",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nProject title\nTitle\n$(ProjectTitle)\nProject sub-title\nSubtitle\n$(ProjectSubtitle)\nProject description\nDescription\n$(ProjectDescription)\nProject Description\nREPORTER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#document",
+        "title": "Reporter > Document",
+        "section": "Document",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nCompany info\nCompanyInfo\n$(ProjectCompanyInfo)\nAuthors\nAuthors\n$(ProjectAuthors)\nProject reference\nReference\n$(ProjectReference)\nProject index\nIndex\n$(ProjectIndex)\nProject date\nDate\n$(ProjectDate)\nDocument\nREPORTER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#headerfooter",
+        "title": "Reporter > Header/Footer",
+        "section": "Header/Footer",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nHeader\nHeader\n$(ReferenceNr)&#xA;$(CreatedDate), $(IssueNr), $(PageNumbering)\nlist of 3 values: left, center, and right\nFooter\nFooter\n, &lt;Corporate Info&gt;x,\nlist of 3 values: left, center, and right\nHeader/Footer\nREPORTER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#display",
+        "title": "Reporter > Display",
+        "section": "Display",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nDisplay operator calls with context\nDisplayCtx\nfalse\nDisplay called and calling operators sections\nDisplayCalledAndCalling\nfalse\nDisplay variable usage context\nDisplayVarCtx\nfalse\nDisplay KCG and ASAM pragma\nDisplayKCGPragma\nfalse\nDisplay requirement description\nDisplayReqDescr\ntrue\nAllow row to break across page\nAllowRowToBreak\nfalse\nDiagrams representation\ndiagDisplayType\nNormal\nNormal, Land, Fit\nConstants representation\ncstDisplayType\nArray\nArray, View, Flat\nRotate landscape images\nRotateLandscape\nfalse\nDisplay\nREPORTER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/reporter",
+        "href": "user-guide/copy-properties/reporter.html#libraries",
+        "title": "Reporter > Libraries",
+        "section": "Libraries",
+        "text": "Tool: REPORTER\nSettings\nProp\nDefault\nComment\nInclude libraries\nLIBRARIES\nfalse\nSelected libraries\nLibrariesList\nlist of files\nLibraries\nREPORTER"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#ansys-scade-power-scripts",
+        "title": "Ansys SCADE Power Scripts",
+        "section": "Ansys SCADE Power Scripts",
+        "text": "Learn how to install and use Ansys SCADE Power Scripts.\nLearn how to use Ansys SCADE Power Scripts.\nLearn how to contribute to Ansys SCADE Power Scripts.\nView the changelog for Ansys SCADE Power Scripts.\nAnsys SCADE Power Scripts"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#indices-and-tables",
+        "title": "Ansys SCADE Power Scripts > Indices and tables",
+        "section": "Indices and tables",
+        "text": "genindex\nmodindex\nsearch\nIndices and tables"
+    },
+    {
+        "objectID": "user-guide/change-oids/new",
+        "href": "user-guide/change-oids/new.html#new-oids",
+        "title": "New OIDs",
+        "section": "New OIDs",
+        "text": "New OIDs"
+    },
+    {
+        "objectID": "user-guide/change-oids/new",
+        "href": "user-guide/change-oids/new.html#description",
+        "title": "New OIDs > Description",
+        "section": "Description",
+        "text": "This sub-command reads the duplicated OIDs from the file produced by the\nfind command, computes new OIDs for each\ncorresponding element and saves the model.\nThis command also produces a mapping file (JSON) containing the pairs (old oid, new oid)\nas well as the list of the traced requirements, when applicable. This can be used to update\ncustom references, other than annotations or traceability.\nThe update of the traceability is performed using the ALM Gateway temporary trace file (ALMGT).\nThis file is created if it does not exist.\nReminder, this trace file contains the traceability changes between two ALM Gateway exports.\nThe tool inserts commands for removing traceability links for the old OIDs, and commands for adding new\ntraceability links for new OIDs. It takes into account old OIDs already present in the trace file,\neither to add and/or remove a link. A regular ALM Gateway export updates the traceability in the ALM tool.\nThe update of the traceability requires Ansys SCADE 2024 R1 or greater.\nDescription"
+    },
+    {
+        "objectID": "user-guide/change-oids/new",
+        "href": "user-guide/change-oids/new.html#usage",
+        "title": "New OIDs > Usage",
+        "section": "Usage",
+        "text": "For example:\nThis command updates the P2.etp model, as well as the traceability,\nand it outputs the mapping between old and new OIDs to map_oids.json,\nfor example:\nUsage\nP2.etp\nmap_oids.json"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "To use Ansys SCADE Power Scripts, you must have a valid license for Ansys SCADE.\nFor information on getting a licensed copy, see the\nAnsys SCADE Suite\npage on the Ansys website.\nGetting started"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#requirements",
+        "title": "Getting started > Requirements",
+        "section": "Requirements",
+        "text": "The ansys-scade-ps package supports only the versions of Python delivered with\nAnsys SCADE, starting from 2021 R2:\n2021 R2 to 2023 R1: Python 3.7\n2023 R2 and later: Python 3.10\nRequirements\nansys-scade-ps"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#install-in-user-mode",
+        "title": "Getting started > Install in user mode",
+        "section": "Install in user mode",
+        "text": "The following steps are for installing Ansys SCADE Power Scripts in user mode. If you want to\ncontribute to Ansys SCADE Power Scripts,\nsee contribute_scade_ps for installing in developer mode.\nBefore installing Ansys SCADE Power Scripts in user mode, run this command to ensure that\nyou have the latest version of pip:\nInstall Ansys SCADE Power Scripts with this command:\nInstall in user mode"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#run-the-tools",
+        "title": "Getting started > Run the tools",
+        "section": "Run the tools",
+        "text": "The command-line tools contained in this package can be launched in two different ways:\nexecutable or Python module.\nThey rely on Ansys SCADE API Tools to select the version of SCADE to use at runtime.\nRefer to Advanced usage with API tools for details or if you want to select a\ngiven release of SCADE.\nRun the tools"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#executable",
+        "title": "Getting started > Executable",
+        "section": "Executable",
+        "text": "The binaries are in the Scripts directory of your Python environment.\nEither add this directory to PATH or use an absolute path.\nWhere <tool> is the name of the tool to run.\nFor example:\nExecutable\nScripts\nPATH\n<tool>"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#python-module",
+        "title": "Getting started > Python module",
+        "section": "Python module",
+        "text": "Where <tool> is the name of the tool to run.\nFor example:\nPython module\n<tool>"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#user-guide",
+        "title": "User guide",
+        "section": "User guide",
+        "text": "As indicated in Run the tools,\nyou run SCADE Power Scripts tools in a selected SCADE environment.\nThis section provides additional information on each of the available tools.\nLearn how to create default notes for a SCADE Suite model.\nLearn how to obfuscate a SCADE Suite model.\nLearn how to update the properties of a SCADE project.\nLearn how to find identify files that are not referenced by a project.\nLearn how to find duplicated OIDs and update them.\nUser guide"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#test-tool",
+        "title": "Test Tool",
+        "section": "Test Tool",
+        "text": "Template: test_tool.json.\nTest Tool\ntest_tool.json"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#general",
+        "title": "Test Tool > General",
+        "section": "General",
+        "text": "Tool: QTE\nSettings\nProp\nDefault\nComment\nProcess the following procedures\nUSE_PROCEDURES_LIST\nfalse\nPROCEDURES_LIST_SELECTION_MODE\n1\n0 (All), 1 (Selected), 2 (All except selected)\nSELECTED_PROCEDURES\nlist of procedures\nNOT_SELECTED_PROCEDURES\nlist of procedures\nGeneral\nQTE"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#host-execution",
+        "title": "Test Tool > Host Execution",
+        "section": "Host Execution",
+        "text": "Tool: QTE\nSettings\nProp\nDefault\nComment\nSource configuration\nTEE_CONF\nTarget directory\nTEE_TARGET_DIR\n$(Configuration)_TEE\nNo build\nTEE_NO_BUILD\nfalse\nReport details\nTEE_DETAILS_FAILED\nfalse\nHost Execution\nQTE"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#model-coverage",
+        "title": "Test Tool > Model Coverage",
+        "section": "Model Coverage",
+        "text": "Tool: QTE\nSettings\nProp\nDefault\nComment\nSource configuration\nMC_CONF\nTarget directory\nMC_TARGET_DIR\n$(Configuration)_MC\nCoverage criterion\nMC_COVERAGE_CRITERION\nODC\ninfluence, ODC, OMCDC\nNo build\nMC_NO_BUILD\nfalse\nGenerate DO-331 FAQ#11 log\nMC_FAQ11\ntrue\nCoverage results\nMC_MERGE_PREV_RESULTS\ntrue\nSelect operators\nMC_INSTRUMENTATION_MODE\n1\n0 (All), 1 (Selected), 2 (All except selected)\nMC_INSTRUMENTED_NODES\nlist of scade paths\nMC_NOT_INSTRUMENTED_NODES\nlist of scade paths\nAdditional points\nMC_OBSERVER_LIBS\nlist of files\nModel Coverage\nQTE"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#coverability-analysis",
+        "title": "Test Tool > Coverability Analysis",
+        "section": "Coverability Analysis",
+        "text": "Tool: QTE\nSettings\nProp\nDefault\nComment\nTimeout (seconds)\nDV_MC_TIMEOUT\n120\nMaximum scenario’s length\nDV_MC_BMC_DEPTH\n4\nNumber of threads\nDV_MC_THREADS\n4\nCustom strategy\nDV_MC_STRATEGY\nAllow subnormal values\nDV_MC_FPSUBVALUES\nfalse\nGenerate oracles\nDV_MC_ORACLE_GENERATION\nfalse\nRelative tolerance\nDV_MC_TCGEN_TOOL\n0.01\nSet only relevant inputs\nDV_MC_DONTCARES_REMOVAL\nfalse\nAbstraction operators\nDV_MC_ABSTRACTION_LIBS\nInclude justified points in analysis\nDV_MC_ANALYZE_NO_J\nfalse\nCoverability Analysis\nQTE"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#harness-generation",
+        "title": "Test Tool > Harness Generation",
+        "section": "Harness Generation",
+        "text": "Tool: QTE\nSettings\nProp\nDefault\nComment\nSource configuration\nTHG_CONF\nSource configuration\nTHG_TARGET_DIR\n$(Configuration)_THG\nTarget test environment\nTARGET\nTBRUN\nTBRUN, RTRT, VCAST, <CUSTOM ID>…\nHarness Generation\nQTE"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#ldra-test-suite",
+        "title": "Test Tool > LDRA Test Suite",
+        "section": "LDRA Test Suite",
+        "text": "Tool: TBRUN\nSettings\nProp\nDefault\nComment\nUser initialization function\nUSER_INIT\nTool: QTE\nSettings\nProp\nDefault\nComment\nTARGET_TBRUN\nsummary command-line split as list of tokens: [-user_init <USER_INIT>]\nLDRA Test Suite\nTBRUN\nQTE"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#rtrt",
+        "title": "Test Tool > RTRT",
+        "section": "RTRT",
+        "text": "Tool: RTRT\nSettings\nProp\nDefault\nComment\nGenerate C89-based harnesses\nC89\nfalse\nUser initialization function\nUSER_INIT\nTool: QTE\nSettings\nProp\nDefault\nComment\nTARGET_RTRT\nsummary command-line split as list of tokens: [-c89] [-user_init <USER_INIT>]\nRTRT\nRTRT\nQTE"
+    },
+    {
+        "objectID": "user-guide/copy-properties/test-tool",
+        "href": "user-guide/copy-properties/test-tool.html#vectorcast",
+        "title": "Test Tool > VectorCAST",
+        "section": "VectorCAST",
+        "text": "Tool: VCAST\nSettings\nProp\nDefault\nComment\nSensor unit name\nSENSOR_UNIT\nSplit by scenario\nSPLIT\nfalse\nMax line length\nLINE_LENGTH\n0\nUser initialization function\nUSER_INIT\nTool: QTE\nSettings\nProp\nDefault\nComment\nTARGET_VCAST\nsummary command-line split as list of tokens: [-sensort_unit <SENSOR_UNIT>] [-split] [-max_line_length <LINE_LENGTH>] [-user_init <USER_INIT>]\nVectorCAST\nVCAST\nQTE"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#change-oids",
+        "title": "Change OIDs",
+        "section": "Change OIDs",
+        "text": "Change OIDs"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#rationale",
+        "title": "Change OIDs > Rationale",
+        "section": "Rationale",
+        "text": "SCADE uses generated unique identifiers (OIDs) to refer internally to model\nelements. These OIDs are stored in the model’s files.\nA SCADE project that has been initiated by copying files from an existing one\ncontains many duplicated OIDs. Should these projects need to be integrated\ntogether, conflicts would happen in the integration with external tools that\nrely on OIDs to refer to model elements. For instance, traceability between\nrequirements in an external ALM tool and model elements would be unable\nto unambiguously resolve.\nWhen initiating a project from another one, a best practice is to copy/paste\npackages and other model elements directly from the SCADE IDE rather than from\nthe file system.\nThis tool requires Ansys SCADE 2024 R1 or greater.\nRationale"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#description",
+        "title": "Change OIDs > Description",
+        "section": "Description",
+        "text": "This tool has several sub-commands described in the following sections.\nfind: List the duplicated OIDs\nnew: Replace the duplicated OIDs and update references\nDescription\nfind\nnew"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#usage",
+        "title": "Change OIDs > Usage",
+        "section": "Usage",
+        "text": "Usage"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#sub-commands",
+        "title": "Change OIDs > Sub-commands",
+        "section": "Sub-commands",
+        "text": "Sub-commands"
+    },
+    {
+        "objectID": "user-guide/copy-properties/index",
+        "href": "user-guide/copy-properties/index.html#copy-properties",
+        "title": "Copy properties",
+        "section": "Copy properties",
+        "text": "Copy properties"
+    },
+    {
+        "objectID": "user-guide/copy-properties/index",
+        "href": "user-guide/copy-properties/index.html#rationale",
+        "title": "Copy properties > Rationale",
+        "section": "Rationale",
+        "text": "Some software projects may be composed of dozens of interconnected SCADE models.\nMaintaining a consistent set of settings across all projects is important, to\nensure homogeneous code generation parameters or modeling rules. However,\nperforming this maintenance by hand can be cumbersome and error-prone.\nRationale"
+    },
+    {
+        "objectID": "user-guide/copy-properties/index",
+        "href": "user-guide/copy-properties/index.html#description",
+        "title": "Copy properties > Description",
+        "section": "Description",
+        "text": "This sub-command copies a selection of tool properties from a reference project\nto targets projects. The properties are propagated for all the configurations\nthey appear in the reference project. A configuration is created in the\ntarget project if needed.\nThe properties to consider should be specified in a configuration file (JSON):\nkeys: Identifiers of the tools\nvalues: Identifiers of the properties.\nWhen a property designates a file that can be relative to the project, prefix\nits identifier with @.\nA tool property is saved in a project file with the name\n@<tool>:<property> and has a list of values. It is optionally linked\nto a configuration.\nProperties with default values are not stored in the project files.\nThe identifiers used to store properties in a project file are not\ndocumented. To find the identifiers, tool and property, corresponding\nto a given setting, you can compare the project files before and after\nmodifying this single setting. This may lead to the creation of a new\nproperty if you override the default, or the deletion of a property if\nyou restore its default value.\nFor example, the following schema corresponds to the Configuration settings of KCG:\nDescription\n@\n@<tool>:<property>"
+    },
+    {
+        "objectID": "user-guide/copy-properties/index",
+        "href": "user-guide/copy-properties/index.html#usage",
+        "title": "Copy properties > Usage",
+        "section": "Usage",
+        "text": "For example:\nUsage"
+    },
+    {
+        "objectID": "user-guide/copy-properties/index",
+        "href": "user-guide/copy-properties/index.html#resources",
+        "title": "Copy properties > Resources",
+        "section": "Resources",
+        "text": "The next sections present the properties for the most popular SCADE tools.\nThe corresponding schemas, to be considered as templates for your own configurations,\nare delivered with the package’s sources, <python>/Lib/site-packages/ansys/scade/ps/copy_properties/res directory.\nEach section mentions the name of the resource template and lists\nall the contained properties, as they appear in the IDE, with the\nProject/<tool>/Settings... command.\nResources\n<python>/Lib/site-packages/ansys/scade/ps/copy_properties/res\nProject/<tool>/Settings..."
+    },
+    {
+        "objectID": "user-guide/copy-properties/index",
+        "href": "user-guide/copy-properties/index.html#alternative",
+        "title": "Copy properties > Alternative",
+        "section": "Alternative",
+        "text": "There are use cases where ansys_scade_ps_copy_properties is not suitable:\nFor example:\nDynamic properties: set the Code Generator target directory to ../code/<model name>\nReview: use a text editor to review the reference project instead of the SCADE IDE\nYou can set the properties of a project programmatically. The small following example\nsets a few properties for one configuration:\nUsage: scade.exe -script <script> <project>+\nIt is not necessary to consider the exact default value of the properties you want to set.\nWhen you provide a default different from your value, the property is always created or updated.\nThe only impact is a larger project file size when to explicitly add properties with default values.\nAlternative\nansys_scade_ps_copy_properties\n../code/<model name>\nscade.exe -script <script> <project>+"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#rename-unused-files",
+        "title": "Rename unused files",
+        "section": "Rename unused files",
+        "text": "Rename unused files"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#rationale",
+        "title": "Rename unused files > Rationale",
+        "section": "Rationale",
+        "text": "When renaming model elements, SCADE may sometimes create new files. For instance,\nif the “Filename” property of an operator is modified, SCADE generates\na new .xscade file with the new name for the operator.\nSCADE does not remove obsolete files in such cases. Over time, this means a SCADE\nmodel’s directory may become encumbered with obsolete files.\nTwo IDE settings are useful to limit obsolete file issues:\nTools > Settings > General > Use a creation dialog box: prompts for an element and\nfilename upon creation of operators and packages.\nTools > Settings > General > Propagate entity name changes to filename: automatically\ncreates a new file, as required, upon renaming of a model element.\nRationale\n.xscade"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#description",
+        "title": "Rename unused files > Description",
+        "section": "Description",
+        "text": "This tool identifies the model files that are not referenced in a SCADE Suite\nproject, for example after the renaming of an operator or a package.\nThe unused files are renamed with a suffix .toremove. This allows you to\ndouble-check the list of unused files, and then delete them easily from the\ncommand line or the Windows explorer.\nThis tool considers SCADE model files (XSCADE, SCADE) and annotation files (ANN).\nDescription\n.toremove"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#usage",
+        "title": "Rename unused files > Usage",
+        "section": "Usage",
+        "text": "For example:\nThis command renames the files not referenced by Nominal.etp.\nUsage\nNominal.etp"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#limitations",
+        "title": "Rename unused files > Limitations",
+        "section": "Limitations",
+        "text": "The symbol files are not considered\nLimitations"
+    },
+    {
+        "objectID": "user-guide/copy-properties/timing-stack",
+        "href": "user-guide/copy-properties/timing-stack.html#timing-and-stack-analysis-tools",
+        "title": "Timing and Stack Analysis Tools",
+        "section": "Timing and Stack Analysis Tools",
+        "text": "Template: timing_stack_analysis_tools.json.\nTiming and Stack Analysis Tools\ntiming_stack_analysis_tools.json"
+    },
+    {
+        "objectID": "user-guide/copy-properties/timing-stack",
+        "href": "user-guide/copy-properties/timing-stack.html#general",
+        "title": "Timing and Stack Analysis Tools > General",
+        "section": "General",
+        "text": "Tool: a3\nSettings\nProp\nDefault\nComment\nSession Name\nSESSION_NAME\n$(Configuration)\naiT version\nVERSION\naiT binary folder\nAIT_BINDIR\nType\nCPU\nBasic clock\nBASIC_CLOCK\n-1\nUnit\nUNIT\nHz\nUser ais file\nAIS_FILE\nGeneral\na3"
+    },
+    {
+        "objectID": "user-guide/copy-properties/timing-stack",
+        "href": "user-guide/copy-properties/timing-stack.html#advanced-verifier-usage",
+        "title": "Timing and Stack Analysis Tools > Advanced Verifier Usage",
+        "section": "Advanced Verifier Usage",
+        "text": "Tool: a3\nSettings\nProp\nDefault\nComment\nInteractive\nINTERACTIVE\nfalse\nMax unroll\nMAX_UNROLL\n2\nDefault unroll\nDEFAULT_UNROLL\n2\nExternal environment file\nXTC_FILE\nAdvanced Verifier Usage\na3"
+    },
+    {
+        "objectID": "user-guide/copy-properties/timing-stack",
+        "href": "user-guide/copy-properties/timing-stack.html#imported-operators",
+        "title": "Timing and Stack Analysis Tools > Imported Operators",
+        "section": "Imported Operators",
+        "text": "Tool: a3\nSettings\nProp\nDefault\nComment\nSPECIFIED_OPERATORS\nlist of strings <scade path>|<cycles>-<bytes>\nEXTERNAL_FUNCTIONS\nlist of strings <name>:<cycles>-<bytes>\nImported Operators\na3"
+    },
+    {
+        "objectID": "user-guide/change-oids/find",
+        "href": "user-guide/change-oids/find.html#find-duplicate-oids",
+        "title": "Find duplicate OIDs",
+        "section": "Find duplicate OIDs",
+        "text": "Find duplicate OIDs"
+    },
+    {
+        "objectID": "user-guide/change-oids/find",
+        "href": "user-guide/change-oids/find.html#description",
+        "title": "Find duplicate OIDs > Description",
+        "section": "Description",
+        "text": "This sub-command lists the duplicated OIDs for a set of projects.\nThere is one output file per project, that can be reviewed, and used as input\nfor the command that performs the\nchanges for a project.\nThe output file is the project’s path with a different extension, .dupoids.txt\nby default.\nThe libraries are not considered: they must be specified on the command line.\nDescription\n.dupoids.txt"
+    },
+    {
+        "objectID": "user-guide/change-oids/find",
+        "href": "user-guide/change-oids/find.html#usage",
+        "title": "Find duplicate OIDs > Usage",
+        "section": "Usage",
+        "text": "For example:\nThis command lists the duplicated OIDs of P2/P2.etp to P2/P2.dupoids.txt,\nwith path information, for example:\nUsage\nP2/P2.etp\nP2/P2.dupoids.txt"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#default-notes",
+        "title": "Default notes",
+        "section": "Default notes",
+        "text": "Default notes"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#rationale",
+        "title": "Default notes > Rationale",
+        "section": "Rationale",
+        "text": "SCADE Suite supports the creation of notes on model elements. Notes are structured data that\nsupplement the model.\nThe policy for creating notes is governed by annotation type files (ATY). These files may include\ninstructions to automatically create default notes whenever new model elements are created. However,\nif this policy is defined / modified for an already-existing project, SCADE does not retroactively\ncreate notes for pre-existing model elements.\nFor more information on notes and annotation type files, please refer to Annotation Type Files in\nsection 1 of the SCADE Suite Technical Manual - Editor, available\non Ansys Help.\nRationale"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#description",
+        "title": "Default notes > Description",
+        "section": "Description",
+        "text": "This tool creates default notes for a SCADE Suite model.\nIt considers the annotability rules of annotation type files specified for a project to\ncreate the missing default notes for model elements.\nDefault notes are identified by the property default_note_boolean\nThe cardinality properties min_card and max_card are ignored\nDescription\ndefault_note_boolean\nmin_card\nmax_card"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#usage",
+        "title": "Default notes > Usage",
+        "section": "Usage",
+        "text": "For example:\nIf you have created new N_Package and Optional note types,\nand have associated them with the following annotability rule:\nThe command outputs traces as follows:\nUsage\nN_Package\nOptional"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#limitations",
+        "title": "Default notes > Limitations",
+        "section": "Limitations",
+        "text": "The script does not add missing fields of existing annotations\nThe script does not remove obsolete annotations/fields\nLimitations"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#code-generator",
+        "title": "Code Generator",
+        "section": "Code Generator",
+        "text": "Template: code_generator.json.\nCode Generator\ncode_generator.json"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#general",
+        "title": "Code Generator > General",
+        "section": "General",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nRoot operator\nROOTNODE\nlist of scade paths\nCode Generator\nGENERATOR\nADA QUAL661, ADA QUAL663, C ACG, C MCG, C QUAL661, C QUAL663\nTarget directory\nTARGET_DIR\n$(NodeName)_$(CG)\nSet warnings as errors\nSET_WARNINGS_AS_ERRORS\nfalse\nSkip unused model objects\nSKIP_UNUSED\nfalse\nSkip disabled model objects\nSKIP_COMMENTED\nfalse\nSelect object(s) to comment\nCOMMENTEDNODES\nlist of scade paths\nGeneral\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#expansion",
+        "title": "Code Generator > Expansion",
+        "section": "Expansion",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nExpand\nEXPAND_MODE\n2\n1 (All), 2 (Selected), 3 (All except selected)\nSelected\nEXPANDED_NODES\nlist of scade paths\nAll except selected\nNOT_EXPANDED_NODES\nlist of scade paths\nExpansion\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#separate-ios",
+        "title": "Code Generator > Separate I/Os",
+        "section": "Separate I/Os",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nSeparate I/Os\nSEP_IO_MODE\n6\n1 (All), 6 (Selected), 7 (All except selected)\nSelected\nSEP_IO_NODES\nlist of scade paths\nAll except selected\nNO_SEP_IO_NODES\nlist of scade paths\nSeparate I/Os\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#code-integration",
+        "title": "Code Generator > Code Integration",
+        "section": "Code Integration",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nNone - Target - Adaptor\nTARGET_ADAPTOR\nOther extensions\nOTHER_EXTENSIONS\nlist of extension identifiers\nPeriodicity\nPERIODICITY_MODE\nROOTNODE\nROOTNODE, USER, APERIODIC\nPeriod\nPERIODICITY_PERIOD\n20\nOffset\nPERIODICITY_OFFSET\n0\nUnit\nPERIODICITY_UNIT\nms\nUser-provided sensors declaration-\nUSER_SENSORS_DECL\nfalse\nCode Integration\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#debug",
+        "title": "Code Generator > Debug",
+        "section": "Debug",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nDebug All\nDEBUG\nfalse\nOBSERVE_MODE\n0\n0 (None), 4 (Selected), 5 (All except selected)\nSelected\nOBSERVED_NODES\nlist of scade paths\nAll except selected\nNOT_OBSERVED_NODES\nlist of scade paths\nDebug\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#optimizations",
+        "title": "Code Generator > Optimizations",
+        "section": "Optimizations",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nLocal variables as static\nSTATIC\nfalse\nInput threshold\nINPUT_THRESHOLD\n0\nOptimizations\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#configuration",
+        "title": "Code Generator > Configuration",
+        "section": "Configuration",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nGenerate context as global\nGLOBAL_ROOT_CONTEXT\nfalse\nWrap C operators\nWRAP_C_OPS\nfalse\nKeep assertions\nMACRO_ON_ASSERT\nfalse\nKeep probes in generated code\nPROBES\nfalse\nGenerate system memory state management\nSTATE_VECTOR\nfalse\nShort circuit operators\nNO_BITWISE\nfalse\nNo timestamp\nNO_TIMESTAMP\nfalse\nGlobal prefix\nGLOBALS_PREFIX\nName length\nNAME_LENGTH\n200\nSignificance length\nSIGNIFICANCE_LENGTH\n31\nUser config\nUSER_CONFIG\nHeader file\nHEADER\nTop-level package\nROOT_PACKAGE\nTop-level imported package\nIMP_ROOT_PACKAGE\nUse type clauses\nUSE_TYPES\nlist of type names\nConfiguration\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#compiler",
+        "title": "Code Generator > Compiler",
+        "section": "Compiler",
+        "text": "Tool: SIMULATOR\nSettings\nProp\nDefault\nComment\nCompiler\nCOMPILER\nGNU C\nCPU type\nCPU_TYPE\nwin32\nThe name of the tool for the renaming properties of this tab are the\nconcatenation of the name of the selected compiler and CPU type.\nFor example, the tables hereafter show the most popular ones:\nTool: GNU Cwin32 or GNU Cwin64\nSettings\nProp\nDefault\nComment\nPreprocessor definitions\nPREPROC_DEF\nBUILD_DLL\nAdditional compiler options\nADD_COMP_OPTIONS\n-pedantic\nAdditional linker options\nADD_LINK_OPTIONS\nTool: VS2022win32 or VS2022win64\nSettings\nProp\nDefault\nComment\nPreprocessor definitions\nPREPROC_DEF\n_CRT_SECURE_NO_WARNINGS\nAdditional compiler options\nADD_COMP_OPTIONS\n/nologo /O2\nAdditional linker options\nADD_LINK_OPTIONS\n/subsystem:console /nologo /incremental:no\nCompiler\nSIMULATOR\nGNU Cwin32\nGNU Cwin64\nVS2022win32\nVS2022win64"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#build",
+        "title": "Code Generator > Build",
+        "section": "Build",
+        "text": "Tool: COMPILER\nSettings\nProp\nDefault\nComment\nAdditional include directories\nADD_INCLUDE_DIR\nlist of directories\nExcluded files\nIGNORED_FILES\nlist of files\nBuild\nCOMPILER"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#simulation",
+        "title": "Code Generator > Simulation",
+        "section": "Simulation",
+        "text": "Tool: SSMGUI\nSettings\nProp\nDefault\nComment\nGUI extension files\nGUIEXTFILE\nlist of files\nEnable double simulation\nDBLSIM\nfalse\nProject\nDBLSIMPRJ\nConfiguration\nDBLSIMCONF\nSimulation\nSSMGUI"
+    },
+    {
+        "objectID": "user-guide/copy-properties/code-generator",
+        "href": "user-guide/copy-properties/code-generator.html#timing-and-stack-analysis-tools",
+        "title": "Code Generator > Timing and Stack Analysis Tools",
+        "section": "Timing and Stack Analysis Tools",
+        "text": "Tool: GENERATOR\nSettings\nProp\nDefault\nComment\nGenerate loop bounds annotations\nAIT_GENERATE_ANNOTATIONS\ntrue\nGenerate types copy functions\nAIT_GENERATE_COPY_FUNC\nfalse\nTiming and Stack Analysis Tools\nGENERATOR"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#obfuscator",
+        "title": "Obfuscator",
+        "section": "Obfuscator",
+        "text": "Obfuscator"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#rationale",
+        "title": "Obfuscator > Rationale",
+        "section": "Rationale",
+        "text": "SCADE Suite models sometimes need to be shared with partners. Example use cases include developing\noperator libraries for a higher-level model, or trying to reproduce a specific behavior using two\nconnected models developed by different teams at different companies.\nThe model being shared may sometimes contain sensitive intellectual property. Obfuscation is often\nseen as an acceptable compromise to protect this IP while still sharing the model.\nRationale"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#description",
+        "title": "Obfuscator > Description",
+        "section": "Description",
+        "text": "This tool obfuscates a SCADE Suite model and its libraries.\nAll names are obfuscated\nFiles are renamed and the old ones are deleted\nThe script produces traceability matrices for both objects and file names\nThe model and its libraries are modified in place: copy\nyour files to another directory before proceeding.\nMake sure your model does not refer to a library that is not part of your project,\nsuch as $(SCADE)/libraries/libdigital.etp, or use the option -l to\nexclude it from the obfuscation process. for example: -l libdigital.\nDescription\n$(SCADE)/libraries/libdigital.etp\n-l\n-l libdigital"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#usage",
+        "title": "Obfuscator > Usage",
+        "section": "Usage",
+        "text": "For example:\nThis command obfuscates MyProject.etp and its libraries except those named libdigital or libmath.\nThe traceability information between old and new names is output to Mapping.txt, as follows:\nUsage\nMyProject.etp\nlibdigital\nlibmath\nMapping.txt"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#limitations",
+        "title": "Obfuscator > Limitations",
+        "section": "Limitations",
+        "text": "Project properties are unchanged: root, expanded, instrumented operators, etc.\nKCG pragma name are unchanged.\nImported code is unchanged.\nProject files accessed with an absolute path are modified.\nSymbol files (SSL) are not taken into account.\nProjects with files with same names in different directories are not supported.\nHomonymy is preserved: model elements with the same name, for example an operator\nand its diagram, have the same obfuscated name.\nLimitations\npragma name"
+    }
+]

@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Copy properties &#8212; Ansys SCADE Power Scripts</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/ansys_sphinx_theme.css?v=0909a4fa" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/copy-properties/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://ps.scade.docs.pyansys.com/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.2';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Code Generator" href="code-generator.html" />
+    <link rel="prev" title="Default notes" href="../default-notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.2.0" />
+  <link rel="canonical" href="https://ps.scade.docs.pyansys.com/version/stable/user-guide/copy-properties/index.html" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="Ansys SCADE Power Scripts - Home"/>
+    <img src="../../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="Ansys SCADE Power Scripts - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Release notes
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys-internal/scade-ps" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+    <div id="announcement_msg"></div>
+<script>
+  fetch("announcement.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(
+      (text) => (document.getElementById("announcement_msg").innerHTML = text),
+    )
+    .catch((error) => console.error(`Fetch problem: ${error.message}`));
+</script>
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Release notes
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys-internal/scade-ps" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../default-notes.html">Default notes</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Copy properties</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="code-generator.html">Code Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics-rules.html">Metrics and Rules Checker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporter.html">Reporter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test-tool.html">Test Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timing-stack.html">Timing and Stack Analysis Tools</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../rename-unused.html">Rename unused files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-oids/index.html">Change OIDs</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../index.html" class="nav-link">User guide</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Copy properties</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="copy-properties">
+<h1>Copy properties<a class="headerlink" href="#copy-properties" title="Link to this heading">#</a></h1>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading">#</a></h2>
+<p>Some software projects may be composed of dozens of interconnected SCADE models.
+Maintaining a consistent set of settings across all projects is important, to
+ensure homogeneous code generation parameters or modeling rules. However,
+performing this maintenance by hand can be cumbersome and error-prone.</p>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>This sub-command copies a selection of tool properties from a reference project
+to targets projects. The properties are propagated for all the configurations
+they appear in the reference project. A configuration is created in the
+target project if needed.</p>
+<p>The properties to consider should be specified in a configuration file (JSON):</p>
+<ul>
+<li><p>keys: Identifiers of the tools</p></li>
+<li><p>values: Identifiers of the properties.</p>
+<p>When a property designates a file that can be relative to the project, prefix
+its identifier with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>A tool property is saved in a project file with the name
+<code class="docutils literal notranslate"><span class="pre">&#64;&lt;tool&gt;:&lt;property&gt;</span></code> and has a list of values. It is optionally linked
+to a configuration.</p></li>
+<li><p>Properties with default values are not stored in the project files.</p></li>
+<li><p>The identifiers used to store properties in a project file are not
+documented. To find the identifiers, tool and property, corresponding
+to a given setting, you can compare the project files before and after
+modifying this single setting. This may lead to the creation of a new
+property if you override the default, or the deletion of a property if
+you restore its default value.</p></li>
+</ul>
+</div>
+<p>For example, the following schema corresponds to the <cite>Configuration</cite> settings of KCG:</p>
+<img alt="../../_images/settings_configuration.png" src="../../_images/settings_configuration.png" />
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;GENERATOR&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;GLOBAL_ROOT_CONTEXT&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;WRAP_C_OPS&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;MACRO_ON_ASSERT&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;PROBES&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;STATE_VECTOR&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;NO_BITWISE&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;NO_TIMESTAMP&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;GLOBALS_PREFIX&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;NAME_LENGTH&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;SIGNIFICANCE_LENGTH&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;@USER_CONFIG&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;@HEADER&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: ansys_scade_ps_copy_properties [-h] -r &lt;reference&gt; -s &lt;schema&gt; -p &lt;project&gt; [&lt;project&gt; ...]
+
+Ansys SCADE Power Scripts: Copy SCADE project properties
+
+options:
+  -h, --help            show this help message and exit
+  -r &lt;reference&gt;, --reference &lt;reference&gt;
+                        reference project (ETP)
+  -s &lt;schema&gt;, --schema &lt;schema&gt;
+                        input schema file (JSON)
+  -p &lt;project&gt; [&lt;project&gt; ...], --projects &lt;project&gt; [&lt;project&gt; ...]
+                        project files to update (ETP)
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansys_scade_ps_copy_properties<span class="w"> </span>-r<span class="w"> </span>Reference.etp<span class="w"> </span>-s<span class="w"> </span>MySchema.json<span class="w"> </span>-p<span class="w"> </span>P1.etp<span class="w"> </span>P2.etp
+</pre></div>
+</div>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p>The next sections present the properties for the most popular SCADE tools.
+The corresponding schemas, to be considered as templates for your own configurations,
+are delivered with the package’s sources, <code class="docutils literal notranslate"><span class="pre">&lt;python&gt;/Lib/site-packages/ansys/scade/ps/copy_properties/res</span></code> directory.</p>
+<p>Each section mentions the name of the resource template and lists
+all the contained properties, as they appear in the IDE, with the
+<code class="docutils literal notranslate"><span class="pre">Project/&lt;tool&gt;/Settings...</span></code> command.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code-generator.html">Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics-rules.html">Metrics and Rules Checker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reporter.html">Reporter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test-tool.html">Test Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timing-stack.html">Timing and Stack Analysis Tools</a></li>
+</ul>
+</div>
+</section>
+<section id="alternative">
+<h2>Alternative<a class="headerlink" href="#alternative" title="Link to this heading">#</a></h2>
+<p>There are use cases where <code class="docutils literal notranslate"><span class="pre">ansys_scade_ps_copy_properties</span></code> is not suitable:</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>Dynamic properties: set the Code Generator target directory to <code class="docutils literal notranslate"><span class="pre">../code/&lt;model</span> <span class="pre">name&gt;</span></code></p></li>
+<li><p>Review: use a text editor to review the reference project instead of the SCADE IDE</p></li>
+</ul>
+<p>You can set the properties of a project programmatically. The small following example
+sets a few properties for one configuration:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">scade.model.project.stdproject</span><span class="w"> </span><span class="kn">import</span> <span class="n">Project</span><span class="p">,</span> <span class="n">get_roots</span> <span class="k">as</span> <span class="n">get_projects</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ansys.scade.apitools.create</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_configuration</span><span class="p">,</span> <span class="n">save_project</span>
+
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">get_projects</span><span class="p">():</span>
+    <span class="n">configuration</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">find_configuration</span><span class="p">(</span><span class="s1">&#39;KCG&#39;</span><span class="p">)</span>
+    <span class="c1"># make sure the configuration exists</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">configuration</span><span class="p">:</span>
+        <span class="n">configuration</span> <span class="o">=</span> <span class="n">create_configuration</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="s1">&#39;KCG&#39;</span><span class="p">)</span>
+
+    <span class="c1"># set a scalar property based on the project&#39;s name</span>
+    <span class="n">base_name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">pathname</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
+    <span class="n">DEFAULT_TARGET_DIR</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1"># this is not the exact default value, it does not matter here</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">set_scalar_tool_prop_def</span><span class="p">(</span>
+        <span class="s1">&#39;GENERATOR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TARGET_DIR&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;../code/</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">DEFAULT_TARGET_DIR</span><span class="p">,</span>
+        <span class="n">configuration</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># set a boolean property</span>
+    <span class="n">DEFAULT_DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">set_bool_tool_prop_def</span><span class="p">(</span><span class="s1">&#39;GENERATOR&#39;</span><span class="p">,</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">DEFAULT_DEBUG</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+
+    <span class="c1"># set a regular property: list of values</span>
+    <span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SdyChecker&#39;</span><span class="p">,</span> <span class="s1">&#39;SnapshotApi&#39;</span><span class="p">]</span>
+    <span class="n">project</span><span class="o">.</span><span class="n">set_tool_prop_def</span><span class="p">(</span><span class="s1">&#39;GENERATOR&#39;</span><span class="p">,</span> <span class="s1">&#39;OTHER_EXTENSIONS&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="p">,</span> <span class="p">[],</span> <span class="n">configuration</span><span class="p">)</span>
+
+    <span class="c1"># save the project</span>
+    <span class="n">save_project</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Usage: <code class="docutils literal notranslate"><span class="pre">scade.exe</span> <span class="pre">-script</span> <span class="pre">&lt;script&gt;</span> <span class="pre">&lt;project&gt;+</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is not necessary to consider the exact default value of the properties you want to set.
+When you provide a default different from your value, the property is always created or updated.
+The only impact is a larger project file size when to explicitly add properties with default values.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rationale">Rationale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative">Alternative</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+<!-- If there is no fix edit button function, use the PyData edit-this-button-->
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user-guide/copy-properties/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"keys": ["title", "text"], "limit": 10, "threshold": 0.2}');
+const SEARCH_FILE = "../../_static/search.json";
+</script>
+
+
+<script src="../../_static/js/search.js"></script>
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2025 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.3.2. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,401 @@
+[
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#user-guide",
+        "title": "User guide",
+        "section": "User guide",
+        "text": "As indicated in Run the tools,\nyou run SCADE Power Scripts tools in a selected SCADE environment.\nThis section provides additional information on each of the available tools.\nLearn how to create default notes for a SCADE Suite model.\nLearn how to obfuscate a SCADE Suite model.\nLearn how to access and update the properties of a SCADE project.\nLearn how to find identify files that are not referenced by a project.\nLearn how to find duplicated OIDs and update them.\nUser guide"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#release-notes",
+        "title": "Release notes",
+        "section": "Release notes",
+        "text": "This document contains the release notes for the project.\nRelease notes"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#010---march-20-2025",
+        "title": "Release notes > 0.1.0 - March 20, 2025",
+        "section": "0.1.0 - March 20, 2025",
+        "text": "feat: Obfuscation of SCADE Suite models\n#3\nfeat: Create default notes for a SCADE Suite model\n#6\nfeat: Find unused SCADE files\n#9\nfeat: Change duplicated OIDs\n#10\nbuild(deps): Bump the dependencies group with 2 updates\n#2\nchore: Initialize the repository from the template\n#1\nrefactor: rename power_scripts and power-scripts to ps\n#4\ndocs: Redesign the layout for the catalog of tools\n#5\nfeat: Project properties\n#7\ntest: Refactor the unit tests\n#8\ndocs: rationales\n#11\nci: Fix steps for creating a release\n#12\n0.1.0 - March 20, 2025"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#obfuscator",
+        "title": "Obfuscator",
+        "section": "Obfuscator",
+        "text": "Obfuscator"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#rationale",
+        "title": "Obfuscator > Rationale",
+        "section": "Rationale",
+        "text": "SCADE Suite models sometimes need to be shared with partners. Example use cases include developing\noperator libraries for a higher-level model, or trying to reproduce a specific behavior using two\nconnected models developed by different teams at different companies.\nThe model being shared may sometimes contain sensitive intellectual property. Obfuscation is often\nseen as an acceptable compromise to protect this IP while still sharing the model.\nRationale"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#description",
+        "title": "Obfuscator > Description",
+        "section": "Description",
+        "text": "This tool obfuscates a SCADE Suite model and its libraries.\nAll names are obfuscated\nFiles are renamed and the old ones are deleted\nThe script produces traceability matrices for both objects and file names\nThe model and its libraries are modified in place: copy\nyour files to another directory before proceeding.\nMake sure your model does not refer to a library that is not part of your project,\nsuch as $(SCADE)/libraries/libdigital.etp, or use the option -l to\nexclude it from the obfuscation process. for example: -l libdigital.\nDescription\n$(SCADE)/libraries/libdigital.etp\n-l\n-l libdigital"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#usage",
+        "title": "Obfuscator > Usage",
+        "section": "Usage",
+        "text": "Usage"
+    },
+    {
+        "objectID": "user-guide/obfuscator",
+        "href": "user-guide/obfuscator.html#limitations",
+        "title": "Obfuscator > Limitations",
+        "section": "Limitations",
+        "text": "Project properties are unchanged: root, expanded, instrumented operators, etc.\nKCG pragma name are unchanged\nImported code is unchanged\nProject files accessed with an absolute path are modified\nSymbol files (SSL) are not taken into account\nProjects with files with same names in different directories are not supported\nLimitations\npragma name"
+    },
+    {
+        "objectID": "user-guide/change-oids/new",
+        "href": "user-guide/change-oids/new.html#new-oids",
+        "title": "New OIDs",
+        "section": "New OIDs",
+        "text": "New OIDs"
+    },
+    {
+        "objectID": "user-guide/change-oids/new",
+        "href": "user-guide/change-oids/new.html#description",
+        "title": "New OIDs > Description",
+        "section": "Description",
+        "text": "This sub-command reads the duplicated OIDs from the file produced by the\nfind command, computes new OIDs for each\ncorresponding element and saves the model.\nThis command also produces a mapping file (JSON) containing the pairs (old oid, new oid)\nas well as the list of the traced requirements, when applicable. This can be used to update\ncustom references, other than annotations or traceability.\nThe update of the traceability is performed using the ALM Gateway temporary trace file (ALMGT).\nThis file is created if it does not exist.\nReminder, this trace file contains the traceability changes between two ALM Gateway exports.\nThe tool inserts commands for removing traceability links for the old OIDs, and commands for adding new\ntraceability links for new OIDs. It takes into account old OIDs already present in the trace file,\neither to add and/or remove a link. A regular ALM Gateway export updates the traceability in the ALM tool.\nDescription"
+    },
+    {
+        "objectID": "user-guide/change-oids/new",
+        "href": "user-guide/change-oids/new.html#usage",
+        "title": "New OIDs > Usage",
+        "section": "Usage",
+        "text": "For example:\nThis command updates the P2.etp model, as well as the traceability,\nand it outputs the mapping between old and new OIDs to map_oids.json,\nfor example:\nUsage\nP2.etp\nmap_oids.json"
+    },
+    {
+        "objectID": "user-guide/project-properties/copy",
+        "href": "user-guide/project-properties/copy.html#copy",
+        "title": "Copy",
+        "section": "Copy",
+        "text": "Copy"
+    },
+    {
+        "objectID": "user-guide/project-properties/copy",
+        "href": "user-guide/project-properties/copy.html#description",
+        "title": "Copy > Description",
+        "section": "Description",
+        "text": "This sub-command copies a selection of tool properties from a reference project\nto targets projects. The properties are propagated for all the configurations\nthey appear in the reference project. A configuration is created in the\ntarget project if needed.\nThe properties to consider should be specified in a configuration file (JSON):\nkeys: Identifiers of the tools\nvalues: Identifiers of the properties.\nIf a property designates a file, that can be relative to the project, prefix\nits identifier with @.\nYou can derive the configuration file from a template as detailed in this\nsection.\nA tool property is saved in a project file with the name\n@<tool>:<property> and has a list of values. It is optionally linked\nto a configuration.\nProperties with default values are not stored in the project files.\nThe identifiers used to store properties in a project file are not\ndocumented. To find the identifiers, tool and property, corresponding\nto a given setting, you can compare the project files before and after\nmodifying this single setting. This may lead to the creation of a new\nproperty if you override the default, or the deletion of a property if\nyou restore its default value.\nFor example, the following schema corresponds to the Configuration settings of KCG:\nDescription\n@\n@<tool>:<property>"
+    },
+    {
+        "objectID": "user-guide/project-properties/copy",
+        "href": "user-guide/project-properties/copy.html#usage",
+        "title": "Copy > Usage",
+        "section": "Usage",
+        "text": "For example:\nUsage"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#rename-unused-files",
+        "title": "Rename unused files",
+        "section": "Rename unused files",
+        "text": "Rename unused files"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#rationale",
+        "title": "Rename unused files > Rationale",
+        "section": "Rationale",
+        "text": "When renaming model elements, SCADE may sometimes create new files. For instance,\nif the “Filename” property of an operator is modified, SCADE will generate\na new .xscade file with the new name for the operator.\nSCADE does not remove obsolete files in such cases. Over time, this means a SCADE\nmodel’s directory may become encumbered with obsolete files.\nTwo IDE settings are useful to limit obsolete file issues:\nTools > Settings > General > Use a creation dialog box: prompts for an element and\nfile name upon creation of operators and packages.\nTools > Settings > General > Propagate entity name changes to filename: automatically\ncreates a new file, as required, upon renaming of a model element.\nRationale\n.xscade"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#description",
+        "title": "Rename unused files > Description",
+        "section": "Description",
+        "text": "This tool identifies the model files that are not referenced in a SCADE Suite\nproject, for example after the renaming of an operator or a package.\nThe unused files are renamed with a suffix .toremove. This allows you to\ndouble-check the list of unused files, and then delete them easily from the\ncommand line or the Windows explorer.\nThis tool considers SCADE model files (XSCADE, SCADE) and annotation files (ANN).\nDescription\n.toremove"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#usage",
+        "title": "Rename unused files > Usage",
+        "section": "Usage",
+        "text": "Usage"
+    },
+    {
+        "objectID": "user-guide/rename-unused",
+        "href": "user-guide/rename-unused.html#limitations",
+        "title": "Rename unused files > Limitations",
+        "section": "Limitations",
+        "text": "The symbol files are not considered\nLimitations"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#contribute",
+        "title": "Contribute",
+        "section": "Contribute",
+        "text": "Overall guidance on contributing to a PyAnsys library appears in\nContributing\nin the PyAnsys developer’s guide. Ensure that you are thoroughly familiar\nwith this guide before attempting to contribute to Ansys SCADE Power Scripts.\nThe following contribution information is specific to Ansys SCADE Power Scripts.\nContribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#install-in-developer-mode",
+        "title": "Contribute > Install in developer mode",
+        "section": "Install in developer mode",
+        "text": "Installing Ansys SCADE Power Scripts in developer mode allows you to modify the\nsource and enhance it.\nClone the ansys-scade-ps repository:\nAccess the scade-ps directory where the repository has been cloned:\nCreate a clean Python 3.10 environment and activate it:\nYou should use the interpreter delivered with Ansys SCADE. For example,\nC:\\Program Files\\ANSYS Inc\\v241\\SCADE\\contrib\\Python310\\python.exe.\nMake sure that you have the latest required build system, documentation, testing,\nand CI tools:\nInstall the project in editable mode:\nUse tox to verify your development installation:\nInstall in developer mode\nansys-scade-ps\nscade-ps\nC:\\Program Files\\ANSYS Inc\\v241\\SCADE\\contrib\\Python310\\python.exe"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#test",
+        "title": "Contribute > Test",
+        "section": "Test",
+        "text": "Ansys SCADE Power Scripts uses tox for testing. This tool allows you to\nautomate common development tasks (similar to Makefile), but it is oriented\ntowards Python development.\nTest\nMakefile"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-tox",
+        "title": "Contribute > Use tox",
+        "section": "Use tox",
+        "text": "While Makefile has rules, tox has environments. In fact, tox creates its\nown virtual environment so that anything being tested is isolated from the project\nto guarantee the project’s integrity.\nThe following tox commands are provided:\ntox -e code-style: Checks for coding style quality.\ntox -e tests: Checks for unit testing without code coverage.\ntox -e tests-coverage: Checks for unit testing with code coverage.\ntox -e doc-html: Builds the HTML documentation.\ntox -e doc-links: Checks for broken links in the documentation.\nFor convenience (and advanced usage), you can set a SCADE_INSTALLATION_DIR environment\nvariable pointing to SCADE’s installation directory, for example C:\\Program Files\\ANSYS Inc\\vXXX\\SCADE.\nThis will allow Tox automatically discover and use the Python interpreters that ship with SCADE in\ncreating virtual environments via py310 and py37 factors. Using this approach, tox\ncommands similar to the following formats can be used:\ntox -e tests-py37: for running tests without coverage using the Python 3.7 interpreter delivered with SCADE.\ntox -e tests-coverage-py310: for running tests with coverage using the Python 3.10 interpreter delivered with SCADE.\nThe host python interpreter does not have to be the one delivered with SCADE when using this approach and this\nbehavior is agnostic of the host python version in which tox itself is installed. The important point to note\nis that Python 3.7 is compatible with SCADE releases prior to 23R2 and Python 3.10 compatibility starts with 23R2. This means\nthat py37 factor should be used when testing with releases prior to 23R2 and py310 factor should be used when testing\nwith releases starting from 23R2.\nUse tox\ntox\nMakefile\ntox\ntox\ntox\ntox -e code-style\ntox -e tests\ntox -e tests-coverage\ntox -e doc\ntox -e doc-html\ntox -e doc-links\nSCADE_INSTALLATION_DIR\nC:\\Program Files\\ANSYS Inc\\vXXX\\SCADE\npy310\npy37\ntox\ntox -e tests-py37\ntox -e tests-coverage-py310\npy37\npy310"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-raw-testing",
+        "title": "Contribute > Use raw testing",
+        "section": "Use raw testing",
+        "text": "If required, from the command line, you can call style commands like\nblack, isort, and flake8. You can also call unit testing commands like pytest.\nHowever, running these commands does not guarantee that your project is being tested in an\nisolated environment, which is the reason why tools like tox exist.\nUse raw testing\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-pre-commit",
+        "title": "Contribute > Use pre-commit",
+        "section": "Use pre-commit",
+        "text": "Ansys SCADE Power Scripts follows the PEP8 standard as outlined in\nPEP 8 in\nthe PyAnsys developer’s guide and implements style checking using\npre-commit.\nTo ensure your code meets minimum code styling standards, run the following commands:\nYou can also install this as a pre-commit hook by running this command:\nThis way, it’s not possible for you to push code that fails the style checks:\nUse pre-commit\npre-commit"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#build-documentation",
+        "title": "Contribute > Build documentation",
+        "section": "Build documentation",
+        "text": "For building documentation, you can run the usual rules provided in the\nSphinx make file. Here are some examples:\nHowever, the recommended way of checking documentation integrity is to use\ntox:\nBuild documentation\nmake\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#distribute",
+        "title": "Contribute > Distribute",
+        "section": "Distribute",
+        "text": "If you would like to create either source or wheel files, start by installing\nthe building requirements and then executing the build module:\nDistribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#post-issues",
+        "title": "Contribute > Post issues",
+        "section": "Post issues",
+        "text": "Use the Ansys SCADE Power Scripts Issues\npage to submit questions, report bugs, and request new features. When possible, use\nthese templates:\nBug, problem, error: For filing a bug report\nDocumentation error: For requesting modifications to the documentation\nAdding an example: For proposing a new example\nNew feature: For requesting enhancements to the code\nIf your issue does not fit into one of these template categories, click\nthe link for opening a blank issue.\nTo reach the project support team, email pyansys.core@ansys.com.\nPost issues"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#ansys-scade-power-scripts",
+        "title": "Ansys SCADE Power Scripts",
+        "section": "Ansys SCADE Power Scripts",
+        "text": "Learn how to install and use Ansys SCADE Power Scripts.\nLearn how to use Ansys SCADE Power Scripts.\nLearn how to contribute to Ansys SCADE Power Scripts.\nView the changelog for Ansys SCADE Power Scripts.\nAnsys SCADE Power Scripts"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#indices-and-tables",
+        "title": "Ansys SCADE Power Scripts > Indices and tables",
+        "section": "Indices and tables",
+        "text": "genindex\nmodindex\nsearch\nIndices and tables"
+    },
+    {
+        "objectID": "user-guide/project-properties/index",
+        "href": "user-guide/project-properties/index.html#project-properties",
+        "title": "Project properties",
+        "section": "Project properties",
+        "text": "Project properties"
+    },
+    {
+        "objectID": "user-guide/project-properties/index",
+        "href": "user-guide/project-properties/index.html#rationale",
+        "title": "Project properties > Rationale",
+        "section": "Rationale",
+        "text": "Some software projects may be composed of dozens of interconnected SCADE models.\nMaintaining a consistent set of settings across all projects is important, to\nensure homogeneous code generation parameters or modeling rules. However,\nperforming this maintenance by hand can be cumbersome and error-prone.\nRationale"
+    },
+    {
+        "objectID": "user-guide/project-properties/index",
+        "href": "user-guide/project-properties/index.html#description",
+        "title": "Project properties > Description",
+        "section": "Description",
+        "text": "This tool has several sub-commands described in the following sections.\ntemplate: initiate, from a reference SCADE project, a list of properties\nand their default values\ncopy: propagate default properties to another SCADE project\nDescription\ntemplate\ncopy"
+    },
+    {
+        "objectID": "user-guide/project-properties/index",
+        "href": "user-guide/project-properties/index.html#usage",
+        "title": "Project properties > Usage",
+        "section": "Usage",
+        "text": "Usage"
+    },
+    {
+        "objectID": "user-guide/project-properties/index",
+        "href": "user-guide/project-properties/index.html#sub-commands",
+        "title": "Project properties > Sub-commands",
+        "section": "Sub-commands",
+        "text": "Sub-commands"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "To use Ansys SCADE Power Scripts, you must have a valid license for Ansys SCADE.\nFor information on getting a licensed copy, see the\nAnsys SCADE Suite\npage on the Ansys website.\nGetting started"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#requirements",
+        "title": "Getting started > Requirements",
+        "section": "Requirements",
+        "text": "The ansys-scade-ps package supports only the versions of Python delivered with\nAnsys SCADE, starting from 2021 R2:\n2021 R2 to 2023 R1: Python 3.7\n2023 R2 and later: Python 3.10\nRequirements\nansys-scade-ps"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#install-in-user-mode",
+        "title": "Getting started > Install in user mode",
+        "section": "Install in user mode",
+        "text": "The following steps are for installing Ansys SCADE Power Scripts in user mode. If you want to\ncontribute to Ansys SCADE Power Scripts,\nsee contribute_scade_ps for installing in developer mode.\nBefore installing Ansys SCADE Power Scripts in user mode, run this command to ensure that\nyou have the latest version of pip:\nInstall Ansys SCADE Power Scripts with this command:\nInstall in user mode"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#run-the-tools",
+        "title": "Getting started > Run the tools",
+        "section": "Run the tools",
+        "text": "The command-line tools contained in this package can be launched in two different ways:\nexecutable or Python module.\nThey rely on Ansys SCADE API Tools to select the version of SCADE to use at runtime.\nRefer to Advanced usage with API tools for details or if you want to select a\ngiven release of SCADE.\nRun the tools"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#executable",
+        "title": "Getting started > Executable",
+        "section": "Executable",
+        "text": "The binaries are in the Scripts directory of your Python environment.\nEither add this directory to PATH or use an absolute path.\nWhere <tool> is the name of the tool to run.\nFor example:\nExecutable\nScripts\nPATH\n<tool>"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#python-module",
+        "title": "Getting started > Python module",
+        "section": "Python module",
+        "text": "Where <tool> is the name of the tool to run.\nFor example:\nPython module\n<tool>"
+    },
+    {
+        "objectID": "user-guide/change-oids/find",
+        "href": "user-guide/change-oids/find.html#find-duplicate-oids",
+        "title": "Find duplicate OIDs",
+        "section": "Find duplicate OIDs",
+        "text": "Find duplicate OIDs"
+    },
+    {
+        "objectID": "user-guide/change-oids/find",
+        "href": "user-guide/change-oids/find.html#description",
+        "title": "Find duplicate OIDs > Description",
+        "section": "Description",
+        "text": "This sub-command lists the duplicated OIDs for a set of projects.\nThere is one output file per project, that can be reviewed, and used as input\nfor the command that performs the\nchanges for a project.\nThe output file is the project’s path with a different extension, .dupoids.txt\nby default.\nDescription\n.dupoids.txt"
+    },
+    {
+        "objectID": "user-guide/change-oids/find",
+        "href": "user-guide/change-oids/find.html#usage",
+        "title": "Find duplicate OIDs > Usage",
+        "section": "Usage",
+        "text": "For example:\nThis command lists the duplicated OIDs of P2/P2.etp to P2/P2.dupoids.txt,\nwith path information, for example:\nUsage\nP2/P2.etp\nP2/P2.dupoids.txt"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#change-oids",
+        "title": "Change OIDs",
+        "section": "Change OIDs",
+        "text": "Change OIDs"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#rationale",
+        "title": "Change OIDs > Rationale",
+        "section": "Rationale",
+        "text": "SCADE uses generated unique identifiers (OIDs) to refer internally to model\nelements. These OIDs are stored in the model’s files.\nA SCADE project that has been initiated by copying files from an existing one\ncontains many duplicated OIDs. Should these projects need to be integrated\ntogether, conflicts would happen in the integration with external tools that\nrely on OIDs to refer to model elements. For instance, traceability between\nrequirements in an external ALM tool and model elements would be unable\nto unambiguously resolve.\nWhen initiating a project from another one, a best practice is to copy/paste\npackages and other model elements directly from the SCADE IDE rather than from\nthe file system.\nRationale"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#description",
+        "title": "Change OIDs > Description",
+        "section": "Description",
+        "text": "This tool has several sub-commands described in the following sections.\nfind: List the duplicated OIDs\nnew: Replace the duplicated OIDs and update references\nDescription\nfind\nnew"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#usage",
+        "title": "Change OIDs > Usage",
+        "section": "Usage",
+        "text": "Usage"
+    },
+    {
+        "objectID": "user-guide/change-oids/index",
+        "href": "user-guide/change-oids/index.html#sub-commands",
+        "title": "Change OIDs > Sub-commands",
+        "section": "Sub-commands",
+        "text": "Sub-commands"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#default-notes",
+        "title": "Default notes",
+        "section": "Default notes",
+        "text": "Default notes"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#rationale",
+        "title": "Default notes > Rationale",
+        "section": "Rationale",
+        "text": "SCADE Suite supports the creation of notes on model elements. Notes are structured data that\nsupplement the model.\nThe policy for creating notes is governed by annotation type files (ATY). These files may include\ninstructions to automatically create default notes whenever new model elements are created. However,\nif this policy is defined / modified for an already-existing project, SCADE does not retroactively\ncreate notes for pre-existing model elements.\nFor more information on notes and annotation type files, please refer to Annotation Type Files in\nsection 1 of the SCADE Suite Technical Manual - Editor, available\non Ansys Help.\nRationale"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#description",
+        "title": "Default notes > Description",
+        "section": "Description",
+        "text": "This tool creates default notes for a SCADE Suite model.\nIt considers the annotability rules of annotation type files specified for a project to\ncreate the missing default notes for model elements.\nDefault notes are identified by the property default_note_boolean\nThe cardinality properties min_card and max_card are ignored\nDescription\ndefault_note_boolean\nmin_card\nmax_card"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#usage",
+        "title": "Default notes > Usage",
+        "section": "Usage",
+        "text": "Usage"
+    },
+    {
+        "objectID": "user-guide/default-notes",
+        "href": "user-guide/default-notes.html#limitations",
+        "title": "Default notes > Limitations",
+        "section": "Limitations",
+        "text": "The script does not add missing fields of existing annotations\nThe script does not remove obsolete annotations/fields\nLimitations"
+    },
+    {
+        "objectID": "user-guide/project-properties/template",
+        "href": "user-guide/project-properties/template.html#template",
+        "title": "Template",
+        "section": "Template",
+        "text": "Template"
+    },
+    {
+        "objectID": "user-guide/project-properties/template",
+        "href": "user-guide/project-properties/template.html#description",
+        "title": "Template > Description",
+        "section": "Description",
+        "text": "This sub-command lists all the tool properties used in a project to a file (JSON).\nThis file can be used as a template for creating a schema of properties to\nconsider, when propagating the\nsettings from a reference project to other projects.\nFor a SCADE Suite project with default settings, the output template file looks as follows:\nProperties with default values are not stored in the project file: They\nare not listed in the output template.\nDescription"
+    },
+    {
+        "objectID": "user-guide/project-properties/template",
+        "href": "user-guide/project-properties/template.html#usage",
+        "title": "Template > Usage",
+        "section": "Usage",
+        "text": "For example:\nUsage"
+    }
+]

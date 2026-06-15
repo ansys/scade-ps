@@ -1,0 +1,1129 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Test Tool &#8212; Ansys SCADE Power Scripts</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=a23b20f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=a23b20f3" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../../_static/documentation_options.js?v=d9b85e4f"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/copy-properties/test-tool';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://ps.scade.docs.pyansys.com/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.5';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Timing and Stack Analysis Tools" href="timing-stack.html" />
+    <link rel="prev" title="Reporter" href="reporter.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.5.1" />
+  <link rel="canonical" href="https://ps.scade.docs.pyansys.com/version/stable/user-guide/copy-properties/test-tool.html" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="Ansys SCADE Power Scripts - Home"/>
+    <img src="../../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="Ansys SCADE Power Scripts - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="Ansys SCADE Power Scripts home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Release notes
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+  
+</div></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/scade-ps" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+    
+<!--
+  Announcement Version Loader
+  Dynamically loads the announcement.html content into the announcement_msg div.
+-->
+<div id="announcement_msg" aria-live="polite"></div>
+<script>
+  // Fetch and inject the announcement HTML content
+  fetch("announcement.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status} Announcement.html file not found, Please ignore this, if you are in dev/stable documentation`);
+      }
+      return response.text();
+    })
+    .then((text) => {
+      var msgDiv = document.getElementById("announcement_msg");
+      if (msgDiv) {
+        msgDiv.innerHTML = text;
+      }
+    })
+    .catch((error) => {
+      // Log only unexpected fetch errors
+      if (!(error.message && error.message.startsWith("HTTP error: 404"))) {
+        console.error(`Fetch problem: ${error.message} Announcement.html could not be loaded.`);
+      }
+    });
+</script>
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="Ansys SCADE Power Scripts home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Release notes
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+  
+</div></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/scade-ps" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../default-notes.html">Default notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../obfuscator.html">Obfuscator</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Copy properties</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="code-generator.html">Code Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metrics-rules.html">Metrics and Rules Checker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporter.html">Reporter</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Test Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timing-stack.html">Timing and Stack Analysis Tools</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../rename-unused.html">Rename unused files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-oids/index.html">Change OIDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../set-styles.html">Set equation sets styles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimize-sss/index.html">Optimize scenarios</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../index.html" class="nav-link">User guide</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Copy properties</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Test Tool</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="test-tool">
+<h1>Test Tool<a class="headerlink" href="#test-tool" title="Link to this heading">#</a></h1>
+<p>Template: <code class="docutils literal notranslate"><span class="pre">test_tool.json</span></code>.</p>
+<section id="general">
+<h2>General<a class="headerlink" href="#general" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_general.png" src="../../_images/tt_general.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Process the following procedures</p></td>
+<td><p>USE_PROCEDURES_LIST</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PROCEDURES_LIST_SELECTION_MODE</p></td>
+<td><p><cite>1</cite></p></td>
+<td><p><cite>0</cite> (All), <cite>1</cite> (Selected), <cite>2</cite> (All except selected)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SELECTED_PROCEDURES</p></td>
+<td></td>
+<td><p>list of procedures</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NOT_SELECTED_PROCEDURES</p></td>
+<td></td>
+<td><p>list of procedures</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="host-execution">
+<h2>Host Execution<a class="headerlink" href="#host-execution" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_host_execution.png" src="../../_images/tt_host_execution.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Source configuration</p></td>
+<td><p>TEE_CONF</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Target directory</p></td>
+<td><p>TEE_TARGET_DIR</p></td>
+<td><p><cite>$(Configuration)_TEE</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>No build</p></td>
+<td><p>TEE_NO_BUILD</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Report details</p></td>
+<td><p>TEE_DETAILS_FAILED</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="model-coverage">
+<h2>Model Coverage<a class="headerlink" href="#model-coverage" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_model_coverage.png" src="../../_images/tt_model_coverage.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Source configuration</p></td>
+<td><p>MC_CONF</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Target directory</p></td>
+<td><p>MC_TARGET_DIR</p></td>
+<td><p><cite>$(Configuration)_MC</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Coverage criterion</p></td>
+<td><p>MC_COVERAGE_CRITERION</p></td>
+<td><p><cite>ODC</cite></p></td>
+<td><p><cite>influence</cite>, <cite>ODC</cite>, <cite>OMCDC</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p>No build</p></td>
+<td><p>MC_NO_BUILD</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Generate DO-331 FAQ#11 log</p></td>
+<td><p>MC_FAQ11</p></td>
+<td><p><cite>true</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Coverage results</p></td>
+<td><p>MC_MERGE_PREV_RESULTS</p></td>
+<td><p><cite>true</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Select operators</p></td>
+<td><p>MC_INSTRUMENTATION_MODE</p></td>
+<td><p><cite>1</cite></p></td>
+<td><p><cite>0</cite> (All), <cite>1</cite> (Selected), <cite>2</cite> (All except selected)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MC_INSTRUMENTED_NODES</p></td>
+<td></td>
+<td><p>list of scade paths</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MC_NOT_INSTRUMENTED_NODES</p></td>
+<td></td>
+<td><p>list of scade paths</p></td>
+</tr>
+<tr class="row-odd"><td><p>Additional points</p></td>
+<td><p>MC_OBSERVER_LIBS</p></td>
+<td></td>
+<td><p>list of files</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="coverability-analysis">
+<h2>Coverability Analysis<a class="headerlink" href="#coverability-analysis" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_coverability_analysis.png" src="../../_images/tt_coverability_analysis.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Timeout (seconds)</p></td>
+<td><p>DV_MC_TIMEOUT</p></td>
+<td><p><cite>120</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Maximum scenario length</p></td>
+<td><p>DV_MC_BMC_DEPTH</p></td>
+<td><p><cite>4</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Number of threads</p></td>
+<td><p>DV_MC_THREADS</p></td>
+<td><p><cite>4</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Custom strategy</p></td>
+<td><p>DV_MC_STRATEGY</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Allow subnormal values</p></td>
+<td><p>DV_MC_FPSUBVALUES</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Generate oracles</p></td>
+<td><p>DV_MC_ORACLE_GENERATION</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Relative tolerance</p></td>
+<td><p>DV_MC_TCGEN_TOOL</p></td>
+<td><p><cite>0.01</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Set only relevant inputs</p></td>
+<td><p>DV_MC_DONTCARES_REMOVAL</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Abstraction operators</p></td>
+<td><p>DV_MC_ABSTRACTION_LIBS</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Include justified points in analysis</p></td>
+<td><p>DV_MC_ANALYZE_NO_J</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="harness-generation">
+<h2>Harness Generation<a class="headerlink" href="#harness-generation" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_harness_generation.png" src="../../_images/tt_harness_generation.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Source configuration</p></td>
+<td><p>THG_CONF</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Source configuration</p></td>
+<td><p>THG_TARGET_DIR</p></td>
+<td><p><cite>$(Configuration)_THG</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Target test environment</p></td>
+<td><p>TARGET</p></td>
+<td><p><cite>TBRUN</cite></p></td>
+<td><p><cite>TBRUN</cite>, <cite>RTRT</cite>, <cite>VCAST</cite>, <cite>&lt;CUSTOM ID&gt;</cite>…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ldra-test-suite">
+<h2>LDRA Test Suite<a class="headerlink" href="#ldra-test-suite" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_ldra_test_suite.png" src="../../_images/tt_ldra_test_suite.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">TBRUN</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>User initialization function</p></td>
+<td><p>USER_INIT</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>TARGET_TBRUN</p></td>
+<td></td>
+<td><p>summary command-line split as list of tokens: <cite>[-user_init &lt;USER_INIT&gt;]</cite></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="rtrt">
+<h2>RTRT<a class="headerlink" href="#rtrt" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_rtrt.png" src="../../_images/tt_rtrt.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">RTRT</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Generate C89-based harnesses</p></td>
+<td><p>C89</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>User initialization function</p></td>
+<td><p>USER_INIT</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>TARGET_RTRT</p></td>
+<td></td>
+<td><p>summary command-line split as list of tokens: <cite>[-c89] [-user_init &lt;USER_INIT&gt;]</cite></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="vectorcast">
+<h2>VectorCAST<a class="headerlink" href="#vectorcast" title="Link to this heading">#</a></h2>
+<img alt="../../_images/tt_vector_cast.png" src="../../_images/tt_vector_cast.png" />
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">VCAST</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sensor unit name</p></td>
+<td><p>SENSOR_UNIT</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Split by scenario</p></td>
+<td><p>SPLIT</p></td>
+<td><p><cite>false</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Max line length</p></td>
+<td><p>LINE_LENGTH</p></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>User initialization function</p></td>
+<td><p>USER_INIT</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tool: <code class="docutils literal notranslate"><span class="pre">QTE</span></code></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Settings</p></th>
+<th class="head"><p>Prop</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>TARGET_VCAST</p></td>
+<td></td>
+<td><p>summary command-line split as list of tokens: <cite>[-sensort_unit &lt;SENSOR_UNIT&gt;] [-split] [-max_line_length &lt;LINE_LENGTH&gt;] [-user_init &lt;USER_INIT&gt;]</cite></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general">General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#host-execution">Host Execution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-coverage">Model Coverage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coverability-analysis">Coverability Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harness-generation">Harness Generation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ldra-test-suite">LDRA Test Suite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rtrt">RTRT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorcast">VectorCAST</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user-guide/copy-properties/test-tool.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"keys": ["title", "text", "objectID"], "limit": 10, "threshold": 0.2}');
+const SEARCH_FILE = "../../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<!--
+  Theme Version Footer
+  Displays the Sphinx theme version and the last updated date.
+  Accessibility and semantic improvements included.
+-->
+<footer class="theme-version" aria-label="Theme version and last update">
+  <span>
+    
+      Built with the
+      <a href="https://sphinxdocs.ansys.com/version/stable/index.html" target="_blank" rel="noopener noreferrer">
+        Ansys Sphinx Theme
+      </a>
+      1.7.0.
+    
+  </span>
+  <br />
+  <span>Last updated on <time id="ast_build_date"></time></span>
+</footer>
+<script>
+  // Set the last updated date in a readable format
+  (function() {
+    var options = { day: "numeric", month: "long", year: "numeric" };
+    var ast_lastModifiedDate = new Date(document.lastModified);
+    var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+    var dateElem = document.getElementById("ast_build_date");
+    if (dateElem) {
+      dateElem.textContent = ast_build_date;
+    }
+  })();
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
