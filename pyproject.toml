@@ -1,5 +1,8 @@
 [build-system]
-requires = ["flit_core >=3.2,<3.13"]
+requires = [
+    "flit_core >=3.9,<3.12; python_version < '3.8'",
+    "flit_core >=3.12,<4; python_version >= '3.8'",
+]
 build-backend = "flit_core.buildapi"
 
 [project]
@@ -37,7 +40,7 @@ build = [
 tests = [
     "pytest >= 9.0.1; python_version >= '3.8'",
     "pytest <= 7.4.4; python_version < '3.8'",
-    "pytest-cov >= 6.0.0; python_version >= '3.8'",
+    "pytest-cov == 7.0.0; python_version >= '3.8'",
     "pytest-cov <= 4.1.0; python_version < '3.8'",
 ]
 doc = [
@@ -50,9 +53,6 @@ doc = [
     "sphinx-design===0.7.0; python_version >= '3.12'",
     "sphinx-design===0.6.1; python_version <= '3.10'",
 ]
-
-[tool.flit.module]
-name = "ansys.scade.ps"
 
 [project.scripts]
 ansys_scade_ps_obfuscator = "ansys.scade.ps.obfuscator.__main__:main"
@@ -70,9 +70,20 @@ documentation = "https://ps.scade.docs.pyansys.com"
 releases = "https://github.com/ansys/scade-ps/releases"
 homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
+[tool.flit.module]
+name = "ansys.scade.ps"
+
 [tool.ruff]
 line-length = 100
 fix = true
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+exclude = [
+    # (partially) generated files: need manual review
+    "scenario.py",
+]
 
 [tool.ruff.lint]
 select = [
@@ -88,17 +99,7 @@ exclude = [
     # (partially) generated files: need manual review
     "scenario.py",
 ]
-ignore = [
-    "TD002", # Missing author in TODOs comment
-]
-
-[tool.ruff.format]
-quote-style = "single"
-indent-style = "space"
-exclude = [
-    # (partially) generated files: need manual review
-    "scenario.py",
-]
+ignore = []
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
@@ -113,9 +114,13 @@ convention = "numpy"
 
 [tool.coverage.run]
 source = ["ansys.scade.ps"]
+patch = ["subprocess"]
 
 [tool.coverage.report]
 show_missing = true
+exclude_also = [
+    "@(abc\\.)?abstractmethod",
+]
 
 [tool.pytest.ini_options]
 testpaths = "tests"
@@ -198,3 +203,5 @@ directory = "changed"
 name = "Changed"
 showcontent = true
 
+[tool.codespell]
+ignore-words-list = ["synopsys"]

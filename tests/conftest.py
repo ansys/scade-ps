@@ -43,6 +43,8 @@ import scade
 import scade.model.project.stdproject as std
 import scade.model.suite as suite
 
+from ansys.scade.apitools.info import get_scade_version
+
 # initialize the seed and store the state to get reproducible tests
 random.seed('obfuscator')
 seed = random.getstate()
@@ -179,3 +181,18 @@ def run_tool(
             failure = diff_files(ref, dst)
         assert not failure
     return status
+
+
+def filter_stderr(stderr: str) -> str:
+    """Filter coverage warnings from ``pytest-cov``."""
+    if get_scade_version() <= 231:
+        text = '\n'.join(
+            [
+                _
+                for _ in stderr.split('\n')
+                if 'CoverageWarning' not in _ and 'real_section, unknown, filename' not in _
+            ]
+        )
+    else:
+        text = stderr
+    return text

@@ -37,7 +37,7 @@ html_theme_options = {
         'json_url': f'https://{cname}/versions.json',
         'version_match': switcher_version,
     },
-    # TODO: remove this after public release
+    # TODO(JH): remove this after public release
     # https://github.com/ansys/scade-ps/issues/24
     'check_switcher': False,
     'logo': 'pyansys',
@@ -78,8 +78,10 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
+linkcheck_exclude_documents = ['changelog']
 linkcheck_ignore = [
     # The link below takes a long time to check
+    'https://github.com/ansys/pre-commit-hooks/.*',
     'https://ansyshelp.ansys.com/*',
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',

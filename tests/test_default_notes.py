@@ -33,7 +33,7 @@ and add compare the result files to a reference.
 
 import pytest
 
-from conftest import get_resources_dir, load_tmp_project, run_tool
+from conftest import filter_stderr, get_resources_dir, load_tmp_project, run_tool
 
 
 @pytest.mark.parametrize('base', ['Nominal'])
@@ -62,7 +62,8 @@ def test_default_notes_empty(local_tmpdir):
     args = ['-p', project.pathname]
     status = run_tool('ansys_scade_ps_default_notes.exe', args, None, None)
     assert status.returncode == 0
-    failure = status.stderr or status.stdout
+    stderr = filter_stderr(status.stderr.decode('utf-8').strip('\n'))
+    failure = stderr or status.stdout
     # nothing should have been reported
     assert not failure
     # neither created
