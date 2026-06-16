@@ -34,7 +34,7 @@ keywords=["Scade", "script", "python"]
 
 [project.optional-dependencies]
 build = [
-    "build==1.4.1",
+    "build==1.4.4",
     "twine==6.2.0"
 ]
 tests = [
@@ -205,4 +205,3 @@ showcontent = true
 
 [tool.codespell]
 ignore-words-list = ["synopsys"]
-
